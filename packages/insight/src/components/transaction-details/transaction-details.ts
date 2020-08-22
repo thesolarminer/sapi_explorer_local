@@ -58,6 +58,7 @@ export class TransactionDetailsComponent implements OnInit {
     this.txProvider
       .getCoins(this.tx.txid, this.chainNetwork)
       .subscribe(data => {
+          console.log('getCoins', data);
         this.tx.vin = data.inputs;
         this.tx.vout = data.outputs;
         this.tx.fee = this.txProvider.getFee(this.tx);

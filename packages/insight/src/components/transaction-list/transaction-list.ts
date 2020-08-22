@@ -44,8 +44,6 @@ export class TransactionListComponent implements OnInit {
           this.chainNetwork.chain === 'BTC' ||
           this.chainNetwork.chain === 'BCH'
         ) {
-          this.fetchBlockTxCoinInfo(1);
-        } else {
           this.txProvider
             .getTxs(this.chainNetwork, { blockHash: this.queryValue })
             .subscribe(txs => {
