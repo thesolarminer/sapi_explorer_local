@@ -27,17 +27,17 @@ export class BlocksPage {
     private currencyProvider: CurrencyProvider,
     private priceProvider: PriceProvider
   ) {
-    const chain: string = navParams.get('chain');
-    const network: string = navParams.get('network');
-    this.chainNetwork = {
-      chain,
-      network
-    };
-    this.apiProvider.changeNetwork(this.chainNetwork);
-    this.currencyProvider.setCurrency(this.chainNetwork);
-    this.priceProvider.setCurrency();
+    // const chain: string = navParams.get('chain');
+    // const network: string = navParams.get('network');
+    // this.chainNetwork = {
+    //   chain,
+    //   network
+    // };
+    // this.apiProvider.changeNetwork(this.chainNetwork);
+    // this.currencyProvider.setCurrency(this.chainNetwork);
+    // this.priceProvider.setCurrency();
 
-    this.blocksProvider.getBlocks(this.chainNetwork).subscribe(
+    this.blocksProvider.getBlocks().subscribe(
       blocks => {
         this.blocks = blocks;
         this.loading = false;

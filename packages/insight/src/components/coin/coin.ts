@@ -39,7 +39,7 @@ export class CoinComponent {
   }
 
   public revealTimeReceived(txid: string) {
-    this.txProvider.getTx(txid, this.chainNetwork).subscribe(tx => {
+    this.txProvider.getTx(txid).subscribe(tx => {
       this.coin.time = new Date(tx.blockTime).getTime() / 1000;
       this.timeHidden = false;
     });

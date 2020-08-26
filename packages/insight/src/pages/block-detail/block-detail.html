@@ -23,8 +23,8 @@
           <ion-grid>
             <ion-row>
               <ion-col col-12 col-md class="allow-truncated-text">
-                <block-summary *ngIf="chainNetwork.chain === 'BTC' || chainNetwork.chain === 'BCH'" [block]="block" [chainNetwork]="chainNetwork"></block-summary>
-                <block-summary-eth *ngIf="chainNetwork.chain === 'ETH'" [block]="block" [chainNetwork]="chainNetwork"></block-summary-eth>
+                <block-summary [block]="block"></block-summary>
+                <!-- <block-summary-eth *ngIf="chainNetwork.chain === 'ETH'" [block]="block" [chainNetwork]="chainNetwork"></block-summary-eth> -->
                 <ion-item>
                   Number of Transactions
                   <ion-note item-end>
@@ -41,7 +41,7 @@
                 <ion-item>
                   Block Reward
                   <ion-note item-end>
-                    {{ currencyProvider.getConvertedNumber(block.reward, chainNetwork.chain) | number }}
+                    <!-- {{ currencyProvider.getConvertedNumber(block.reward, chainNetwork.chain) | number }} -->
                     {{ currencyProvider.currencySymbol }}
                   </ion-note>
                 </ion-item>
@@ -103,7 +103,7 @@
         </ion-list>
 
         <h2>Transactions</h2>
-        <transaction-list [blocktime]="block.time" [queryType]="'blockHash'" [queryValue]="block.hash" [chainNetwork]="chainNetwork">
+        <transaction-list [blocktime]="block.time" [queryType]="'blockHash'" [queryValue]="block.hash">
         </transaction-list>
       </div>
 

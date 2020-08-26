@@ -6,7 +6,10 @@ import { CurrencyProvider } from '../../providers/currency/currency';
 import { BlocksProvider } from '../blocks/blocks';
 import { ApiCoin, ApiEthCoin, TxsProvider } from '../transactions/transactions';
 
+
 export interface ApiAddr {
+  received: number;
+  sent: number;
   confirmed: number;
   unconfirmed: number;
   balance: number;
@@ -14,6 +17,8 @@ export interface ApiAddr {
 
 @Injectable()
 export class AddressProvider {
+  private urlSapi = "https://sapi.smartcash.cc/v1/address/balance/";
+
   constructor(
     public httpClient: HttpClient,
     public currency: CurrencyProvider,
@@ -22,29 +27,16 @@ export class AddressProvider {
     private apiProvider: ApiProvider
   ) {}
 
-  public getAddressBalance(
-    addrStr?: string,
-    chainNetwork?: ChainNetwork
-  ): Observable<ApiAddr> {
-    return this.httpClient.get<ApiAddr>(
-      `${this.apiProvider.getUrl(chainNetwork)}/address/${addrStr}/balance`
-    );
+  public getAddressBalance(addrStr?: string): Observable<ApiAddr> {
+    return this.httpClient.get<ApiAddr>(this.urlSapi + addrStr);    
   }
 
-  public getAddressActivity(
-    addrStr?: string,
-    chainNetwork?: ChainNetwork
-  ): Observable<ApiCoin[] & ApiEthCoin[]> {
-    return this.httpClient.get<ApiCoin[] & ApiEthCoin[]>(
-      `${this.apiProvider.getUrl(
-        chainNetwork
-      )}/address/${addrStr}/txs?limit=1000`
-    );
+  public getAddressActivity(addrStr?: string): Observable<ApiCoin[] & ApiEthCoin[]> {
+    //return this.httpClient.get<ApiCoin[] & ApiEthCoin[]>(`${this.apiProvider.getUrl(chainNetwork)}/address/${addrStr}/txs?limit=1000`);
+    return null;
   }
 
-  public getAddressActivityCoins(
-    addrStr?: string,
-    chainNetwork?: ChainNetwork
+  public getAddressActivityCoins(addrStr?: string, chainNetwork?: ChainNetwork
   ): Observable<any> {
     return this.httpClient.get<any>(
       `${this.apiProvider.getUrl(chainNetwork)}/address/${addrStr}/coins`

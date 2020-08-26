@@ -3,11 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiProvider, ChainNetwork } from '../../providers/api/api';
 import { CurrencyProvider } from '../../providers/currency/currency';
-import { BlocksProvider, ApiEthBlock, ApiUtxoCoinBlock } from '../blocks/blocks';
+import { BlocksProvider } from '../blocks/blocks';
 import { from } from 'rxjs/observable/from';
 import { access } from 'fs';
 import { switchMap } from 'rxjs/operator/switchMap';
 import { AnonymousSubscription } from 'rxjs/Subscription';
+
+import { AppBlock } from '../../providers/blocks/blocks';
 
 interface CoinsApiResponse {
     inputs: ApiCoin[];
@@ -22,17 +24,17 @@ export interface ApiTx {
     blockHeight: number;
     blockHash: string;
     blockTime: Date;
-    blockTimeNormalized: Date;
+    //blockTimeNormalized: Date;
     coinbase: boolean;
     size: number;
     confirmations: number;
     locktime: number;
-    mintTxid: string;
-    mintHeight: number;
-    spentTxid: string;
-    spentHeight: number;
+    // mintTxid: string;
+    // mintHeight: number;
+    // spentTxid: string;
+    // spentHeight: number;
     value: number;
-    coins?: any;
+    coins?: any;    
 }
 
 export interface ApiUtxoCoinTx extends ApiTx {
@@ -250,37 +252,34 @@ export class TxsProvider {
         };
     }
 
-    private async getTransactionsPerBlock(blockHash: string) {
-        console.log('getTransactionsPerBlock', blockHash);
+    async getTransactionsPerBlock(blockHash: string) {        
         const url = `https://sapi.smartcash.cc/v1/blockchain/block/${blockHash}`;
-        const block = await this.httpClient.get<any>(url).toPromise();
+        let block: AppBlock;
+        let txs: ApiTx[] = [];
 
-        const txs = block.tx.map(async (t: any) => {
-            return this.getMappedTx(t).then(data => data.tx);
+        await this.httpClient.get<AppBlock>(url).toPromise().then(data => block = data);            
+
+        block.tx.forEach(item => {
+           this.getMappedTx(item).then(data => txs.push(data.tx))
         });
-        console.log(txs);
+        
         return txs;
     }
 
-    public getTxs(
-        chainNetwork: ChainNetwork,
-        args?: { blockHash?: string }
-    ): Observable<ApiEthTx[] & ApiUtxoCoinTx[]> {
+    public getTxs(chainNetwork: ChainNetwork, args?: { blockHash?: string }): Observable<ApiEthTx[] & ApiUtxoCoinTx[]> {
         let queryString = '';
         if (args.blockHash) {
             queryString += `?blockHash=${args.blockHash}`;
         }
-        return from(this.getTransactionsPerBlock(args.blockHash));
+        
+        //return from(this.getTransactionsPerBlock(args.blockHash));
 
         const url = `${this.apiProvider.getUrl(chainNetwork)}/tx/${queryString}`;
         return this.httpClient.get<ApiEthTx[] & ApiUtxoCoinTx[]>(url);
     }
 
-    public getTx(
-        hash: string,
-        chainNetwork: ChainNetwork
-    ): Observable<ApiEthTx & ApiUtxoCoinTx> {
-        return from(this.getMappedTx(hash).then(data => data.tx));
+    public getTx(hash: string): Observable<ApiTx> {
+       return from(this.getMappedTx(hash).then(data => data.tx));       
     }
 
     public getDailyTransactionHistory(chainNetwork: ChainNetwork) {
@@ -297,23 +296,22 @@ export class TxsProvider {
         return from(this.getMappedTx(txId).then(data => data.coin));
     }
 
-    public getConfirmations(
-        blockheight: number,
-        chainNetwork: ChainNetwork
-    ): Observable<number> {
-        return this.blocksProvider.getCurrentHeight(chainNetwork).map(data => {
-            return blockheight > 0 ? data.height - blockheight + 1 : blockheight;
-        });
+    public getConfirmations(blockheight: number): Observable<number> {
+        // return this.blocksProvider.getCurrentHeight(chainNetwork).map(data => {
+        //     return blockheight > 0 ? data.height - blockheight + 1 : blockheight;
+        // });
+
+        return null;
     }
 
-    private async getMappedTx(txId: string) {
-        const unmappedTx = await this.getUnmappedTx(txId);
+    private async getMappedTx(txId: string) {        
+        const unmappedTx = await this.getUnmappedTx(txId);        
         return { tx: this.mapToTx(unmappedTx), coin: this.mapToCoin(unmappedTx) };
     }
 
     private async getUnmappedTx(hash: string) {
         const url = `https://sapi.smartcash.cc/v1/transaction/check/${hash}`;
-        return await this.httpClient.get<any>(url).toPromise();
+        return this.httpClient.get<any>(url).toPromise();
     }
 
     private mapToCoin(tx: any) {
@@ -357,8 +355,8 @@ export class TxsProvider {
     }
 
     private mapToTx(tx: any) {
-        let x: ApiUtxoCoinTx = {
-            address: "string",
+        let x: ApiTx = {
+            address: tx.address,
             chain: "get_CHAIN",
             network: "GET_NETWORK",
             txid: tx.txid,
@@ -369,9 +367,9 @@ export class TxsProvider {
             size: tx.size,
             confirmations: tx.confirmations,
             locktime: tx.locktime,
-            value: tx.vout.reduce((accumulator: { value: any; }, currentValue: { value: any; }) => accumulator.value + currentValue.value),
-            coins: this.mapToCoin(tx),
-        }
+            value: tx.vout.reduce((accumulator, currentValue) => accumulator += currentValue.value, 0),
+            coins: this.mapToCoin(tx)
+        }                
         return x;
     }
 }

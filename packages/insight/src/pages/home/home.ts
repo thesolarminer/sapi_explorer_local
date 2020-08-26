@@ -31,42 +31,42 @@ export class HomePage {
     public events: Events,
     public currencyProvider: CurrencyProvider
   ) {
-    this.nav.viewWillEnter.subscribe(view => {
-      if (view.data.chain === 'ALL') {
-        this.load();
-      }
-    });
-    this.load();
+    // this.nav.viewWillEnter.subscribe(view => {
+    //   if (view.data.chain === 'ALL') {
+    //     this.load();
+    //   }
+    // });
+    // this.load();
   }
 
   private load() {
-    const chain: string =
-      this.navParams.get('chain') || this.apiProvider.getConfig().chain;
-    const network: string =
-      this.navParams.get('network') || this.apiProvider.getConfig().network;
+    // const chain: string =
+    //   this.navParams.get('chain') || this.apiProvider.getConfig().chain;
+    // const network: string =
+    //   this.navParams.get('network') || this.apiProvider.getConfig().network;
 
-    this.chainNetwork = {
-      chain,
-      network
-    };
+    // this.chainNetwork = {
+    //   chain,
+    //   network
+    // };
 
-    if (this.chainNetwork.chain === 'ALL') {
-      this.apiProvider.getAvailableNetworks().subscribe(data => {
-        const newNetworks = data
-          .map(x => x.supported)
-          .reduce((agg, arr) => [...agg].concat(arr), []);
-        this.availableNetworks = _.filter(newNetworks, o => o.chain !== 'ALL');
-      });
-    }
-    this.priceProvider.setCurrency();
-    this.apiProvider.changeNetwork(this.chainNetwork);
-    this.currencyProvider.setCurrency(this.chainNetwork);
+    // if (this.chainNetwork.chain === 'ALL') {
+    //   this.apiProvider.getAvailableNetworks().subscribe(data => {
+    //     const newNetworks = data
+    //       .map(x => x.supported)
+    //       .reduce((agg, arr) => [...agg].concat(arr), []);
+    //     this.availableNetworks = _.filter(newNetworks, o => o.chain !== 'ALL');
+    //   });
+    // }
+    // this.priceProvider.setCurrency();
+    // this.apiProvider.changeNetwork(this.chainNetwork);
+    // this.currencyProvider.setCurrency(this.chainNetwork);
   }
 
   public openPage(page: string): void {
-    this.nav.push(page, {
-      chain: this.chain,
-      network: this.network
-    });
+    // this.nav.push(page, {
+    //   chain: this.chain,
+    //   network: this.network
+    // });
   }
 }

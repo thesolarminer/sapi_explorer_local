@@ -52,35 +52,35 @@ export class ApiProvider {
     public httpClient: HttpClient,
     private defaults: DefaultProvider
   ) {
-    this.getAvailableNetworks().subscribe(data => {
-      const newNetworks = data
-        .map(x => x.supported)
-        .reduce((agg, arr) => [...agg].concat(arr), []);
+    // this.getAvailableNetworks().subscribe(data => {
+    //   const newNetworks = data
+    //     .map(x => x.supported)
+    //     .reduce((agg, arr) => [...agg].concat(arr), []);
 
-      const chainNetworkLookup = {};
-      for (const hostConfig of data) {
-        for (const chainNetwork of hostConfig.supported) {
-          const key = `${chainNetwork.chain}:${chainNetwork.network}`;
-          chainNetworkLookup[key] = hostConfig.host;
-        }
-      }
+    //   const chainNetworkLookup = {};
+    //   for (const hostConfig of data) {
+    //     for (const chainNetwork of hostConfig.supported) {
+    //       const key = `${chainNetwork.chain}:${chainNetwork.network}`;
+    //       chainNetworkLookup[key] = hostConfig.host;
+    //     }
+    //   }
 
-      for (const { chain, network } of newNetworks) {
-        const found = this.networkSettings.availableNetworks.find(
-          available =>
-            available.chain === chain && available.network === network
-        );
-        if (!found) {
-          this.networkSettings.availableNetworks.push({ chain, network });
-        }
-      }
+    //   for (const { chain, network } of newNetworks) {
+    //     const found = this.networkSettings.availableNetworks.find(
+    //       available =>
+    //         available.chain === chain && available.network === network
+    //     );
+    //     if (!found) {
+    //       this.networkSettings.availableNetworks.push({ chain, network });
+    //     }
+    //   }
 
-      this.networkSettings = {
-        availableNetworks: this.networkSettings.availableNetworks,
-        selectedNetwork: this.networkSettings.selectedNetwork,
-        chainNetworkLookup
-      };
-    });
+    //   this.networkSettings = {
+    //     availableNetworks: this.networkSettings.availableNetworks,
+    //     selectedNetwork: this.networkSettings.selectedNetwork,
+    //     chainNetworkLookup
+    //   };
+    // });
   }
 
   public getAvailableNetworks(): Observable<

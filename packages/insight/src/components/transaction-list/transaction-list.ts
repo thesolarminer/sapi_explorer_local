@@ -37,22 +37,11 @@ export class TransactionListComponent implements OnInit {
     private events: Events
   ) {}
 
-  public ngOnInit(): void {
+  async ngOnInit() {
     if (this.transactions && this.transactions.length === 0) {
       if (this.queryType === 'blockHash') {
-        if (
-          this.chainNetwork.chain === 'BTC' ||
-          this.chainNetwork.chain === 'BCH'
-        ) {
-          this.txProvider
-            .getTxs(this.chainNetwork, { blockHash: this.queryValue })
-            .subscribe(txs => {
-              _.forEach(txs, (tx: ApiEthTx) => {
-                this.transactions.push(this.txProvider.toEthAppTx(tx));
-              });
-            });
-          this.loading = false;
-        }
+          this.transactions = await this.txProvider.getTransactionsPerBlock(this.queryValue);          
+          this.loading = false;        
       } else if (this.queryType === 'address') {
         const txs: any = [];
 
@@ -85,7 +74,7 @@ export class TransactionListComponent implements OnInit {
             );
         } else {
           this.addrProvider
-            .getAddressActivity(this.queryValue, this.chainNetwork)
+            .getAddressActivity(this.queryValue)
             .subscribe(transactions => {
               _.forEach(transactions, (tx: any) => {
                 this.transactions.push(this.txProvider.toEthAppTx(tx));
@@ -137,15 +126,15 @@ export class TransactionListComponent implements OnInit {
   }
 
   public fetchBlockTxCoinInfo(pageNum) {
-    this.blocksProvider
-      .getCoinsForBlockHash(this.queryValue, this.chainNetwork, 100, pageNum)
-      .subscribe(txidCoins => {
-        this.populateTxsForBlock(txidCoins);
-        this.loading = false;
-        if (txidCoins.next !== '') {
-          this.blockPageNum = this.blockPageNum + 1;
-        }
-      });
+    // this.blocksProvider
+    //   .getCoinsForBlockHash(this.queryValue, this.chainNetwork, 100, pageNum)
+    //   .subscribe(txidCoins => {
+    //     this.populateTxsForBlock(txidCoins);
+    //     this.loading = false;
+    //     if (txidCoins.next !== '') {
+    //       this.blockPageNum = this.blockPageNum + 1;
+    //     }
+    //   });
   }
 
   public loadMore(infiniteScroll) {

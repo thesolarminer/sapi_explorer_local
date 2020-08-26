@@ -1,32 +1,19 @@
-<head-nav [chainNetwork]="chainNetwork"></head-nav>
+<head-nav></head-nav>
 
 <ion-content class="content-container">
-    <div *ngIf="chainNetwork.chain === 'ALL'">
+    <!-- <div *ngIf="chainNetwork.chain === 'ALL'"> -->
         <h2 class="content-container--heading all-coins">Latest Blocks</h2>
         <ion-grid class="page-content-grid">
             <ion-row>
-                <ion-col col-md-6 col-12 class="page-content" *ngFor="let availableNetwork of availableNetworks">
-                    <ion-item class="chain" no-lines>
-                        <ion-avatar item-start>
-                            <img *ngIf="availableNetwork.network === 'mainnet'" src="assets/img/currency_logos/{{ availableNetwork.chain.toLowerCase() }}.svg" class="logo" />
-                            <img *ngIf="availableNetwork.network !== 'mainnet' && availableNetwork.chain==='BTC'" src="assets/img/btcicon-testnet.svg" class="logo" />
-                            <img *ngIf="availableNetwork.network !== 'mainnet' && availableNetwork.chain==='BCH'" src="assets/img/bchicon-testnet.svg" class="logo" />
-                            <img [ngClass]="{'secondary': availableNetwork.network ==='testnet'}" *ngIf="availableNetwork.network !== 'mainnet' && availableNetwork.chain==='ETH'" src="assets/img/currency_logos/eth.svg" class="logo" />
-                        </ion-avatar>
-                        <ion-label color="dark" item-end>
-                            {{ availableNetwork.chain }} <small class="pill"> {{ availableNetwork.network }}</small>
-                        </ion-label>
-                    </ion-item>
-                    <latest-blocks [showTimeAs]="'age'" [showAllBlocksButton]="true" [chainNetwork]="availableNetwork" [numBlocks]="'5'" #latestBlocks>
+                <ion-col col-md-12 col-12 class="page-content">                    
+                    <latest-blocks [showTimeAs]="'age'" [showAllBlocksButton]="true" [numBlocks]="'5'" #latestBlocks>
                     </latest-blocks>
                 </ion-col>
             </ion-row>
         </ion-grid>
+    <!-- </div> -->
 
-
-    </div>
-
-    <div *ngIf="chainNetwork.chain !== 'ALL'">
+    <!-- <div *ngIf="chainNetwork.chain !== 'ALL'">
         <ion-grid class="page-content-grid">
             <ion-row>
                 <ion-col col-12 class="page-content">
@@ -36,6 +23,6 @@
                 </ion-col>
             </ion-row>
         </ion-grid>
-    </div>
+    </div> -->
 </ion-content>
-<footer [chainNetwork]="chainNetwork"></footer>
+<footer></footer>

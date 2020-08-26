@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ChainNetwork } from '../../providers/api/api';
 import { CurrencyProvider } from '../../providers/currency/currency';
+import { ApiTx } from '../../providers/transactions/transactions';
 
 /**
  * Generated class for the TransactionSummaryComponent component.
@@ -14,9 +15,11 @@ import { CurrencyProvider } from '../../providers/currency/currency';
 })
 export class TransactionSummaryComponent {
   @Input()
-  public tx: any = {};
+  public tx: ApiTx;
   @Input()
   public chainNetwork: ChainNetwork;
 
-  constructor(public currencyProvider: CurrencyProvider) {}
+  constructor(public currencyProvider: CurrencyProvider) {
+    
+  }
 }

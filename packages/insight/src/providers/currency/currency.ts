@@ -10,7 +10,9 @@ export class CurrencyProvider {
   public loading: boolean;
   public explorers: any = [];
 
-  constructor(private apiProvider: ApiProvider) {}
+  constructor(private apiProvider: ApiProvider) {
+    this.currencySymbol = 'SMART';
+  }
 
   public roundFloat(aFloat: number, decimalPlaces: number): number {
     return (
@@ -35,37 +37,32 @@ export class CurrencyProvider {
     return this.currencySymbol;
   }
 
-  public getConvertedNumber(value: number, chain): number {
-    // TODO: Change this function to make use of satoshis so that we don't have to do all these roundabout conversions.
-    switch (chain) {
-      case 'ETH':
-        value = value * 1e-18;
-        break;
-      default:
-        value = value * 1e-8;
-        break;
-    }
+  public getConvertedNumber(value: number): number {    
+    value = value * 1e-8;    
+    
     if (value === 0.0) {
       return 0;
     }
 
     let response: number;
 
-    if (this.currencySymbol === 'USD') {
-      response = this.roundFloat(value * this.factor, 2);
-    } else if (
-      this.currencySymbol ===
-      'm' + this.apiProvider.networkSettings.selectedNetwork.chain
-    ) {
-      this.factor = 1000;
-      response = this.roundFloat(value * this.factor, 5);
-    } else if (this.currencySymbol === 'bits') {
-      this.factor = 1000000;
-      response = this.roundFloat(value * this.factor, 2);
-    } else {
-      this.factor = 1;
-      response = this.roundFloat(value * this.factor, 8);
-    }
+    response = this.roundFloat(value * this.factor, 2);
+
+    // if (this.currencySymbol === 'USD') {
+    //   response = this.roundFloat(value * this.factor, 2);
+    // } else if (
+    //   this.currencySymbol ===
+    //   'm' + this.apiProvider.networkSettings.selectedNetwork.chain
+    // ) {
+    //   this.factor = 1000;
+    //   response = this.roundFloat(value * this.factor, 5);
+    // } else if (this.currencySymbol === 'bits') {
+    //   this.factor = 1000000;
+    //   response = this.roundFloat(value * this.factor, 2);
+    // } else {
+    //   this.factor = 1;
+    //   response = this.roundFloat(value * this.factor, 8);
+    // }
 
     return response;
   }

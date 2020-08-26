@@ -38,43 +38,28 @@ export class TransactionPage {
     this.txId = navParams.get('txId');
     this.vout = navParams.get('vout');
     this.fromVout = navParams.get('fromVout') || undefined;
-
-    const chain: string = navParams.get('chain');
-    const network: string = navParams.get('network');
-
-    this.chainNetwork = {
-      chain,
-      network
-    };
-    this.apiProvider.changeNetwork(this.chainNetwork);
-    this.currencyProvider.setCurrency(this.chainNetwork);
-    this.priceProvider.setCurrency();
+   
+    // this.apiProvider.changeNetwork(this.chainNetwork);
+    // this.currencyProvider.setCurrency(this.chainNetwork);
+    // this.priceProvider.setCurrency();
   }
 
   public ionViewDidEnter(): void {
-    this.txProvider.getTx(this.txId, this.chainNetwork).subscribe(
+    this.txProvider.getTx(this.txId).subscribe(
       response => {
         let tx;
-        if (
-          this.chainNetwork.chain === 'BTC' ||
-          this.chainNetwork.chain === 'BCH'
-        ) {
-          tx = this.txProvider.toUtxoCoinsAppTx(response);
-        }
-        if (this.chainNetwork.chain === 'ETH') {
-          tx = this.txProvider.toEthAppTx(response);
-        }
+        tx = response;
         this.tx = tx;
         this.loading = false;
-        this.txProvider
-          .getConfirmations(this.tx.blockheight, this.chainNetwork)
-          .subscribe(confirmations => {
-            if (confirmations === -3) {
-              this.errorMessage =
-                'This transaction is invalid and will never confirm, because some of its inputs are already spent.';
-            }
-            this.confirmations = confirmations;
-          });
+        // this.txProvider
+        //   .getConfirmations(this.tx.blockheight)
+        //   .subscribe(confirmations => {
+        //     if (confirmations === -3) {
+        //       this.errorMessage =
+        //         'This transaction is invalid and will never confirm, because some of its inputs are already spent.';
+        //     }
+        //     this.confirmations = confirmations;
+        //   });
         // Be aware that the tx component is loading data into the tx object
       },
       err => {
@@ -86,9 +71,7 @@ export class TransactionPage {
 
   public goToBlock(blockHash: string): void {
     this.redirProvider.redir('block-detail', {
-      blockHash,
-      chain: this.chainNetwork.chain,
-      network: this.chainNetwork.network
+      blockHash
     });
   }
 }

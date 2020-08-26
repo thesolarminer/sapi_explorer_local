@@ -35,16 +35,6 @@ export class AddressPage {
     private events: Events
   ) {
     this.addrStr = navParams.get('addrStr');
-
-    const chain: string = navParams.get('chain');
-    const network: string = navParams.get('network');
-
-    this.chainNetwork = {
-      chain,
-      network
-    };
-    this.apiProvider.changeNetwork(this.chainNetwork);
-    this.currencyProvider.setCurrency(this.chainNetwork);
     this.priceProvider.setCurrency();
   }
 
@@ -54,11 +44,13 @@ export class AddressPage {
     });
 
     this.addrProvider
-      .getAddressBalance(this.addrStr, this.chainNetwork)
+      .getAddressBalance(this.addrStr)
       .subscribe(
         data => {
           this.address = {
             balance: data.balance || 0,
+            sent: data.sent || 0,
+            received: data.received || 0,
             confirmed: data.confirmed || 0,
             unconfirmed: data.unconfirmed,
             addrStr: this.addrStr
@@ -73,6 +65,6 @@ export class AddressPage {
   }
 
   public getConvertedNumber(n: number): number {
-    return this.currencyProvider.getConvertedNumber(n, this.chainNetwork.chain);
+    return this.currencyProvider.getConvertedNumber(n);
   }
 }

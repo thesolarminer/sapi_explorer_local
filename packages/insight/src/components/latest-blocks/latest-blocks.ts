@@ -2,8 +2,6 @@ import { Component, Input, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ChainNetwork } from '../../providers/api/api';
 import {
-  ApiEthBlock,
-  ApiUtxoCoinBlock,
   AppBlock,
   BlocksProvider
 } from '../../providers/blocks/blocks';
@@ -55,65 +53,45 @@ export class LatestBlocksComponent implements OnInit, OnDestroy {
     });
   }
 
-  private loadBlocks(): void {
-    if (this.chainNetwork.chain !== 'ALL') {
-      this.subscriber = this.blocksProvider
-        .getBlocks(this.chainNetwork, this.numBlocks)
-        .subscribe(
-          response => {
-            const blocks = response.map(
-              (block: ApiEthBlock & ApiUtxoCoinBlock) => {
-                if (
-                  this.chainNetwork.chain === 'BTC' ||
-                  this.chainNetwork.chain === 'BCH'
-                ) {
-                  return this.blocksProvider.toUtxoCoinAppBlock(block);
-                }
-                if (this.chainNetwork.chain === 'ETH') {
-                  return this.blocksProvider.toEthAppBlock(block);
-                }
-              }
-            );
-            this.blocks = blocks;
-            this.loading = false;
-            if (this.blocks[this.blocks.length - 1].height < this.numBlocks) {
-              this.isHomePage = false;
-            }
-          },
-          err => {
-            this.subscriber.unsubscribe();
-            clearInterval(this.reloadInterval);
-            this.errorMessage = err;
-            this.loading = false;
-          }
-        );
-    }
-  }
-
-  public loadMoreBlocks(infiniteScroll) {
-    clearInterval(this.reloadInterval);
-    const since: number =
-      this.blocks.length > 0 ? this.blocks[this.blocks.length - 1].height : 0;
-    return this.blocksProvider
-      .pageBlocks(since, this.numBlocks, this.chainNetwork)
+  private loadBlocks(): void {    
+    this.subscriber = this.blocksProvider
+      .getBlocks()
       .subscribe(
         response => {
           const blocks = response.map(
-            (block: ApiEthBlock & ApiUtxoCoinBlock) => {
-              if (
-                this.chainNetwork.chain === 'BTC' ||
-                this.chainNetwork.chain === 'BCH'
-              ) {
-                return this.blocksProvider.toUtxoCoinAppBlock(block);
-              }
-              if (this.chainNetwork.chain === 'ETH') {
-                return this.blocksProvider.toEthAppBlock(block);
-              }
+            (block: AppBlock) => {
+                return block;                
+            }
+          );
+          this.blocks = blocks;
+          this.loading = false;
+          if (this.blocks[this.blocks.length - 1].height < this.numBlocks) {
+            this.isHomePage = false;
+          }
+        },
+        err => {
+          this.subscriber.unsubscribe();
+          clearInterval(this.reloadInterval);
+          this.errorMessage = err;
+          this.loading = false;
+        }
+      );    
+  }
+
+  public loadMoreBlocks(infiniteScroll) {
+    clearInterval(this.reloadInterval);    
+    return this.blocksProvider
+      .pageBlocks()
+      .subscribe(
+        response => {
+          const blocks = response.map(
+            (block: AppBlock) => {
+                return  block;
             }
           );
           this.blocks = this.blocks.concat(blocks);
           this.loading = false;
-          infiniteScroll.complete();
+          // infiniteScroll.complete();
         },
         err => {
           this.errorMessage = err.message;
@@ -122,11 +100,9 @@ export class LatestBlocksComponent implements OnInit, OnDestroy {
       );
   }
 
-  public goToBlock(blockHash: string): void {
+  public goToBlock(blockHash: string): void {  
     this.redirProvider.redir('block-detail', {
-      blockHash,
-      chain: this.chainNetwork.chain,
-      network: this.chainNetwork.network
+        blockHash
     });
   }
 

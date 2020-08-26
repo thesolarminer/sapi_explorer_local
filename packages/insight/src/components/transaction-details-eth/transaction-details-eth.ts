@@ -35,7 +35,7 @@ export class TransactionDetailsEthComponent implements OnInit {
 
   public ngOnInit(): void {
     this.txProvider
-      .getConfirmations(this.tx.blockheight, this.chainNetwork)
+      .getConfirmations(this.tx.blockheight)
       .subscribe(confirmations => {
         this.tx.confirmations = confirmations;
       });

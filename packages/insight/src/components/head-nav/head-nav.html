@@ -1,6 +1,6 @@
 <ion-header no-border>
   <ion-navbar color="bp-blue" class="nav-container" hideBackButton>
-    <ion-title (click)="goHome()" class="logo-header">insight</ion-title>
+    <ion-title (click)="goHome()" class="logo-header"><img src="../../assets/img/smartlogo.png" class="img-logo" alt="SMARTCASH" /></ion-title>
     <!--search bar -->
     <form class="search" (ngSubmit)="search()">
       <div class="input-container">
@@ -12,7 +12,7 @@
     </form>
 
     <!--network selector -->
-    <ion-buttons>
+    <!-- <ion-buttons>
       <button ion-button (click)="changeCurrency($event)" class="cn-button hover-lite">
         <ion-icon class="currency-icon" name="logo-bitcoin" *ngIf="(chainNetwork.chain === 'BTC' || chainNetwork.chain === 'BCH') && currencyProvider?.currencySymbol !== 'USD'"></ion-icon>
         <ion-icon class="currency-icon" name="logo-usd" *ngIf="currencyProvider?.currencySymbol === 'USD'"></ion-icon>
@@ -24,7 +24,7 @@
         &nbsp;
         <ion-icon name="md-arrow-dropdown"></ion-icon>
       </button>
-    </ion-buttons>
+    </ion-buttons> -->
   </ion-navbar>
 
   <ion-toolbar class="mobile-searchbar" fixed>

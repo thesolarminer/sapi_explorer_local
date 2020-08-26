@@ -47,10 +47,10 @@ export class HeadNavComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    this.params = {
-      chain: this.chainNetwork.chain,
-      network: this.chainNetwork.network
-    };
+    // this.params = {
+    //   chain: this.chainNetwork.chain,
+    //   network: this.chainNetwork.network
+    // };
   }
 
   public goHome(chainNetwork?): void {

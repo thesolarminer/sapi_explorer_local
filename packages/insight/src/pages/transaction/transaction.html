@@ -1,4 +1,4 @@
-<head-nav [chainNetwork]="chainNetwork"></head-nav>
+<head-nav></head-nav>
 <ion-content>
   <ion-grid fixed>
 
@@ -29,24 +29,24 @@
 
         <ion-list class="list--summary">
 
-          <transaction-summary *ngIf="chainNetwork.chain === 'BTC' || chainNetwork.chain === 'BCH'" [tx]="tx" [chainNetwork]="chainNetwork"></transaction-summary>
-          <transaction-summary-eth *ngIf="chainNetwork.chain === 'ETH'" [tx]="tx" [chainNetwork]="chainNetwork"></transaction-summary-eth>
+          <transaction-summary [tx]="tx"></transaction-summary>
+          <!-- <transaction-summary-eth *ngIf="chainNetwork.chain === 'ETH'" [tx]="tx" [chainNetwork]="chainNetwork"></transaction-summary-eth> -->
 
           <ion-item>
             Received Time
             <ion-note item-end>
-              {{ tx.time * 1000 | date:'long' }}
+              {{ tx.blockTime * 1000 | date:'long' }}
             </ion-note>
           </ion-item>
           <ion-item>
             Included in Block
             <ion-note item-end>
-              <a (click)="goToBlock(tx.blockhash)">{{ tx.blockhash }}</a>
+              <a (click)="goToBlock(tx.blockHash)">{{ tx.blockHash }}</a>
             </ion-note>
-            <ion-note *ngIf="confirmations === -3" item-end>
+            <ion-note *ngIf="tx.confirmations === -3" item-end>
               Invalid
             </ion-note>
-            <ion-note *ngIf="confirmations === -1" item-end>
+            <ion-note *ngIf="tx.confirmations === -1" item-end>
               Unconfirmed
             </ion-note>
           </ion-item>
@@ -54,12 +54,12 @@
 
         <h2>Details</h2>
 
-        <transaction-details *ngIf="chainNetwork.chain === 'BTC' || chainNetwork.chain === 'BCH'" [tx]="tx" [showCoins]="true" [chainNetwork]="chainNetwork"></transaction-details>
-        <transaction-details-eth *ngIf="chainNetwork.chain === 'ETH'" [tx]="tx" [showCoins]="true" [chainNetwork]="chainNetwork"></transaction-details-eth>
+        <transaction-details [tx]="tx" [showCoins]="true"></transaction-details>
+        <!-- <transaction-details-eth *ngIf="chainNetwork.chain === 'ETH'" [tx]="tx" [showCoins]="true" [chainNetwork]="chainNetwork"></transaction-details-eth> -->
       </div>
 
     </div>
 
   </ion-grid>
 </ion-content>
-<footer [chainNetwork]="chainNetwork"></footer>
+<footer></footer>

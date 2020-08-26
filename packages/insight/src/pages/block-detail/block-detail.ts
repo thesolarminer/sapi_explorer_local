@@ -38,35 +38,25 @@ export class BlockDetailPage {
     private priceProvider: PriceProvider
   ) {
     this.blockHash = navParams.get('blockHash');
-    const chain: string = navParams.get('chain');
-    const network: string = navParams.get('network');
+    // const chain: string = navParams.get('chain');
+    // const network: string = navParams.get('network');
 
-    this.chainNetwork = {
-      chain,
-      network
-    };
-    this.apiProvider.changeNetwork(this.chainNetwork);
-    this.currencyProvider.setCurrency(this.chainNetwork);
-    this.priceProvider.setCurrency();
+    // this.chainNetwork = {
+    //   chain,
+    //   network
+    // };
+    // this.apiProvider.changeNetwork(this.chainNetwork);
+    // this.currencyProvider.setCurrency(this.chainNetwork);
+    // this.priceProvider.setCurrency();
   }
 
   ionViewDidEnter() {
-    this.blocksProvider.getBlock(this.blockHash, this.chainNetwork).subscribe(
+    this.blocksProvider.getBlock(this.blockHash).subscribe(
       response => {
-        let block;
-        if (
-          this.chainNetwork.chain === 'BTC' ||
-          this.chainNetwork.chain === 'BCH'
-        ) {
-          block = this.blocksProvider.toUtxoCoinAppBlock(response);
-        }
-        if (this.chainNetwork.chain === 'ETH') {
-          block = this.blocksProvider.toEthAppBlock(response);
-        }
+        let block;        
+        block = response;              
         this.block = block;
-        this.txProvider
-          .getConfirmations(this.block.height, this.chainNetwork)
-          .subscribe(confirmations => (this.confirmations = confirmations));
+        //this.txProvider.getConfirmations(this.block.height).subscribe(confirmations => (this.confirmations = confirmations));
         this.loading = false;
       },
       err => {
