@@ -61,33 +61,18 @@ export class HeadNavComponent implements OnInit {
   }
 
   public search(): void {
-    this.q = this.q.replace(/\s/g, '');
+    //this.q = this.q.replace(/\s/g, '');
+    
     this.searchProvider
-      .isInputValid(this.q, this.chainNetwork)
+      .isInputValid(this.q)
       .subscribe(inputDetails => {
         if (this.q !== '' && inputDetails.isValid) {
           this.showSearch = false;
           this.searchProvider
-            .search(this.q, inputDetails.type, this.chainNetwork)
+            .search(this.q)
             .subscribe(
-              res => {
-                if (this.chainNetwork.chain !== 'ALL') {
-                  const nextView = this.processResponse(res);
-                  if (!_.includes(nextView, '')) {
-                    this.params[nextView.type] = nextView.params;
-                    this.redirTo = nextView.redirTo;
-                    this.navCtrl.setRoot('home', this.params, {
-                      animate: false
-                    });
-                    this.redirProvider.redir(this.redirTo, this.params);
-                  } else {
-                    const message = 'No matching records found!';
-                    this.wrongSearch(message);
-                    this.logger.info(message);
-                  }
-                } else {
-                  this.processAllResponse(res);
-                }
+              res => {                
+                this.processAllResponse(res);                
               },
               err => {
                 this.wrongSearch('Server error. Please try again');
@@ -131,7 +116,7 @@ export class HeadNavComponent implements OnInit {
     }
   }
 
-  private processAllResponse(response) {
+  private processAllResponse(response) {    
     const resFiltered = _.filter(response, o => {
       return (
         !_.isString(o) &&
@@ -151,26 +136,20 @@ export class HeadNavComponent implements OnInit {
       };
 
       resFiltered.map(res => {
-        res.block
-          ? matches.blocks.push(res.block)
-          : res.tx
-          ? matches.txs.push(res.tx)
-          : matches.addresses.push(res.addr[0]);
-      });
+        res.block ? matches.blocks.push(res.block) : res.tx ? matches.txs.push(res.tx) : matches.addresses.push(res.addr);
+      });      
 
       // ETH addresses doesn't have 'address' property
-      if (matches.addresses.length > 0) {
-        matches.addresses.forEach(addr => {
-          if (!addr.address) {
-            addr.address = this.q;
-          }
-        });
-      }
+      // if (matches.addresses.length > 0) {
+      //   matches.addresses.forEach(addr => {
+      //     if (!addr.address) {
+      //       addr.address = this.q;
+      //     }
+      //   });
+      // }
 
       this.redirProvider.redir('search', {
-        matches,
-        chain: this.chainNetwork.chain,
-        network: this.chainNetwork.network
+        matches
       });
     } else {
       const message = 'No matching records found!';

@@ -35,13 +35,14 @@ export class TransactionListComponent implements OnInit {
         private events: Events
     ) { }
 
-    async ngOnInit() {
+    async ngOnInit() {       
         if (this.transactions && this.transactions.length === 0) {
             if (this.queryType === 'blockHash') {
                 this.transactions = await this.txProvider.getTransactionsPerBlock(this.queryValue);
                 this.loading = false;
             } else if (this.queryType === 'address') {
-                this.transactions = await this.txProvider.getTransactionsPerAddress(this.queryValue);
+                console.log(this.queryValue);
+                this.transactions = await this.txProvider.getTransactionsPerAddress(this.queryValue);                
                 this.loading = false;
             }
         } else {
