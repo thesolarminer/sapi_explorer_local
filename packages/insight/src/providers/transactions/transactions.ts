@@ -34,7 +34,25 @@ export interface ApiTx {
     // spentTxid: string;
     // spentHeight: number;
     value: number;
-    coins?: any;    
+    coins?: any;
+}
+
+export interface SapiAddressTransaction {
+    txid: string;
+    address: string;
+    confirmations: number;
+    amount: number;
+    direction: string;
+    time: number;
+}
+
+export interface SapiRewardCheck {
+    address: string;
+    balance: number;
+    balance_eligible: number;
+    is_smartnode: number;
+    activated: number;
+    eligible: number;
 }
 
 export interface ApiUtxoCoinTx extends ApiTx {
@@ -43,17 +61,6 @@ export interface ApiUtxoCoinTx extends ApiTx {
     outputs: ApiCoin[];
     version: number;
 }
-
-export interface ApiEthTx extends ApiTx {
-    gasLimit: number;
-    gasPrice: number;
-    internal: any[];
-    nonce: number;
-    to: string;
-    from: string;
-    fee: number;
-}
-
 export interface ApiCoin {
     txid: string;
     mintTxid: string;
@@ -71,23 +78,6 @@ export interface ApiCoin {
     sequenceNumber: number;
 }
 
-export interface ApiEthCoin {
-    blockHash: string;
-    blockHeight: string;
-    blockTime: string;
-    blockTimeNormalized: string;
-    chain: string;
-    fee: number;
-    from: string;
-    gasLimit: number;
-    gasPrice: number;
-    network: string;
-    nonce: string;
-    to: string;
-    txid: string;
-    value: number;
-}
-
 export interface AppCoin {
     txid: string;
     valueOut: number;
@@ -96,17 +86,6 @@ export interface AppCoin {
     mintTxid: string;
     mintHeight: number;
     spentHeight: number;
-}
-
-export interface AppEthCoin {
-    to: string;
-    from: string;
-    txid: string;
-    fee: number;
-    valueOut: number;
-    height: number;
-    blockheight: number;
-    time: any;
 }
 
 export interface AppInput {
@@ -166,13 +145,6 @@ export interface AppUtxoCoinsTx extends AppTx {
     version: number;
 }
 
-export interface AppEthTx extends AppTx {
-    gasLimit: number;
-    gasPrice: number;
-    to: string;
-    from: string;
-}
-
 @Injectable()
 export class TxsProvider {
     constructor(
@@ -192,16 +164,6 @@ export class TxsProvider {
         return fee;
     }
 
-    public toEthAppTx(tx: ApiEthTx): AppEthTx {
-        return {
-            ...this.toAppTx(tx),
-            to: tx.to,
-            from: tx.from,
-            gasLimit: tx.gasLimit,
-            gasPrice: tx.gasPrice
-        };
-    }
-
     public toUtxoCoinsAppTx(tx: ApiUtxoCoinTx): AppUtxoCoinsTx {
         return {
             ...this.toAppTx(tx),
@@ -211,7 +173,7 @@ export class TxsProvider {
         };
     }
 
-    public toAppTx(tx: ApiUtxoCoinTx | ApiEthTx): AppTx {
+    public toAppTx(tx: ApiUtxoCoinTx): AppTx {
         return {
             txid: tx.txid,
             fee: null, // calculated later, when coins are retrieved
@@ -227,19 +189,6 @@ export class TxsProvider {
         };
     }
 
-    public toAppEthCoin(coin: ApiEthCoin): AppEthCoin {
-        return {
-            to: coin.to,
-            from: coin.from,
-            txid: coin.txid,
-            fee: coin.fee,
-            valueOut: coin.value,
-            height: parseInt(coin.blockHeight, 10),
-            blockheight: parseInt(coin.blockHeight, 10),
-            time: new Date(coin.blockTime).getTime() / 1000
-        };
-    }
-
     public toAppCoin(coin: ApiCoin): AppCoin {
         return {
             txid: coin.txid,
@@ -252,34 +201,47 @@ export class TxsProvider {
         };
     }
 
-    async getTransactionsPerBlock(blockHash: string) {        
+    async getTransactionsPerBlock(blockHash: string) {
         const url = `https://sapi.smartcash.cc/v1/blockchain/block/${blockHash}`;
         let block: AppBlock;
         let txs: ApiTx[] = [];
 
-        await this.httpClient.get<AppBlock>(url).toPromise().then(data => block = data);            
+        await this.httpClient.get<AppBlock>(url).toPromise().then(data => block = data);
 
         block.tx.forEach(item => {
-           this.getMappedTx(item).then(data => txs.push(data.tx))
+            this.getMappedTx(item).then(data => txs.push(data.tx))
         });
-        
+
+        return txs;
+    }
+    async getTransactionsPerAddress(address: string) {
+        const url = `https://sapi.smartcash.cc/v1/address/transactions/${address}`;
+
+        let txs: ApiTx[] = [];
+
+        let addressData: SapiAddressTransaction[] = await this.httpClient.get<SapiAddressTransaction[]>(url).toPromise();
+
+        addressData.forEach(item => {
+            this.getMappedTx(item.txid).then(data => txs.push(data.tx))
+        });
+
         return txs;
     }
 
-    public getTxs(chainNetwork: ChainNetwork, args?: { blockHash?: string }): Observable<ApiEthTx[] & ApiUtxoCoinTx[]> {
+    public getTxs(chainNetwork: ChainNetwork, args?: { blockHash?: string }): Observable<ApiUtxoCoinTx[]> {
         let queryString = '';
         if (args.blockHash) {
             queryString += `?blockHash=${args.blockHash}`;
         }
-        
+
         //return from(this.getTransactionsPerBlock(args.blockHash));
 
         const url = `${this.apiProvider.getUrl(chainNetwork)}/tx/${queryString}`;
-        return this.httpClient.get<ApiEthTx[] & ApiUtxoCoinTx[]>(url);
+        return this.httpClient.get<ApiUtxoCoinTx[]>(url);
     }
 
     public getTx(hash: string): Observable<ApiTx> {
-       return from(this.getMappedTx(hash).then(data => data.tx));       
+        return from(this.getMappedTx(hash).then(data => data.tx));
     }
 
     public getDailyTransactionHistory(chainNetwork: ChainNetwork) {
@@ -304,17 +266,22 @@ export class TxsProvider {
         return null;
     }
 
-    private async getMappedTx(txId: string) {        
-        const unmappedTx = await this.getUnmappedTx(txId);        
+    public async getMappedTx(txId: string) {
+        const unmappedTx = await this.getUnmappedTx(txId);
         return { tx: this.mapToTx(unmappedTx), coin: this.mapToCoin(unmappedTx) };
     }
 
-    private async getUnmappedTx(hash: string) {
+    public async getUnmappedTxByAddress(addrStr: string) {
+        const url = `https://sapi.smartcash.cc/v1/address/transactions/${addrStr}`;
+        return this.httpClient.get<any>(url).toPromise();
+    }
+
+    public async getUnmappedTx(hash: string) {
         const url = `https://sapi.smartcash.cc/v1/transaction/check/${hash}`;
         return this.httpClient.get<any>(url).toPromise();
     }
 
-    private mapToCoin(tx: any) {
+    public mapToCoin(tx: any) {
         return {
             outputs: tx.vout.map((o: any) => {
                 let output: ApiCoin =
@@ -354,7 +321,7 @@ export class TxsProvider {
         };
     }
 
-    private mapToTx(tx: any) {
+    public mapToTx(tx: any) {
         let x: ApiTx = {
             address: tx.address,
             chain: "get_CHAIN",
@@ -369,7 +336,7 @@ export class TxsProvider {
             locktime: tx.locktime,
             value: tx.vout.reduce((accumulator, currentValue) => accumulator += currentValue.value, 0),
             coins: this.mapToCoin(tx)
-        }                
+        }
         return x;
     }
 }

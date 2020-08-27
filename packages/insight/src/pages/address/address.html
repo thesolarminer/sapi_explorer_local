@@ -53,6 +53,19 @@
                     {{ nroTransactions || 0 }}
                   </ion-note>
                 </ion-item> -->
+
+                <ion-item>
+                  Is active for rewards
+                  <ion-note item-end>
+                    {{ reward.activated }}
+                  </ion-note>
+                </ion-item>
+                <ion-item>
+                    Balance eligible for rewards
+                    <ion-note item-end>
+                      {{ reward.balance_eligible || 0 }}
+                    </ion-note>
+                  </ion-item>
               </ion-list>
             </ion-col>
             <ion-col col-auto text-center>
@@ -62,7 +75,8 @@
         </ion-grid>
 
         <h1>Transactions</h1>
-        <coin-list [addrStr]="address.addrStr"></coin-list>
+        <transaction-list [queryType]="'address'" [queryValue]="address.addrStr">
+        </transaction-list>
       </div>
     </div>
   </ion-grid>
