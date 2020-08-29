@@ -67,7 +67,7 @@
                     </ion-note>
                   </ion-item>
               </ion-list>
-            </ion-col> 
+            </ion-col>
             <ion-col col-auto text-center>
               <qr-code [value]="address.addrStr" [size]="160"></qr-code>
             </ion-col>
@@ -75,7 +75,7 @@
         </ion-grid>
 
         <h1>Transactions</h1>
-        <transaction-list [queryType]="'address'" [queryValue]="address.addrStr">
+        <transaction-list [queryType]="'address'" [queryValue]="addrStr">
         </transaction-list>
       </div>
     </div>

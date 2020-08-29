@@ -219,9 +219,12 @@ export class TxsProvider {
 
         let txs: ApiTx[] = [];
 
-        let addressData: SapiAddressTransaction[] = await this.httpClient.get<SapiAddressTransaction[]>(url).toPromise();
+        let addressData: any = await this.httpClient.post<any>(url, {
+            "pageNumber": 1,
+            "pageSize": 10
+        }).toPromise();
 
-        addressData.forEach(item => {
+        addressData.data.forEach(item => {
             this.getMappedTx(item.txid).then(data => txs.push(data.tx))
         });
 
