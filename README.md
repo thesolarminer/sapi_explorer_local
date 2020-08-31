@@ -1,4 +1,4 @@
-# Insight
+# Insight - SAPI Explorer
 
 **A blockchain explorer for SmartCash.**
 
