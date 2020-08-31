@@ -54,9 +54,7 @@
     "ionicons": "3.0.0",
     "lodash": "^4.17.20",
     "rxjs": "5.5.12",
-    "zone.js": "0.8.12"
-  },
-  "devDependencies": {
+    "zone.js": "0.8.12",
     "@angular/cli": "7.3.4",
     "@angular/compiler-cli": "5.2.10",
     "@ionic/app-scripts": "3.2.3",
