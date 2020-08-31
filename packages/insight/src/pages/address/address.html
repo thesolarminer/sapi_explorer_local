@@ -1,84 +1,90 @@
 <head-nav></head-nav>
 
 <ion-content>
-  <ion-grid fixed>
-    <div class="page-content">
-      <loader *ngIf="loading" [type]="'title'"></loader>
-      <error [message]="errorMessage" *ngIf="!loading && errorMessage "></error>
+    <ion-grid fixed>
+        <div class="page-content">
+            <loader *ngIf="loading" [type]="'title'"></loader>
+            <error [message]="errorMessage" *ngIf="!loading && errorMessage "></error>
 
-      <div *ngIf="!loading && !errorMessage">
-        <h1 class="content-container--heading">Address <small>{{ address.balance }} {{ currencyProvider.currencySymbol }}</small></h1>
-        <p class="ellipsis">{{ address.addrStr }}
-          <button [copyToClipboard]="address.addrStr">
-            <ion-icon md="md-copy"></ion-icon>
-          </button>
-        </p>
+            <div *ngIf="!loading && !errorMessage">
+                <h1 class="content-container--heading">Address <small>{{ address.balance }}
+                        {{ currencyProvider.currencySymbol }}</small></h1>
+                <p class="ellipsis">{{ address.addrStr }}
+                    <button [copyToClipboard]="address.addrStr">
+                        <ion-icon md="md-copy"></ion-icon>
+                    </button>
+                </p>
 
-        <h2>Summary</h2>
-        <ion-grid>
-          <ion-row align-items-start justify-content-center>
-            <ion-col>
-              <ion-list class="list--summary">
-                <ion-item>
-                  Total Received
-                  <ion-note item-end>
-                    {{ address.received }} {{ currencyProvider.currencySymbol }}
-                  </ion-note>
-                </ion-item>
+                <h2>Summary</h2>
+                <ion-grid>
+                    <ion-row align-items-start justify-content-center>
+                        <ion-col>
+                            <ion-list class="list--summary">
+                                <ion-item>
+                                    Total Received
+                                    <ion-note item-end>
+                                        {{ address.received }} {{ currencyProvider.currencySymbol }}
+                                    </ion-note>
+                                </ion-item>
 
-                <ion-item>
-                  Total Sent
-                  <ion-note item-end>
-                    {{ address.sent }} {{ currencyProvider.currencySymbol }}
-                  </ion-note>
-                </ion-item>
+                                <ion-item>
+                                    Total Sent
+                                    <ion-note item-end>
+                                        {{ address.sent }} {{ currencyProvider.currencySymbol }}
+                                    </ion-note>
+                                </ion-item>
 
-                <ion-item>
-                  Final Balance
-                  <ion-note item-end>
-                    {{ address.balance }} {{ currencyProvider.currencySymbol }}
-                  </ion-note>
-                </ion-item>
+                                <ion-item>
+                                    Final Balance
+                                    <ion-note item-end>
+                                        {{ address.balance }} {{ currencyProvider.currencySymbol }}
+                                    </ion-note>
+                                </ion-item>
 
-                <!-- <ion-item *ngIf="address.unconfirmed > 0">
+                                <!-- <ion-item *ngIf="address.unconfirmed > 0">
                   Unconfirmed Balance
                   <ion-note item-end>
                     {{ getConvertedNumber(address.unconfirmed) | number:'1.0-8' }} {{ currencyProvider.currencySymbol }}
                   </ion-note>
                 </ion-item> -->
 
-                <!-- <ion-item>
+                                <!-- <ion-item>
                   Nro. Transactions
                   <ion-note item-end>
                     {{ nroTransactions || 0 }}
                   </ion-note>
                 </ion-item> -->
 
-                <ion-item>
-                  Is active for rewards
-                  <ion-note item-end>
-                    {{ reward.activated }}
-                  </ion-note>
-                </ion-item>
-                <ion-item>
-                    Balance eligible for rewards
-                    <ion-note item-end>
-                      {{ reward.balance_eligible || 0 }}
-                    </ion-note>
-                  </ion-item>
-              </ion-list>
-            </ion-col>
-            <ion-col col-auto text-center>
-              <qr-code [value]="address.addrStr" [size]="160"></qr-code>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+                                <ion-item>
+                                    Is active for rewards
+                                    <ion-note item-end>
+                                        {{ reward.activated }}
+                                    </ion-note>
+                                </ion-item>
+                                <ion-item>
+                                    Balance eligible for rewards
+                                    <ion-note item-end>
+                                        {{ reward.balance_eligible || 0 }}
+                                    </ion-note>
+                                </ion-item>
+                            </ion-list>
+                        </ion-col>
+                        <ion-col col-auto text-center>
+                            <qr-code [value]="address.addrStr" [size]="160"></qr-code>
+                            <br />
+                            <img *ngIf="reward.activated && reward.balance_eligible>1000 && reward.balance_eligible<1000000"
+                                src="https://contattafiles.s3.us-west-1.amazonaws.com/tnt19836/lCyEE1RhD8AMjfV/4578621.png" />
+                            <img *ngIf="reward.activated && reward.balance_eligible>=1000000"
+                                src="https://contattafiles.s3.us-west-1.amazonaws.com/tnt19836/2185nbLSm5JHuAj/457861.png" />
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
 
-        <h1>Transactions</h1>
-        <transaction-list [queryType]="'address'" [queryValue]="addrStr">
-        </transaction-list>
-      </div>
-    </div>
-  </ion-grid>
+                <h1>Transactions</h1>
+                <transaction-list [queryType]="'address'" [queryValue]="addrStr">
+                </transaction-list>
+            </div>
+        </div>
+    </ion-grid>
 </ion-content>
 <footer></footer>

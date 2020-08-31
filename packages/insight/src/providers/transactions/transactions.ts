@@ -209,12 +209,13 @@ export class TxsProvider {
         await this.httpClient.get<AppBlock>(url).toPromise().then(data => block = data);
 
         block.tx.forEach(item => {
-            this.getMappedTx(item).then(data => txs.push(data.tx))
+            this.getMappedTxs(item).then(data => txs.push(data.tx));
         });
 
         return txs;
     }
     async getTransactionsPerAddress(address: string) {
+
         const url = `https://sapi.smartcash.cc/v1/address/transactions/${address}`;
 
         let txs: ApiTx[] = [];
@@ -225,7 +226,7 @@ export class TxsProvider {
         }).toPromise();
 
         addressData.data.forEach(item => {
-            this.getMappedTx(item.txid).then(data => txs.push(data.tx))
+            this.getMappedTxs(item).then(data => txs.push(data.tx));
         });
 
         return txs;
@@ -267,6 +268,11 @@ export class TxsProvider {
         // });
 
         return null;
+    }
+
+    public async getMappedTxs(unmappedTx) {
+        //const unmappedTx = await this.getUnmappedTx(txId);
+        return { tx: this.mapToTx(unmappedTx), coin: this.mapToCoin(unmappedTx) };
     }
 
     public async getMappedTx(txId: string) {
