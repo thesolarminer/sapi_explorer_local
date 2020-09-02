@@ -530,10 +530,10 @@ var map = {
 		323
 	],
 	"../pages/broadcast-tx/broadcast-tx.module": [
-		471
+		473
 	],
 	"../pages/home/home.module": [
-		473
+		471
 	],
 	"../pages/search/search.module": [
 		853,
@@ -1362,12 +1362,155 @@ var BlocksPage = /** @class */ (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_error_error_module__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_footer_footer_module__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_head_nav_head_nav_module__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_latest_blocks_latest_blocks_module__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_loader_loader_module__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__home__ = __webpack_require__(472);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+var HomePageModule = /** @class */ (function () {
+    function HomePageModule() {
+    }
+    HomePageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [__WEBPACK_IMPORTED_MODULE_7__home__["a" /* HomePage */]],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_7__home__["a" /* HomePage */]),
+                __WEBPACK_IMPORTED_MODULE_5__components_latest_blocks_latest_blocks_module__["a" /* LatestBlocksComponentModule */],
+                __WEBPACK_IMPORTED_MODULE_3__components_footer_footer_module__["a" /* FooterComponentModule */],
+                __WEBPACK_IMPORTED_MODULE_4__components_head_nav_head_nav_module__["a" /* HeadNavComponentModule */],
+                __WEBPACK_IMPORTED_MODULE_6__components_loader_loader_module__["a" /* LoaderComponentModule */],
+                __WEBPACK_IMPORTED_MODULE_2__components_error_error_module__["a" /* ErrorComponentModule */]
+            ],
+            exports: [__WEBPACK_IMPORTED_MODULE_7__home__["a" /* HomePage */]]
+        })
+    ], HomePageModule);
+    return HomePageModule;
+}());
+
+//# sourceMappingURL=home.module.js.map
+
+/***/ }),
+
+/***/ 472:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_latest_blocks_latest_blocks__ = __webpack_require__(469);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_currency_currency__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_price_price__ = __webpack_require__(35);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var HomePage = /** @class */ (function () {
+    function HomePage(nav, navParams, apiProvider, priceProvider, events, currencyProvider) {
+        this.nav = nav;
+        this.navParams = navParams;
+        this.apiProvider = apiProvider;
+        this.priceProvider = priceProvider;
+        this.events = events;
+        this.currencyProvider = currencyProvider;
+        // this.nav.viewWillEnter.subscribe(view => {
+        //   if (view.data.chain === 'ALL') {
+        //     this.load();
+        //   }
+        // });
+        // this.load();
+    }
+    HomePage.prototype.load = function () {
+        // const chain: string =
+        //   this.navParams.get('chain') || this.apiProvider.getConfig().chain;
+        // const network: string =
+        //   this.navParams.get('network') || this.apiProvider.getConfig().network;
+        // this.chainNetwork = {
+        //   chain,
+        //   network
+        // };
+        // if (this.chainNetwork.chain === 'ALL') {
+        //   this.apiProvider.getAvailableNetworks().subscribe(data => {
+        //     const newNetworks = data
+        //       .map(x => x.supported)
+        //       .reduce((agg, arr) => [...agg].concat(arr), []);
+        //     this.availableNetworks = _.filter(newNetworks, o => o.chain !== 'ALL');
+        //   });
+        // }
+        // this.priceProvider.setCurrency();
+        // this.apiProvider.changeNetwork(this.chainNetwork);
+        // this.currencyProvider.setCurrency(this.chainNetwork);
+    };
+    HomePage.prototype.openPage = function (page) {
+        // this.nav.push(page, {
+        //   chain: this.chain,
+        //   network: this.network
+        // });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('latestBlocks'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__components_latest_blocks_latest_blocks__["a" /* LatestBlocksComponent */])
+    ], HomePage.prototype, "latestBlocks", void 0);
+    HomePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-home',template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/pages/home/home.html"*/'<head-nav></head-nav>\n\n<ion-content class="content-container">\n    <!-- <div *ngIf="chainNetwork.chain === \'ALL\'"> -->\n        <h2 class="content-container--heading all-coins">Latest Blocks</h2>\n        <ion-grid class="page-content-grid">\n            <ion-row>\n                <ion-col col-md-12 col-12 class="page-content">                    \n                    <latest-blocks [showTimeAs]="\'age\'" [showAllBlocksButton]="true" [numBlocks]="\'5\'" #latestBlocks>\n                    </latest-blocks>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    <!-- </div> -->\n\n    <!-- <div *ngIf="chainNetwork.chain !== \'ALL\'">\n        <ion-grid class="page-content-grid">\n            <ion-row>\n                <ion-col col-12 class="page-content">\n                    <h2 class="content-container--heading">Latest Blocks</h2>\n                    <latest-blocks [showTimeAs]="\'age\'" [showAllBlocksButton]="true" [chainNetwork]="chainNetwork" #latestBlocks>\n                    </latest-blocks>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    </div> -->\n</ion-content>\n<footer></footer>'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/pages/home/home.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_price_price__["a" /* PriceProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_currency_currency__["a" /* CurrencyProvider */]])
+    ], HomePage);
+    return HomePage;
+}());
+
+//# sourceMappingURL=home.js.map
+
+/***/ }),
+
+/***/ 473:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BroadcastTxPageModule", function() { return BroadcastTxPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_footer_footer_module__ = __webpack_require__(71);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_head_nav_head_nav_module__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__broadcast_tx__ = __webpack_require__(472);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__broadcast_tx__ = __webpack_require__(474);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1400,7 +1543,7 @@ var BroadcastTxPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 472:
+/***/ 474:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1496,149 +1639,6 @@ var BroadcastTxPage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=broadcast-tx.js.map
-
-/***/ }),
-
-/***/ 473:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_error_error_module__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_footer_footer_module__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_head_nav_head_nav_module__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_latest_blocks_latest_blocks_module__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_loader_loader_module__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__home__ = __webpack_require__(474);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-
-
-
-var HomePageModule = /** @class */ (function () {
-    function HomePageModule() {
-    }
-    HomePageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            declarations: [__WEBPACK_IMPORTED_MODULE_7__home__["a" /* HomePage */]],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_7__home__["a" /* HomePage */]),
-                __WEBPACK_IMPORTED_MODULE_5__components_latest_blocks_latest_blocks_module__["a" /* LatestBlocksComponentModule */],
-                __WEBPACK_IMPORTED_MODULE_3__components_footer_footer_module__["a" /* FooterComponentModule */],
-                __WEBPACK_IMPORTED_MODULE_4__components_head_nav_head_nav_module__["a" /* HeadNavComponentModule */],
-                __WEBPACK_IMPORTED_MODULE_6__components_loader_loader_module__["a" /* LoaderComponentModule */],
-                __WEBPACK_IMPORTED_MODULE_2__components_error_error_module__["a" /* ErrorComponentModule */]
-            ],
-            exports: [__WEBPACK_IMPORTED_MODULE_7__home__["a" /* HomePage */]]
-        })
-    ], HomePageModule);
-    return HomePageModule;
-}());
-
-//# sourceMappingURL=home.module.js.map
-
-/***/ }),
-
-/***/ 474:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_latest_blocks_latest_blocks__ = __webpack_require__(469);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_currency_currency__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_price_price__ = __webpack_require__(35);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-var HomePage = /** @class */ (function () {
-    function HomePage(nav, navParams, apiProvider, priceProvider, events, currencyProvider) {
-        this.nav = nav;
-        this.navParams = navParams;
-        this.apiProvider = apiProvider;
-        this.priceProvider = priceProvider;
-        this.events = events;
-        this.currencyProvider = currencyProvider;
-        // this.nav.viewWillEnter.subscribe(view => {
-        //   if (view.data.chain === 'ALL') {
-        //     this.load();
-        //   }
-        // });
-        // this.load();
-    }
-    HomePage.prototype.load = function () {
-        // const chain: string =
-        //   this.navParams.get('chain') || this.apiProvider.getConfig().chain;
-        // const network: string =
-        //   this.navParams.get('network') || this.apiProvider.getConfig().network;
-        // this.chainNetwork = {
-        //   chain,
-        //   network
-        // };
-        // if (this.chainNetwork.chain === 'ALL') {
-        //   this.apiProvider.getAvailableNetworks().subscribe(data => {
-        //     const newNetworks = data
-        //       .map(x => x.supported)
-        //       .reduce((agg, arr) => [...agg].concat(arr), []);
-        //     this.availableNetworks = _.filter(newNetworks, o => o.chain !== 'ALL');
-        //   });
-        // }
-        // this.priceProvider.setCurrency();
-        // this.apiProvider.changeNetwork(this.chainNetwork);
-        // this.currencyProvider.setCurrency(this.chainNetwork);
-    };
-    HomePage.prototype.openPage = function (page) {
-        // this.nav.push(page, {
-        //   chain: this.chain,
-        //   network: this.network
-        // });
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('latestBlocks'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__components_latest_blocks_latest_blocks__["a" /* LatestBlocksComponent */])
-    ], HomePage.prototype, "latestBlocks", void 0);
-    HomePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/pages/home/home.html"*/'<head-nav></head-nav>\n\n<ion-content class="content-container">\n    <!-- <div *ngIf="chainNetwork.chain === \'ALL\'"> -->\n        <h2 class="content-container--heading all-coins">Latest Blocks</h2>\n        <ion-grid class="page-content-grid">\n            <ion-row>\n                <ion-col col-md-12 col-12 class="page-content">                    \n                    <latest-blocks [showTimeAs]="\'age\'" [showAllBlocksButton]="true" [numBlocks]="\'5\'" #latestBlocks>\n                    </latest-blocks>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    <!-- </div> -->\n\n    <!-- <div *ngIf="chainNetwork.chain !== \'ALL\'">\n        <ion-grid class="page-content-grid">\n            <ion-row>\n                <ion-col col-12 class="page-content">\n                    <h2 class="content-container--heading">Latest Blocks</h2>\n                    <latest-blocks [showTimeAs]="\'age\'" [showAllBlocksButton]="true" [chainNetwork]="chainNetwork" #latestBlocks>\n                    </latest-blocks>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    </div> -->\n</ion-content>\n<footer></footer>'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/pages/home/home.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_price_price__["a" /* PriceProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_currency_currency__["a" /* CurrencyProvider */]])
-    ], HomePage);
-    return HomePage;
-}());
-
-//# sourceMappingURL=home.js.map
 
 /***/ }),
 
@@ -2349,13 +2349,13 @@ var AppModule = /** @class */ (function () {
                     animate: false
                 }, {
                     links: [
-                        { loadChildren: '../pages/address/address.module#AddressPageModule', name: 'address', segment: ':chain/:network/address/:addrStr', priority: 'low', defaultHistory: ['home'] },
-                        { loadChildren: '../pages/blocks/blocks.module#BlocksPageModule', name: 'blocks', segment: ':chain/:network/blocks', priority: 'low', defaultHistory: ['home'] },
-                        { loadChildren: '../pages/block-detail/block-detail.module#BlockDetailPageModule', name: 'block-detail', segment: ':chain/:network/block/:blockHash', priority: 'low', defaultHistory: ['home'] },
-                        { loadChildren: '../pages/broadcast-tx/broadcast-tx.module#BroadcastTxPageModule', name: 'broadcast-tx', segment: ':chain/:network/broadcast-tx', priority: 'low', defaultHistory: ['home'] },
-                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'home', segment: ':chain/:network/home', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'search', segment: ':chain/:network/search', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/transaction/transaction.module#TransactionPageModule', name: 'transaction', segment: ':chain/:network/tx/:txId', priority: 'low', defaultHistory: ['home'] }
+                        { loadChildren: '../pages/address/address.module#AddressPageModule', name: 'address', segment: 'address/:addrStr', priority: 'low', defaultHistory: ['home'] },
+                        { loadChildren: '../pages/block-detail/block-detail.module#BlockDetailPageModule', name: 'block-detail', segment: 'block/:blockHash', priority: 'low', defaultHistory: ['home'] },
+                        { loadChildren: '../pages/blocks/blocks.module#BlocksPageModule', name: 'blocks', segment: 'blocks', priority: 'low', defaultHistory: ['home'] },
+                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'home', segment: 'home', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'search', segment: 'search', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/transaction/transaction.module#TransactionPageModule', name: 'transaction', segment: 'tx/:txId', priority: 'low', defaultHistory: ['home'] },
+                        { loadChildren: '../pages/broadcast-tx/broadcast-tx.module#BroadcastTxPageModule', name: 'broadcast-tx', segment: 'broadcast-tx', priority: 'low', defaultHistory: ['home'] }
                     ]
                 })
             ],
@@ -3093,7 +3093,7 @@ webpackContext.id = 825;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(474);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(472);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__home_home__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__address_address__ = __webpack_require__(514);
 /* unused harmony namespace reexport */
@@ -3101,7 +3101,7 @@ webpackContext.id = 825;
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__blocks_blocks__ = __webpack_require__(470);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__blocks_blocks__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__broadcast_tx_broadcast_tx__ = __webpack_require__(472);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__broadcast_tx_broadcast_tx__ = __webpack_require__(474);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__transaction_transaction__ = __webpack_require__(516);
 /* unused harmony namespace reexport */
@@ -3131,8 +3131,8 @@ webpackContext.id = 825;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_head_nav_head_nav_module__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_latest_blocks_latest_blocks_module__ = __webpack_require__(145);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_blocks_blocks_module__ = __webpack_require__(323);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__broadcast_tx_broadcast_tx_module__ = __webpack_require__(471);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__home_home_module__ = __webpack_require__(473);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__broadcast_tx_broadcast_tx_module__ = __webpack_require__(473);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__home_home_module__ = __webpack_require__(471);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);

@@ -9,7 +9,7 @@ import { RedirProvider } from '../../providers/redir/redir';
 @Injectable()
 @IonicPage({
   name: 'search',
-  segment: ':chain/:network/search'
+  segment: 'search'
 })
 @Component({
   selector: 'page-search',

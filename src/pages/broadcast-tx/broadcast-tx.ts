@@ -9,7 +9,7 @@ import { PriceProvider } from '../../providers/price/price';
 @Injectable()
 @IonicPage({
   name: 'broadcast-tx',
-  segment: ':chain/:network/broadcast-tx',
+  segment: 'broadcast-tx',
   defaultHistory: ['home']
 })
 @Component({

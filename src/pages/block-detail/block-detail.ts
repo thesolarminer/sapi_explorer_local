@@ -10,7 +10,7 @@ import { TxsProvider } from '../../providers/transactions/transactions';
 @Injectable()
 @IonicPage({
   name: 'block-detail',
-  segment: ':chain/:network/block/:blockHash',
+  segment: 'block/:blockHash',
   defaultHistory: ['home']
 })
 @Component({
@@ -53,8 +53,8 @@ export class BlockDetailPage {
   ionViewDidEnter() {
     this.blocksProvider.getBlock(this.blockHash).subscribe(
       response => {
-        let block;        
-        block = response;              
+        let block;
+        block = response;
         this.block = block;
         //this.txProvider.getConfirmations(this.block.height).subscribe(confirmations => (this.confirmations = confirmations));
         this.loading = false;

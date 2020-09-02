@@ -9,7 +9,7 @@ import { TxsProvider } from '../../providers/transactions/transactions';
 @Injectable()
 @IonicPage({
     name: 'address',
-    segment: ':chain/:network/address/:addrStr',
+    segment: 'address/:addrStr',
     defaultHistory: ['home']
 })
 @Component({

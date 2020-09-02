@@ -9,7 +9,7 @@ import { TxsProvider } from '../../providers/transactions/transactions';
 @Injectable()
 @IonicPage({
   name: 'transaction',
-  segment: ':chain/:network/tx/:txId',
+  segment: 'tx/:txId',
   defaultHistory: ['home']
 })
 @Component({
@@ -38,7 +38,7 @@ export class TransactionPage {
     this.txId = navParams.get('txId');
     this.vout = navParams.get('vout');
     this.fromVout = navParams.get('fromVout') || undefined;
-   
+
     // this.apiProvider.changeNetwork(this.chainNetwork);
     // this.currencyProvider.setCurrency(this.chainNetwork);
     // this.priceProvider.setCurrency();
