@@ -8,3 +8,14 @@ error {
     padding: 5px;
   }
 }
+
+div {
+    .error-warning {
+      background-color: #f2dede;
+      border: 1px solid #ebccd1;
+      color: #8a6500;
+      border-radius: 3px;
+      margin: 5px;
+      padding: 5px;
+    }
+  }

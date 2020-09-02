@@ -42,7 +42,7 @@ export class AddressPage {
     public ionViewWillLoad(): void {
         this.events.subscribe('CoinList', (d: any) => {
             this.nroTransactions = d.length;
-        });        
+        });
 
         this.addrProvider
             .getAddressBalance(this.addrStr)
@@ -78,7 +78,7 @@ export class AddressPage {
                     this.loading = false;
                 },
                 err => {
-                    this.errorMessage = err;
+                    this.errorMessage = JSON.parse(err).message;
                     this.loading = false;
                 }
             );

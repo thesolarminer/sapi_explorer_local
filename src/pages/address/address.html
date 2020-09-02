@@ -1,14 +1,15 @@
 <head-nav></head-nav>
-
 <ion-content>
     <ion-grid fixed>
         <div class="page-content">
             <loader *ngIf="loading" [type]="'title'"></loader>
-            <error [message]="errorMessage" *ngIf="!loading && errorMessage "></error>
 
-            <div *ngIf="!loading && !errorMessage">
+
+            <div *ngIf="!loading">
+
                 <h1 class="content-container--heading">Address <small>{{ address.balance }}
-                        {{ currencyProvider.currencySymbol }}</small></h1>
+                        {{ currencyProvider.currencySymbol }}</small>
+                </h1>
                 <p class="ellipsis">{{ address.addrStr }}
                     <button [copyToClipboard]="address.addrStr">
                         <ion-icon md="md-copy"></ion-icon>
@@ -80,8 +81,20 @@
                     </ion-row>
                 </ion-grid>
 
-                <h1>Transactions</h1>
-                <transaction-list [queryType]="'address'" [queryValue]="addrStr">
+                <error class="error-message" message="{{errorMessage}}" *ngIf="errorMessage"></error>
+                <div class="error-warning" *ngIf="errorMessage">
+                    <ul>
+                        <li>1) You are using Coinomi. I know!</li>
+                        <li>2) Coinomi creates 1 NEW address after each transaction</li>
+                        <li>3) That is not your REWARDs address!</li>
+                        <li>4) Go to receive tab and click on Previous addresses</li>
+                        <li>5) Find the right address</li>
+                    </ul>
+
+                </div>
+
+                <h1 *ngIf="!errorMessage">Transactions</h1>
+                <transaction-list [queryType]="'address'" [queryValue]="addrStr" *ngIf="!errorMessage">
                 </transaction-list>
             </div>
         </div>
