@@ -7,7 +7,7 @@ import { ApiProvider, ChainNetwork } from '../api/api';
 
 @Injectable()
 export class SearchProvider {  
-  private urlSapi = "https://sapi.smartcash.cc/v1/blockchain";
+  private urlSapi = "http://localhost:8080/v1/blockchain";
 
   constructor(
     private apiProvider: ApiProvider,
@@ -64,12 +64,12 @@ export class SearchProvider {
     return this.httpClient.get<{ block: any }>(url).pipe(map(res => ({ block: res })));
   }
   private searchTx(txid: string): Observable<{ tx: any }> {
-    const url = `https://sapi.smartcash.cc/v1/transaction/check/${txid}`;
+    const url = `http://localhost:8080/v1/transaction/check/${txid}`;
     return this.httpClient.get<{ tx: any }>(url).pipe(map(res => ({ tx: res })));
   }
 
   private searchAddr(addr: string): Observable<{ addr: any }> {  
-    const url = `https://sapi.smartcash.cc/v1/address/balance/${addr}`;
+    const url = `http://localhost:8080/v1/address/balance/${addr}`;
     return this.httpClient.get<{ addr: any }>(url).pipe(map(res => ({ addr: res })));
   }
 

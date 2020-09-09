@@ -59,7 +59,7 @@ export class BlocksProvider {
     public chainNetworkTipValues;
     public currentChainNetwork;
     public tipValue;
-    private urlSapi = "https://sapi.smartcash.cc/v1/blockchain";
+    private urlSapi = "http://localhost:8080/v1/blockchain";
     private urlExplorer = "https://explorer.smartcash.cc/api/blocks";
 
     constructor(

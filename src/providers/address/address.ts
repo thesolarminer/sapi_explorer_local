@@ -18,7 +18,7 @@ export interface ApiAddr {
 
 @Injectable()
 export class AddressProvider {
-    private urlSapi = "https://sapi.smartcash.cc/v1/address/balance/";
+    private urlSapi = "http://localhost:8080/v1/address/balance/";
 
     constructor(
         public httpClient: HttpClient,
@@ -31,7 +31,7 @@ export class AddressProvider {
     }
 
     public getAddressReward(addrStr?: string): Observable<any> {
-        return this.httpClient.get<any>(`https://sapi.smartcash.cc/v1/smartrewards/check/${addrStr}`);
+        return this.httpClient.get<any>(`http://localhost:8080/v1/smartrewards/check/${addrStr}`);
     }
 
     public getAddressActivity(addrStr?: string): Observable<any> {
