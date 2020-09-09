@@ -22,7 +22,9 @@ Filter by actives nodes then you can random servers:
 http://167.86.103.167:9678/v1/smartnodes/list
 
 ```sh
+
 cd bitcore
+npm install
 npm start
 ```
 
