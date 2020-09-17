@@ -519,28 +519,28 @@ var ApiProvider = /** @class */ (function () {
 
 var map = {
 	"../pages/address/address.module": [
-		851,
+		854,
 		0
 	],
 	"../pages/block-detail/block-detail.module": [
-		852,
+		851,
 		1
 	],
 	"../pages/blocks/blocks.module": [
 		323
 	],
 	"../pages/broadcast-tx/broadcast-tx.module": [
-		473
-	],
-	"../pages/home/home.module": [
 		471
 	],
+	"../pages/home/home.module": [
+		473
+	],
 	"../pages/search/search.module": [
-		853,
+		852,
 		3
 	],
 	"../pages/transaction/transaction.module": [
-		854,
+		853,
 		2
 	]
 };
@@ -665,14 +665,14 @@ var CurrencyProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 320:
+/***/ 319:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DenominationComponentModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__denomination__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__denomination__ = __webpack_require__(320);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -700,7 +700,7 @@ var DenominationComponentModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 321:
+/***/ 320:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -758,7 +758,7 @@ var DenominationComponent = /** @class */ (function () {
     };
     DenominationComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'denomination',template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/components/denomination/denomination.html"*/'<ion-list no-lines>\n  <ion-row>\n    <ion-item-divider>\n      Blockchain\n    </ion-item-divider>\n\n    <ion-item (click)="changeExplorer(chainNetwork)" *ngFor="let chainNetwork of availableNetworks">\n      <ion-avatar item-start>\n        <img *ngIf="chainNetwork.network === \'mainnet\' && chainNetwork.chain !==\'ALL\'" src="assets/img/currency_logos/{{ chainNetwork.chain.toLowerCase() }}.svg" class="logo" />\n        <img *ngIf="chainNetwork.network === \'mainnet\' && chainNetwork.chain===\'ALL\'" src="assets/img/search.png" class="logo" />\n        <img *ngIf=" chainNetwork.network !==\'mainnet\' && chainNetwork.chain===\'BTC\'" src=" assets/img/btcicon-testnet.svg" class="logo" />\n        <img *ngIf="chainNetwork.network !== \'mainnet\' && chainNetwork.chain===\'BCH\'" src="assets/img/bchicon-testnet.svg" class="logo" />\n        <img [ngClass]="{\'secondary\': chainNetwork.network ===\'testnet\'}" *ngIf="chainNetwork.network !== \'mainnet\' && chainNetwork.chain===\'ETH\'" src="assets/img/currency_logos/eth.svg" class="logo" />\n      </ion-avatar>\n      <ion-label color="dark" *ngIf="chainNetwork.chain !== \'ALL\'">\n        {{ chainNetwork.chain }} <small class="pill"> {{ chainNetwork.network }}</small>\n      </ion-label>\n      <ion-label color="dark" *ngIf="chainNetwork.chain === \'ALL\'">\n        All Blockchains\n      </ion-label>\n    </ion-item>\n  </ion-row>\n</ion-list>\n\n<ion-list radio-group [(ngModel)]="currencySymbol" *ngIf="showUnits && api.networkSettings.selectedNetwork.chain !== \'ALL\'">\n  <ion-item-divider>\n    Units\n  </ion-item-divider>\n\n  <ion-item *ngFor="let unit of units">\n    <ion-label color="dark">{{ unit }}</ion-label>\n    <ion-radio value="{{ unit }}" [checked]="unit === currencySymbol" (click)="changeUnit(unit)">\n    </ion-radio>\n  </ion-item>\n</ion-list>'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/components/denomination/denomination.html"*/
+            selector: 'denomination',template:/*ion-inline-start:"/home/enrique/smart/sapi-insight/src/components/denomination/denomination.html"*/'<ion-list no-lines>\n  <ion-row>\n    <ion-item-divider>\n      Blockchain\n    </ion-item-divider>\n\n    <ion-item (click)="changeExplorer(chainNetwork)" *ngFor="let chainNetwork of availableNetworks">\n      <ion-avatar item-start>\n        <img *ngIf="chainNetwork.network === \'mainnet\' && chainNetwork.chain !==\'ALL\'" src="assets/img/currency_logos/{{ chainNetwork.chain.toLowerCase() }}.svg" class="logo" />\n        <img *ngIf="chainNetwork.network === \'mainnet\' && chainNetwork.chain===\'ALL\'" src="assets/img/search.png" class="logo" />\n        <img *ngIf=" chainNetwork.network !==\'mainnet\' && chainNetwork.chain===\'BTC\'" src=" assets/img/btcicon-testnet.svg" class="logo" />\n        <img *ngIf="chainNetwork.network !== \'mainnet\' && chainNetwork.chain===\'BCH\'" src="assets/img/bchicon-testnet.svg" class="logo" />\n        <img [ngClass]="{\'secondary\': chainNetwork.network ===\'testnet\'}" *ngIf="chainNetwork.network !== \'mainnet\' && chainNetwork.chain===\'ETH\'" src="assets/img/currency_logos/eth.svg" class="logo" />\n      </ion-avatar>\n      <ion-label color="dark" *ngIf="chainNetwork.chain !== \'ALL\'">\n        {{ chainNetwork.chain }} <small class="pill"> {{ chainNetwork.network }}</small>\n      </ion-label>\n      <ion-label color="dark" *ngIf="chainNetwork.chain === \'ALL\'">\n        All Blockchains\n      </ion-label>\n    </ion-item>\n  </ion-row>\n</ion-list>\n\n<ion-list radio-group [(ngModel)]="currencySymbol" *ngIf="showUnits && api.networkSettings.selectedNetwork.chain !== \'ALL\'">\n  <ion-item-divider>\n    Units\n  </ion-item-divider>\n\n  <ion-item *ngFor="let unit of units">\n    <ion-label color="dark">{{ unit }}</ion-label>\n    <ion-radio value="{{ unit }}" [checked]="unit === currencySymbol" (click)="changeUnit(unit)">\n    </ion-radio>\n  </ion-item>\n</ion-list>'/*ion-inline-end:"/home/enrique/smart/sapi-insight/src/components/denomination/denomination.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */],
@@ -1165,7 +1165,7 @@ var LatestBlocksComponent = /** @class */ (function () {
     ], LatestBlocksComponent.prototype, "chainNetwork", void 0);
     LatestBlocksComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'latest-blocks',template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/components/latest-blocks/latest-blocks.html"*/'<error [message]="errorMessage" *ngIf="errorMessage"></error>\n<div *ngIf="!errorMessage">\n  <ion-grid class="grid--table blocks-container">\n\n    <ion-row>\n      <ion-col>\n        <h6>Height</h6>\n      </ion-col>\n      <ion-col *ngIf="showTimeAs === \'age\'">\n        <h6>Mined</h6>\n      </ion-col>\n      <ion-col *ngIf="showTimeAs === \'timestamp\'">\n        <h6>Timestamp</h6>\n      </ion-col>\n      <ion-col>\n        <h6>Transactions</h6>\n      </ion-col>\n      <ion-col>\n        <h6>Size</h6>\n      </ion-col>\n    </ion-row>\n\n    <loader *ngIf="loading" [type]="\'grid\'"></loader>\n\n    <div *ngIf="!loading" class="blocks-container__blocks">\n      <ion-row *ngFor="let block of blocks" (click)="goToBlock(block.hash)">\n        <ion-col>\n          <a (click)="goToBlock(block.hash)">{{ block.height }}</a>\n        </ion-col>\n        <ion-col *ngIf="showTimeAs === \'age\'">\n          {{ block.time | amFromUnix | amTimeAgo:true }}\n        </ion-col>\n        <ion-col *ngIf="showTimeAs === \'timestamp\'">\n          {{ block.time * 1000 | date:\'long\' }}\n        </ion-col>\n        <ion-col>\n          {{ block.tx.length }}\n        </ion-col>\n        <ion-col>\n          {{ block.size }}\n        </ion-col>\n      </ion-row>\n\n      <!-- <ion-row *ngIf="showAllBlocksButton" class="blocks-cta">\n        <ion-col text-center>\n          <button ion-button (click)="goToBlocks()" [disabled]="blocks.length == 0">Load More</button>\n        </ion-col>\n      </ion-row>\n\n      <ion-row *ngIf="isHomePage">\n        <ion-infinite-scroll (ionInfinite)="loadMoreBlocks($event)">\n          <loader [type]="\'grid\'"></loader>\n        </ion-infinite-scroll>\n      </ion-row> -->\n    </div>\n  </ion-grid>\n</div>'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/components/latest-blocks/latest-blocks.html"*/
+            selector: 'latest-blocks',template:/*ion-inline-start:"/home/enrique/smart/sapi-insight/src/components/latest-blocks/latest-blocks.html"*/'<error [message]="errorMessage" *ngIf="errorMessage"></error>\n<div *ngIf="!errorMessage">\n  <ion-grid class="grid--table blocks-container">\n\n    <ion-row>\n      <ion-col>\n        <h6>Height</h6>\n      </ion-col>\n      <ion-col *ngIf="showTimeAs === \'age\'">\n        <h6>Mined</h6>\n      </ion-col>\n      <ion-col *ngIf="showTimeAs === \'timestamp\'">\n        <h6>Timestamp</h6>\n      </ion-col>\n      <ion-col>\n        <h6>Transactions</h6>\n      </ion-col>\n      <ion-col>\n        <h6>Size</h6>\n      </ion-col>\n    </ion-row>\n\n    <loader *ngIf="loading" [type]="\'grid\'"></loader>\n\n    <div *ngIf="!loading" class="blocks-container__blocks">\n      <ion-row *ngFor="let block of blocks" (click)="goToBlock(block.hash)">\n        <ion-col>\n          <a (click)="goToBlock(block.hash)">{{ block.height }}</a>\n        </ion-col>\n        <ion-col *ngIf="showTimeAs === \'age\'">\n          {{ block.time | amFromUnix | amTimeAgo:true }}\n        </ion-col>\n        <ion-col *ngIf="showTimeAs === \'timestamp\'">\n          {{ block.time * 1000 | date:\'long\' }}\n        </ion-col>\n        <ion-col>\n          {{ block.tx.length }}\n        </ion-col>\n        <ion-col>\n          {{ block.size }}\n        </ion-col>\n      </ion-row>\n\n      <!-- <ion-row *ngIf="showAllBlocksButton" class="blocks-cta">\n        <ion-col text-center>\n          <button ion-button (click)="goToBlocks()" [disabled]="blocks.length == 0">Load More</button>\n        </ion-col>\n      </ion-row>\n\n      <ion-row *ngIf="isHomePage">\n        <ion-infinite-scroll (ionInfinite)="loadMoreBlocks($event)">\n          <loader [type]="\'grid\'"></loader>\n        </ion-infinite-scroll>\n      </ion-row> -->\n    </div>\n  </ion-grid>\n</div>'/*ion-inline-end:"/home/enrique/smart/sapi-insight/src/components/latest-blocks/latest-blocks.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_currency_currency__["a" /* CurrencyProvider */],
             __WEBPACK_IMPORTED_MODULE_3__providers_default_default__["a" /* DefaultProvider */],
@@ -1342,7 +1342,7 @@ var BlocksPage = /** @class */ (function () {
     BlocksPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-blocks',template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/pages/blocks/blocks.html"*/'<head-nav [chainNetwork]="chainNetwork"></head-nav>\n<ion-content class="content-container">\n  <ion-grid class="page-content-grid">\n\n    <loader *ngIf="loading" [type]="\'title\'"></loader>\n\n    <div *ngIf="!loading" class="page-content">\n      <h2 class="content-container--heading">Blocks</h2>\n      <latest-blocks [numBlocks]="200" [showTimeAs]="\'timestamp\'" [isHomePage]="true" [chainNetwork]="chainNetwork"></latest-blocks>\n    </div>\n\n  </ion-grid>\n</ion-content>\n<footer [chainNetwork]="chainNetwork"></footer>'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/pages/blocks/blocks.html"*/
+            selector: 'page-blocks',template:/*ion-inline-start:"/home/enrique/smart/sapi-insight/src/pages/blocks/blocks.html"*/'<head-nav [chainNetwork]="chainNetwork"></head-nav>\n<ion-content class="content-container">\n  <ion-grid class="page-content-grid">\n\n    <loader *ngIf="loading" [type]="\'title\'"></loader>\n\n    <div *ngIf="!loading" class="page-content">\n      <h2 class="content-container--heading">Blocks</h2>\n      <latest-blocks [numBlocks]="200" [showTimeAs]="\'timestamp\'" [isHomePage]="true" [chainNetwork]="chainNetwork"></latest-blocks>\n    </div>\n\n  </ion-grid>\n</ion-content>\n<footer [chainNetwork]="chainNetwork"></footer>'/*ion-inline-end:"/home/enrique/smart/sapi-insight/src/pages/blocks/blocks.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */],
@@ -1362,155 +1362,12 @@ var BlocksPage = /** @class */ (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_error_error_module__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_footer_footer_module__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_head_nav_head_nav_module__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_latest_blocks_latest_blocks_module__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_loader_loader_module__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__home__ = __webpack_require__(472);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-
-
-
-var HomePageModule = /** @class */ (function () {
-    function HomePageModule() {
-    }
-    HomePageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            declarations: [__WEBPACK_IMPORTED_MODULE_7__home__["a" /* HomePage */]],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_7__home__["a" /* HomePage */]),
-                __WEBPACK_IMPORTED_MODULE_5__components_latest_blocks_latest_blocks_module__["a" /* LatestBlocksComponentModule */],
-                __WEBPACK_IMPORTED_MODULE_3__components_footer_footer_module__["a" /* FooterComponentModule */],
-                __WEBPACK_IMPORTED_MODULE_4__components_head_nav_head_nav_module__["a" /* HeadNavComponentModule */],
-                __WEBPACK_IMPORTED_MODULE_6__components_loader_loader_module__["a" /* LoaderComponentModule */],
-                __WEBPACK_IMPORTED_MODULE_2__components_error_error_module__["a" /* ErrorComponentModule */]
-            ],
-            exports: [__WEBPACK_IMPORTED_MODULE_7__home__["a" /* HomePage */]]
-        })
-    ], HomePageModule);
-    return HomePageModule;
-}());
-
-//# sourceMappingURL=home.module.js.map
-
-/***/ }),
-
-/***/ 472:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_latest_blocks_latest_blocks__ = __webpack_require__(469);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_currency_currency__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_price_price__ = __webpack_require__(35);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-var HomePage = /** @class */ (function () {
-    function HomePage(nav, navParams, apiProvider, priceProvider, events, currencyProvider) {
-        this.nav = nav;
-        this.navParams = navParams;
-        this.apiProvider = apiProvider;
-        this.priceProvider = priceProvider;
-        this.events = events;
-        this.currencyProvider = currencyProvider;
-        // this.nav.viewWillEnter.subscribe(view => {
-        //   if (view.data.chain === 'ALL') {
-        //     this.load();
-        //   }
-        // });
-        // this.load();
-    }
-    HomePage.prototype.load = function () {
-        // const chain: string =
-        //   this.navParams.get('chain') || this.apiProvider.getConfig().chain;
-        // const network: string =
-        //   this.navParams.get('network') || this.apiProvider.getConfig().network;
-        // this.chainNetwork = {
-        //   chain,
-        //   network
-        // };
-        // if (this.chainNetwork.chain === 'ALL') {
-        //   this.apiProvider.getAvailableNetworks().subscribe(data => {
-        //     const newNetworks = data
-        //       .map(x => x.supported)
-        //       .reduce((agg, arr) => [...agg].concat(arr), []);
-        //     this.availableNetworks = _.filter(newNetworks, o => o.chain !== 'ALL');
-        //   });
-        // }
-        // this.priceProvider.setCurrency();
-        // this.apiProvider.changeNetwork(this.chainNetwork);
-        // this.currencyProvider.setCurrency(this.chainNetwork);
-    };
-    HomePage.prototype.openPage = function (page) {
-        // this.nav.push(page, {
-        //   chain: this.chain,
-        //   network: this.network
-        // });
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('latestBlocks'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__components_latest_blocks_latest_blocks__["a" /* LatestBlocksComponent */])
-    ], HomePage.prototype, "latestBlocks", void 0);
-    HomePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/pages/home/home.html"*/'<head-nav></head-nav>\n\n<ion-content class="content-container">\n    <!-- <div *ngIf="chainNetwork.chain === \'ALL\'"> -->\n        <h2 class="content-container--heading all-coins">Latest Blocks</h2>\n        <ion-grid class="page-content-grid">\n            <ion-row>\n                <ion-col col-md-12 col-12 class="page-content">                    \n                    <latest-blocks [showTimeAs]="\'age\'" [showAllBlocksButton]="true" [numBlocks]="\'5\'" #latestBlocks>\n                    </latest-blocks>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    <!-- </div> -->\n\n    <!-- <div *ngIf="chainNetwork.chain !== \'ALL\'">\n        <ion-grid class="page-content-grid">\n            <ion-row>\n                <ion-col col-12 class="page-content">\n                    <h2 class="content-container--heading">Latest Blocks</h2>\n                    <latest-blocks [showTimeAs]="\'age\'" [showAllBlocksButton]="true" [chainNetwork]="chainNetwork" #latestBlocks>\n                    </latest-blocks>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    </div> -->\n</ion-content>\n<footer></footer>'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/pages/home/home.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_price_price__["a" /* PriceProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_currency_currency__["a" /* CurrencyProvider */]])
-    ], HomePage);
-    return HomePage;
-}());
-
-//# sourceMappingURL=home.js.map
-
-/***/ }),
-
-/***/ 473:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BroadcastTxPageModule", function() { return BroadcastTxPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_footer_footer_module__ = __webpack_require__(71);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_head_nav_head_nav_module__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__broadcast_tx__ = __webpack_require__(474);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__broadcast_tx__ = __webpack_require__(472);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1543,7 +1400,7 @@ var BroadcastTxPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 474:
+/***/ 472:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1625,7 +1482,7 @@ var BroadcastTxPage = /** @class */ (function () {
     BroadcastTxPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-            selector: 'page-broadcast-tx',template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/pages/broadcast-tx/broadcast-tx.html"*/'<head-nav [chainNetwork]="chainNetwork"></head-nav>\n<ion-content>\n  <ion-grid fixed>\n    <div class="page-content">\n      <h1>Broadcast Transaction</h1>\n      <form [formGroup]="txForm">\n        <ion-list>\n          <ion-item>\n            <p>This form can be used to broadcast a raw transaction in hex format over the Bitcoin network.</p>\n          </ion-item>\n\n          <ion-item>\n            <ion-label floating>Raw transaction data</ion-label>\n            <ion-input type="text" [(ngModel)]="transaction" formControlName="rawData"></ion-input>\n          </ion-item>\n\n          <ion-item *ngIf="!txForm.controls.rawData.valid">\n            <p>Raw transaction data must be a valid hexadecimal string.</p>\n          </ion-item>\n\n          <ion-item>\n            <button ion-button outline (click)="send()" [disabled]="!txForm.touched || !txForm.valid">Send\n              transaction</button>\n          </ion-item>\n        </ion-list>\n      </form>\n    </div>\n  </ion-grid>\n</ion-content>\n<footer [chainNetwork]="chainNetwork"></footer>'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/pages/broadcast-tx/broadcast-tx.html"*/
+            selector: 'page-broadcast-tx',template:/*ion-inline-start:"/home/enrique/smart/sapi-insight/src/pages/broadcast-tx/broadcast-tx.html"*/'<head-nav [chainNetwork]="chainNetwork"></head-nav>\n<ion-content>\n  <ion-grid fixed>\n    <div class="page-content">\n      <h1>Broadcast Transaction</h1>\n      <form [formGroup]="txForm">\n        <ion-list>\n          <ion-item>\n            <p>This form can be used to broadcast a raw transaction in hex format over the Bitcoin network.</p>\n          </ion-item>\n\n          <ion-item>\n            <ion-label floating>Raw transaction data</ion-label>\n            <ion-input type="text" [(ngModel)]="transaction" formControlName="rawData"></ion-input>\n          </ion-item>\n\n          <ion-item *ngIf="!txForm.controls.rawData.valid">\n            <p>Raw transaction data must be a valid hexadecimal string.</p>\n          </ion-item>\n\n          <ion-item>\n            <button ion-button outline (click)="send()" [disabled]="!txForm.touched || !txForm.valid">Send\n              transaction</button>\n          </ion-item>\n        </ion-list>\n      </form>\n    </div>\n  </ion-grid>\n</ion-content>\n<footer [chainNetwork]="chainNetwork"></footer>'/*ion-inline-end:"/home/enrique/smart/sapi-insight/src/pages/broadcast-tx/broadcast-tx.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["m" /* ToastController */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */],
@@ -1639,6 +1496,149 @@ var BroadcastTxPage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=broadcast-tx.js.map
+
+/***/ }),
+
+/***/ 473:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_error_error_module__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_footer_footer_module__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_head_nav_head_nav_module__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_latest_blocks_latest_blocks_module__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_loader_loader_module__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__home__ = __webpack_require__(474);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+var HomePageModule = /** @class */ (function () {
+    function HomePageModule() {
+    }
+    HomePageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [__WEBPACK_IMPORTED_MODULE_7__home__["a" /* HomePage */]],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_7__home__["a" /* HomePage */]),
+                __WEBPACK_IMPORTED_MODULE_5__components_latest_blocks_latest_blocks_module__["a" /* LatestBlocksComponentModule */],
+                __WEBPACK_IMPORTED_MODULE_3__components_footer_footer_module__["a" /* FooterComponentModule */],
+                __WEBPACK_IMPORTED_MODULE_4__components_head_nav_head_nav_module__["a" /* HeadNavComponentModule */],
+                __WEBPACK_IMPORTED_MODULE_6__components_loader_loader_module__["a" /* LoaderComponentModule */],
+                __WEBPACK_IMPORTED_MODULE_2__components_error_error_module__["a" /* ErrorComponentModule */]
+            ],
+            exports: [__WEBPACK_IMPORTED_MODULE_7__home__["a" /* HomePage */]]
+        })
+    ], HomePageModule);
+    return HomePageModule;
+}());
+
+//# sourceMappingURL=home.module.js.map
+
+/***/ }),
+
+/***/ 474:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_latest_blocks_latest_blocks__ = __webpack_require__(469);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_currency_currency__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_price_price__ = __webpack_require__(35);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var HomePage = /** @class */ (function () {
+    function HomePage(nav, navParams, apiProvider, priceProvider, events, currencyProvider) {
+        this.nav = nav;
+        this.navParams = navParams;
+        this.apiProvider = apiProvider;
+        this.priceProvider = priceProvider;
+        this.events = events;
+        this.currencyProvider = currencyProvider;
+        // this.nav.viewWillEnter.subscribe(view => {
+        //   if (view.data.chain === 'ALL') {
+        //     this.load();
+        //   }
+        // });
+        // this.load();
+    }
+    HomePage.prototype.load = function () {
+        // const chain: string =
+        //   this.navParams.get('chain') || this.apiProvider.getConfig().chain;
+        // const network: string =
+        //   this.navParams.get('network') || this.apiProvider.getConfig().network;
+        // this.chainNetwork = {
+        //   chain,
+        //   network
+        // };
+        // if (this.chainNetwork.chain === 'ALL') {
+        //   this.apiProvider.getAvailableNetworks().subscribe(data => {
+        //     const newNetworks = data
+        //       .map(x => x.supported)
+        //       .reduce((agg, arr) => [...agg].concat(arr), []);
+        //     this.availableNetworks = _.filter(newNetworks, o => o.chain !== 'ALL');
+        //   });
+        // }
+        // this.priceProvider.setCurrency();
+        // this.apiProvider.changeNetwork(this.chainNetwork);
+        // this.currencyProvider.setCurrency(this.chainNetwork);
+    };
+    HomePage.prototype.openPage = function (page) {
+        // this.nav.push(page, {
+        //   chain: this.chain,
+        //   network: this.network
+        // });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('latestBlocks'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__components_latest_blocks_latest_blocks__["a" /* LatestBlocksComponent */])
+    ], HomePage.prototype, "latestBlocks", void 0);
+    HomePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-home',template:/*ion-inline-start:"/home/enrique/smart/sapi-insight/src/pages/home/home.html"*/'<head-nav></head-nav>\n\n<ion-content class="content-container">\n    <!-- <div *ngIf="chainNetwork.chain === \'ALL\'"> -->\n        <h2 class="content-container--heading all-coins">Latest Blocks</h2>\n        <ion-grid class="page-content-grid">\n            <ion-row>\n                <ion-col col-md-12 col-12 class="page-content">                    \n                    <latest-blocks [showTimeAs]="\'age\'" [showAllBlocksButton]="true" [numBlocks]="\'5\'" #latestBlocks>\n                    </latest-blocks>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    <!-- </div> -->\n\n    <!-- <div *ngIf="chainNetwork.chain !== \'ALL\'">\n        <ion-grid class="page-content-grid">\n            <ion-row>\n                <ion-col col-12 class="page-content">\n                    <h2 class="content-container--heading">Latest Blocks</h2>\n                    <latest-blocks [showTimeAs]="\'age\'" [showAllBlocksButton]="true" [chainNetwork]="chainNetwork" #latestBlocks>\n                    </latest-blocks>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    </div> -->\n</ion-content>\n<footer></footer>'/*ion-inline-end:"/home/enrique/smart/sapi-insight/src/pages/home/home.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_price_price__["a" /* PriceProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_currency_currency__["a" /* CurrencyProvider */]])
+    ], HomePage);
+    return HomePage;
+}());
+
+//# sourceMappingURL=home.js.map
 
 /***/ }),
 
@@ -1977,111 +1977,6 @@ var RedirProvider = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddressPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_address_address__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_currency_currency__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_price_price__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_transactions_transactions__ = __webpack_require__(50);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-var AddressPage = /** @class */ (function () {
-    function AddressPage(navParams, currencyProvider, txProvider, apiProvider, priceProvider, addrProvider, events) {
-        this.navParams = navParams;
-        this.currencyProvider = currencyProvider;
-        this.txProvider = txProvider;
-        this.apiProvider = apiProvider;
-        this.priceProvider = priceProvider;
-        this.addrProvider = addrProvider;
-        this.events = events;
-        this.loading = true;
-        this.address = {};
-        this.reward = {};
-        this.nroTransactions = 0;
-        this.addrStr = navParams.get('addrStr');
-        this.priceProvider.setCurrency();
-    }
-    AddressPage.prototype.ionViewWillLoad = function () {
-        var _this = this;
-        this.events.subscribe('CoinList', function (d) {
-            _this.nroTransactions = d.length;
-        });
-        this.addrProvider
-            .getAddressBalance(this.addrStr)
-            .subscribe(function (data) {
-            _this.address = {
-                balance: data.balance || 0,
-                sent: data.sent || 0,
-                received: data.received || 0,
-                confirmed: data.confirmed || 0,
-                unconfirmed: data.unconfirmed,
-                addrStr: _this.addrStr
-            };
-            _this.loading = false;
-        }, function (err) {
-            _this.errorMessage = err;
-            _this.loading = false;
-        });
-        this.addrProvider
-            .getAddressReward(this.addrStr)
-            .subscribe(function (data) {
-            _this.reward = {
-                balance: data.balance || 0,
-                balance_eligible: data.balance_eligible || 0,
-                is_smartnode: data.is_smartnode || 0,
-                activated: (data.activated) === 1 ? 'yes' : 'no',
-                eligible: data.eligible,
-                address: data.address
-            };
-            _this.loading = false;
-        }, function (err) {
-            _this.errorMessage = JSON.parse(err).message;
-            _this.loading = false;
-        });
-    };
-    AddressPage.prototype.getConvertedNumber = function (n) {
-        return this.currencyProvider.getConvertedNumber(n);
-    };
-    AddressPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-address',template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/pages/address/address.html"*/'<head-nav></head-nav>\n<ion-content>\n    <ion-grid fixed>\n        <div class="page-content">\n            <loader *ngIf="loading" [type]="\'title\'"></loader>\n\n\n            <div *ngIf="!loading">\n\n                <h1 class="content-container--heading">Address <small>{{ address.balance }}\n                        {{ currencyProvider.currencySymbol }}</small>\n                </h1>\n                <p class="ellipsis">{{ address.addrStr }}\n                    <button [copyToClipboard]="address.addrStr">\n                        <ion-icon md="md-copy"></ion-icon>\n                    </button>\n                </p>\n\n                <h2>Summary</h2>\n                <ion-grid>\n                    <ion-row align-items-start justify-content-center>\n                        <ion-col>\n                            <ion-list class="list--summary">\n                                <ion-item>\n                                    Total Received\n                                    <ion-note item-end>\n                                        {{ address.received }} {{ currencyProvider.currencySymbol }}\n                                    </ion-note>\n                                </ion-item>\n\n                                <ion-item>\n                                    Total Sent\n                                    <ion-note item-end>\n                                        {{ address.sent }} {{ currencyProvider.currencySymbol }}\n                                    </ion-note>\n                                </ion-item>\n\n                                <ion-item>\n                                    Final Balance\n                                    <ion-note item-end>\n                                        {{ address.balance }} {{ currencyProvider.currencySymbol }}\n                                    </ion-note>\n                                </ion-item>\n\n                                <!-- <ion-item *ngIf="address.unconfirmed > 0">\n                  Unconfirmed Balance\n                  <ion-note item-end>\n                    {{ getConvertedNumber(address.unconfirmed) | number:\'1.0-8\' }} {{ currencyProvider.currencySymbol }}\n                  </ion-note>\n                </ion-item> -->\n\n                                <!-- <ion-item>\n                  Nro. Transactions\n                  <ion-note item-end>\n                    {{ nroTransactions || 0 }}\n                  </ion-note>\n                </ion-item> -->\n\n                                <ion-item>\n                                    Is active for rewards\n                                    <ion-note item-end>\n                                        {{ reward.activated }}\n                                    </ion-note>\n                                </ion-item>\n                                <ion-item>\n                                    Balance eligible for rewards\n                                    <ion-note item-end>\n                                        {{ reward.balance_eligible || 0 }}\n                                    </ion-note>\n                                </ion-item>\n                            </ion-list>\n                        </ion-col>\n                        <ion-col col-auto text-center>\n                            <qr-code [value]="address.addrStr" [size]="160"></qr-code>\n                            <br />\n                            <img *ngIf="reward.activated && reward.balance_eligible>1000 && reward.balance_eligible<1000000"\n                                src="https://contattafiles.s3.us-west-1.amazonaws.com/tnt19836/2185nbLSm5JHuAj/457861.png" />\n                            <img *ngIf="reward.activated && reward.balance_eligible>=1000000"\n                                src="https://contattafiles.s3.us-west-1.amazonaws.com/tnt19836/lCyEE1RhD8AMjfV/4578621.png" />\n                        </ion-col>\n                    </ion-row>\n                </ion-grid>\n\n                <error class="error-message" message="{{errorMessage}}" *ngIf="errorMessage"></error>\n                <div class="error-warning" *ngIf="errorMessage">\n                    <ul>\n                        <li>1) You are using Coinomi. I know!</li>\n                        <li>2) Coinomi creates 1 NEW address after each transaction</li>\n                        <li>3) That is not your REWARDs address!</li>\n                        <li>4) Go to receive tab and click on Previous addresses</li>\n                        <li>5) Find the right address</li>\n                    </ul>\n\n                </div>\n\n                <h1 *ngIf="!errorMessage">Transactions</h1>\n                <transaction-list [queryType]="\'address\'" [queryValue]="addrStr" *ngIf="!errorMessage">\n                </transaction-list>\n            </div>\n        </div>\n    </ion-grid>\n</ion-content>\n<footer></footer>\n'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/pages/address/address.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_currency_currency__["a" /* CurrencyProvider */],
-            __WEBPACK_IMPORTED_MODULE_6__providers_transactions_transactions__["a" /* TxsProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_price_price__["a" /* PriceProvider */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_address_address__["a" /* AddressProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]])
-    ], AddressPage);
-    return AddressPage;
-}());
-
-//# sourceMappingURL=address.js.map
-
-/***/ }),
-
-/***/ 515:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BlockDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
@@ -2162,7 +2057,7 @@ var BlockDetailPage = /** @class */ (function () {
     BlockDetailPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-block-detail',template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/pages/block-detail/block-detail.html"*/'<head-nav [chainNetwork]="chainNetwork"></head-nav>\n<ion-content>\n  <ion-grid fixed>\n\n    <div class="page-content">\n\n      <loader *ngIf="loading" [type]="\'title\'"></loader>\n\n      <error [message]="errorMessage" *ngIf="!loading && errorMessage"></error>\n\n      <div *ngIf="!loading && !errorMessage">\n\n        <h1 class="content-container--heading">Block #{{ block.height }}</h1>\n        <p class="item-hash">\n          <b>Block Hash</b> {{ block.hash }} <button [copyToClipboard]="block.hash">\n            <ion-icon md="md-copy"></ion-icon>\n          </button>\n        </p>\n\n        <h2>Summary</h2>\n\n        <ion-list *ngIf="!loading" class="list--summary">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-12 col-md class="allow-truncated-text">\n                <block-summary [block]="block"></block-summary>\n                <!-- <block-summary-eth *ngIf="chainNetwork.chain === \'ETH\'" [block]="block" [chainNetwork]="chainNetwork"></block-summary-eth> -->\n                <ion-item>\n                  Number of Transactions\n                  <ion-note item-end>\n                    {{ block.tx.length }}\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Height\n                  <ion-note item-end>\n                    {{ block.height }}\n                    <span [hidden]="!block.isMainChain">(Mainchain)</span>\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Block Reward\n                  <ion-note item-end>\n                    <!-- {{ currencyProvider.getConvertedNumber(block.reward, chainNetwork.chain) | number }} -->\n                    {{ currencyProvider.currencySymbol }}\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Timestamp\n                  <ion-note item-end>\n                    {{ block.time * 1000 | date:\'long\' }}\n                  </ion-note>\n                </ion-item>\n          <!-- TODO      <ion-item>\n                  Mined by\n                  <ion-note item-end *ngIf="block.poolInfo">\n                    <a href="{{ block.poolInfo.url }}">{{ block.poolInfo.poolName }}</a>\n                  </ion-note>\n                </ion-item> -->\n              </ion-col>\n              <ion-col col-12 col-md class="allow-truncated-text">\n                <ion-item>\n                  Difficulty\n                  <ion-note item-end>\n                    {{ block.difficulty }}\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Size (bytes)\n                  <ion-note item-end>\n                    {{ block.size }}\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Nonce\n                  <ion-note item-end>\n                    {{ block.nonce }}\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Previous Block\n                  <ion-note item-end>\n                    <a (click)="goToPreviousBlock()"\n                      [ngClass]="{\'disabled-link\': block.height - 1 === 0 }">{{ block.height - 1 }}</a>\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Next Block\n                  <ion-note item-end>\n                    <a (click)="goToNextBlock()"\n                      [ngClass]="{\'disabled-link\': !block.nextblockhash }">{{ block.height + 1 }}</a>\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Confirmations\n                  <ion-note item-end>\n                    {{ confirmations }}\n                  </ion-note>\n                </ion-item>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </ion-list>\n\n        <h2>Transactions</h2>\n        <transaction-list [blocktime]="block.time" [queryType]="\'blockHash\'" [queryValue]="block.hash">\n        </transaction-list>\n      </div>\n\n    </div>\n  </ion-grid>\n</ion-content>\n<footer [chainNetwork]="chainNetwork"></footer>\n'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/pages/block-detail/block-detail.html"*/
+            selector: 'page-block-detail',template:/*ion-inline-start:"/home/enrique/smart/sapi-insight/src/pages/block-detail/block-detail.html"*/'<head-nav [chainNetwork]="chainNetwork"></head-nav>\n<ion-content>\n  <ion-grid fixed>\n\n    <div class="page-content">\n\n      <loader *ngIf="loading" [type]="\'title\'"></loader>\n\n      <error [message]="errorMessage" *ngIf="!loading && errorMessage"></error>\n\n      <div *ngIf="!loading && !errorMessage">\n\n        <h1 class="content-container--heading">Block #{{ block.height }}</h1>\n        <p class="item-hash">\n          <b>Block Hash</b> {{ block.hash }} <button [copyToClipboard]="block.hash">\n            <ion-icon md="md-copy"></ion-icon>\n          </button>\n        </p>\n\n        <h2>Summary</h2>\n\n        <ion-list *ngIf="!loading" class="list--summary">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-12 col-md class="allow-truncated-text">\n                <block-summary [block]="block"></block-summary>\n                <!-- <block-summary-eth *ngIf="chainNetwork.chain === \'ETH\'" [block]="block" [chainNetwork]="chainNetwork"></block-summary-eth> -->\n                <ion-item>\n                  Number of Transactions\n                  <ion-note item-end>\n                    {{ block.tx.length }}\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Height\n                  <ion-note item-end>\n                    {{ block.height }}\n                    <span [hidden]="!block.isMainChain">(Mainchain)</span>\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Block Reward\n                  <ion-note item-end>\n                    <!-- {{ currencyProvider.getConvertedNumber(block.reward, chainNetwork.chain) | number }} -->\n                    {{ currencyProvider.currencySymbol }}\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Timestamp\n                  <ion-note item-end>\n                    {{ block.time * 1000 | date:\'long\' }}\n                  </ion-note>\n                </ion-item>\n          <!-- TODO      <ion-item>\n                  Mined by\n                  <ion-note item-end *ngIf="block.poolInfo">\n                    <a href="{{ block.poolInfo.url }}">{{ block.poolInfo.poolName }}</a>\n                  </ion-note>\n                </ion-item> -->\n              </ion-col>\n              <ion-col col-12 col-md class="allow-truncated-text">\n                <ion-item>\n                  Difficulty\n                  <ion-note item-end>\n                    {{ block.difficulty }}\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Size (bytes)\n                  <ion-note item-end>\n                    {{ block.size }}\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Nonce\n                  <ion-note item-end>\n                    {{ block.nonce }}\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Previous Block\n                  <ion-note item-end>\n                    <a (click)="goToPreviousBlock()"\n                      [ngClass]="{\'disabled-link\': block.height - 1 === 0 }">{{ block.height - 1 }}</a>\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Next Block\n                  <ion-note item-end>\n                    <a (click)="goToNextBlock()"\n                      [ngClass]="{\'disabled-link\': !block.nextblockhash }">{{ block.height + 1 }}</a>\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Confirmations\n                  <ion-note item-end>\n                    {{ confirmations }}\n                  </ion-note>\n                </ion-item>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </ion-list>\n\n        <h2>Transactions</h2>\n        <transaction-list [blocktime]="block.time" [queryType]="\'blockHash\'" [queryValue]="block.hash">\n        </transaction-list>\n      </div>\n\n    </div>\n  </ion-grid>\n</ion-content>\n<footer [chainNetwork]="chainNetwork"></footer>\n'/*ion-inline-end:"/home/enrique/smart/sapi-insight/src/pages/block-detail/block-detail.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_4__providers_currency_currency__["a" /* CurrencyProvider */],
@@ -2179,7 +2074,7 @@ var BlockDetailPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 516:
+/***/ 515:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2254,7 +2149,7 @@ var TransactionPage = /** @class */ (function () {
     TransactionPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-transaction',template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/pages/transaction/transaction.html"*/'<head-nav></head-nav>\n<ion-content>\n  <ion-grid fixed>\n\n    <div class="page-content">\n\n      <loader *ngIf="loading" [type]="\'title\'"></loader>\n\n      <error [message]="errorMessage" *ngIf="!loading && errorMessage && confirmations !== -3 "></error>\n\n      <div *ngIf="(!loading && !errorMessage) || confirmations === -3">\n        <h1 ion-text class="content-container--heading">\n          Transaction\n          <ion-note *ngIf="vout !== undefined">\n            <span class="tx-note" ion-text *ngIf="fromVout">Output {{ vout }}</span>\n            <span class="tx-note" ion-text *ngIf="!fromVout">Input {{ vout }}</span>\n          </ion-note>\n        </h1>\n\n        <p class="item-hash">\n          <b>Transaction Hash</b> {{ tx.txid }} <button [copyToClipboard]="tx.txid">\n            <ion-icon md="md-copy"></ion-icon>\n          </button>\n        </p>\n\n        <h2>Summary</h2>\n\n        <error [message]="errorMessage" *ngIf="!loading && errorMessage"></error>\n\n        <ion-list class="list--summary">\n\n          <transaction-summary [tx]="tx"></transaction-summary>\n          <!-- <transaction-summary-eth *ngIf="chainNetwork.chain === \'ETH\'" [tx]="tx" [chainNetwork]="chainNetwork"></transaction-summary-eth> -->\n\n          <ion-item>\n            Received Time\n            <ion-note item-end>\n              {{ tx.blockTime * 1000 | date:\'long\' }}\n            </ion-note>\n          </ion-item>\n          <ion-item>\n            Included in Block\n            <ion-note item-end>\n              <a (click)="goToBlock(tx.blockHash)">{{ tx.blockHash }}</a>\n            </ion-note>\n            <ion-note *ngIf="tx.confirmations === -3" item-end>\n              Invalid\n            </ion-note>\n            <ion-note *ngIf="tx.confirmations === -1" item-end>\n              Unconfirmed\n            </ion-note>\n          </ion-item>\n        </ion-list>\n\n        <h2>Details</h2>\n\n        <transaction-details [tx]="tx" [showCoins]="true"></transaction-details>\n        <!-- <transaction-details-eth *ngIf="chainNetwork.chain === \'ETH\'" [tx]="tx" [showCoins]="true" [chainNetwork]="chainNetwork"></transaction-details-eth> -->\n      </div>\n\n    </div>\n\n  </ion-grid>\n</ion-content>\n<footer></footer>\n'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/pages/transaction/transaction.html"*/
+            selector: 'page-transaction',template:/*ion-inline-start:"/home/enrique/smart/sapi-insight/src/pages/transaction/transaction.html"*/'<head-nav></head-nav>\n<ion-content>\n  <ion-grid fixed>\n\n    <div class="page-content">\n\n      <loader *ngIf="loading" [type]="\'title\'"></loader>\n\n      <error [message]="errorMessage" *ngIf="!loading && errorMessage && confirmations !== -3 "></error>\n\n      <div *ngIf="(!loading && !errorMessage) || confirmations === -3">\n        <h1 ion-text class="content-container--heading">\n          Transaction\n          <ion-note *ngIf="vout !== undefined">\n            <span class="tx-note" ion-text *ngIf="fromVout">Output {{ vout }}</span>\n            <span class="tx-note" ion-text *ngIf="!fromVout">Input {{ vout }}</span>\n          </ion-note>\n        </h1>\n\n        <p class="item-hash">\n          <b>Transaction Hash</b> {{ tx.txid }} <button [copyToClipboard]="tx.txid">\n            <ion-icon md="md-copy"></ion-icon>\n          </button>\n        </p>\n\n        <h2>Summary</h2>\n\n        <error [message]="errorMessage" *ngIf="!loading && errorMessage"></error>\n\n        <ion-list class="list--summary">\n\n          <transaction-summary [tx]="tx"></transaction-summary>\n          <!-- <transaction-summary-eth *ngIf="chainNetwork.chain === \'ETH\'" [tx]="tx" [chainNetwork]="chainNetwork"></transaction-summary-eth> -->\n\n          <ion-item>\n            Received Time\n            <ion-note item-end>\n              {{ tx.blockTime * 1000 | date:\'long\' }}\n            </ion-note>\n          </ion-item>\n          <ion-item>\n            Included in Block\n            <ion-note item-end>\n              <a (click)="goToBlock(tx.blockHash)">{{ tx.blockHash }}</a>\n            </ion-note>\n            <ion-note *ngIf="tx.confirmations === -3" item-end>\n              Invalid\n            </ion-note>\n            <ion-note *ngIf="tx.confirmations === -1" item-end>\n              Unconfirmed\n            </ion-note>\n          </ion-item>\n        </ion-list>\n\n        <h2>Details</h2>\n\n        <transaction-details [tx]="tx" [showCoins]="true"></transaction-details>\n        <!-- <transaction-details-eth *ngIf="chainNetwork.chain === \'ETH\'" [tx]="tx" [showCoins]="true" [chainNetwork]="chainNetwork"></transaction-details-eth> -->\n      </div>\n\n    </div>\n\n  </ion-grid>\n</ion-content>\n<footer></footer>\n'/*ion-inline-end:"/home/enrique/smart/sapi-insight/src/pages/transaction/transaction.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3__providers_currency_currency__["a" /* CurrencyProvider */],
@@ -2267,6 +2162,111 @@ var TransactionPage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=transaction.js.map
+
+/***/ }),
+
+/***/ 516:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddressPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_address_address__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_currency_currency__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_price_price__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_transactions_transactions__ = __webpack_require__(50);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var AddressPage = /** @class */ (function () {
+    function AddressPage(navParams, currencyProvider, txProvider, apiProvider, priceProvider, addrProvider, events) {
+        this.navParams = navParams;
+        this.currencyProvider = currencyProvider;
+        this.txProvider = txProvider;
+        this.apiProvider = apiProvider;
+        this.priceProvider = priceProvider;
+        this.addrProvider = addrProvider;
+        this.events = events;
+        this.loading = true;
+        this.address = {};
+        this.reward = {};
+        this.nroTransactions = 0;
+        this.addrStr = navParams.get('addrStr');
+        this.priceProvider.setCurrency();
+    }
+    AddressPage.prototype.ionViewWillLoad = function () {
+        var _this = this;
+        this.events.subscribe('CoinList', function (d) {
+            _this.nroTransactions = d.length;
+        });
+        this.addrProvider
+            .getAddressBalance(this.addrStr)
+            .subscribe(function (data) {
+            _this.address = {
+                balance: data.balance || 0,
+                sent: data.sent || 0,
+                received: data.received || 0,
+                confirmed: data.confirmed || 0,
+                unconfirmed: data.unconfirmed,
+                addrStr: _this.addrStr
+            };
+            _this.loading = false;
+        }, function (err) {
+            _this.errorMessage = err;
+            _this.loading = false;
+        });
+        this.addrProvider
+            .getAddressReward(this.addrStr)
+            .subscribe(function (data) {
+            _this.reward = {
+                balance: data.balance || 0,
+                balance_eligible: data.balance_eligible || 0,
+                is_smartnode: data.is_smartnode || 0,
+                activated: data.activated,
+                eligible: data.eligible,
+                address: data.address
+            };
+            _this.loading = false;
+        }, function (err) {
+            _this.errorMessage = JSON.parse(err).message;
+            _this.loading = false;
+        });
+    };
+    AddressPage.prototype.getConvertedNumber = function (n) {
+        return this.currencyProvider.getConvertedNumber(n);
+    };
+    AddressPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-address',template:/*ion-inline-start:"/home/enrique/smart/sapi-insight/src/pages/address/address.html"*/'<head-nav></head-nav>\n<ion-content>\n    <ion-grid fixed>\n        <div class="page-content">\n            <loader *ngIf="loading" [type]="\'title\'"></loader>\n\n\n            <div *ngIf="!loading">\n\n                <h1 class="content-container--heading">Address <small>{{ address.balance }}\n                        {{ currencyProvider.currencySymbol }}</small>\n                </h1>\n                <p class="ellipsis">{{ address.addrStr }}\n                    <button [copyToClipboard]="address.addrStr">\n                        <ion-icon md="md-copy"></ion-icon>\n                    </button>\n                </p>\n\n                <h2>Summary</h2>\n                <ion-grid>\n                    <ion-row align-items-start justify-content-center>\n                        <ion-col>\n                            <ion-list class="list--summary">\n                                <ion-item>\n                                    Total Received\n                                    <ion-note item-end>\n                                        {{ address.received }} {{ currencyProvider.currencySymbol }}\n                                    </ion-note>\n                                </ion-item>\n\n                                <ion-item>\n                                    Total Sent\n                                    <ion-note item-end>\n                                        {{ address.sent }} {{ currencyProvider.currencySymbol }}\n                                    </ion-note>\n                                </ion-item>\n\n                                <ion-item>\n                                    Final Balance\n                                    <ion-note item-end>\n                                        {{ address.balance }} {{ currencyProvider.currencySymbol }}\n                                    </ion-note>\n                                </ion-item>\n\n                                <!-- <ion-item *ngIf="address.unconfirmed > 0">\n                  Unconfirmed Balance\n                  <ion-note item-end>\n                    {{ getConvertedNumber(address.unconfirmed) | number:\'1.0-8\' }} {{ currencyProvider.currencySymbol }}\n                  </ion-note>\n                </ion-item> -->\n\n                                <!-- <ion-item>\n                  Nro. Transactions\n                  <ion-note item-end>\n                    {{ nroTransactions || 0 }}\n                  </ion-note>\n                </ion-item> -->\n\n                                <ion-item>\n                                    Is active for rewards\n                                    <ion-note item-end>\n                                        {{ reward.activated }}\n                                    </ion-note>\n                                </ion-item>\n                                <ion-item>\n                                    Balance eligible for rewards\n                                    <ion-note item-end>\n                                        {{ reward.balance_eligible || 0 }}\n                                    </ion-note>\n                                </ion-item>\n                            </ion-list>\n                        </ion-col>\n                        <ion-col col-auto text-center>\n                            <qr-code [value]="address.addrStr" [size]="160"></qr-code>\n                            <br />\n                            <img *ngIf="reward.activated && reward.balance_eligible>1000 && reward.balance_eligible<1000000"\n                                src="https://contattafiles.s3.us-west-1.amazonaws.com/tnt19836/2185nbLSm5JHuAj/457861.png" />\n                            <img *ngIf="reward.activated && reward.balance_eligible>=1000000"\n                                src="https://contattafiles.s3.us-west-1.amazonaws.com/tnt19836/lCyEE1RhD8AMjfV/4578621.png" />\n                        </ion-col>\n                    </ion-row>\n                </ion-grid>\n\n                <error class="error-message" message="{{errorMessage}}" *ngIf="errorMessage"></error>\n                <div class="error-warning" *ngIf="errorMessage">\n                    <ul>\n                        <li>1) If you are using Coinomi. Double check if it is not a new address.</li>\n                        <li>2) Coinomi creates 1 NEW address after each transaction</li>\n                        <li>3) That is not your REWARDs address!</li>\n                        <li>4) Go to receive tab and click on Previous addresses</li>\n                        <li>5) Find the right address</li>\n                    </ul>\n\n                </div>\n\n                <h1 *ngIf="!errorMessage">Transactions</h1>\n                <transaction-list [queryType]="\'address\'" [queryValue]="addrStr" *ngIf="!errorMessage">\n                </transaction-list>\n            </div>\n        </div>\n    </ion-grid>\n</ion-content>\n<footer></footer>\n'/*ion-inline-end:"/home/enrique/smart/sapi-insight/src/pages/address/address.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_currency_currency__["a" /* CurrencyProvider */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_transactions_transactions__["a" /* TxsProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* ApiProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_price_price__["a" /* PriceProvider */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_address_address__["a" /* AddressProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]])
+    ], AddressPage);
+    return AddressPage;
+}());
+
+//# sourceMappingURL=address.js.map
 
 /***/ }),
 
@@ -2349,13 +2349,13 @@ var AppModule = /** @class */ (function () {
                     animate: false
                 }, {
                     links: [
-                        { loadChildren: '../pages/address/address.module#AddressPageModule', name: 'address', segment: 'address/:addrStr', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/block-detail/block-detail.module#BlockDetailPageModule', name: 'block-detail', segment: 'block/:blockHash', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/blocks/blocks.module#BlocksPageModule', name: 'blocks', segment: 'blocks', priority: 'low', defaultHistory: ['home'] },
+                        { loadChildren: '../pages/broadcast-tx/broadcast-tx.module#BroadcastTxPageModule', name: 'broadcast-tx', segment: 'broadcast-tx', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'home', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'search', segment: 'search', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/transaction/transaction.module#TransactionPageModule', name: 'transaction', segment: 'tx/:txId', priority: 'low', defaultHistory: ['home'] },
-                        { loadChildren: '../pages/broadcast-tx/broadcast-tx.module#BroadcastTxPageModule', name: 'broadcast-tx', segment: 'broadcast-tx', priority: 'low', defaultHistory: ['home'] }
+                        { loadChildren: '../pages/address/address.module#AddressPageModule', name: 'address', segment: 'address/:addrStr', priority: 'low', defaultHistory: ['home'] }
                     ]
                 })
             ],
@@ -2394,8 +2394,8 @@ var AppModule = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FooterComponentModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__denomination_denomination_module__ = __webpack_require__(320);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__footer__ = __webpack_require__(822);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__denomination_denomination_module__ = __webpack_require__(319);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__footer__ = __webpack_require__(821);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2430,8 +2430,8 @@ var FooterComponentModule = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeadNavComponentModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__denomination_denomination_module__ = __webpack_require__(320);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__head_nav__ = __webpack_require__(823);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__denomination_denomination_module__ = __webpack_require__(319);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__head_nav__ = __webpack_require__(822);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2463,41 +2463,6 @@ var HeadNavComponentModule = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoaderComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var LoaderComponent = /** @class */ (function () {
-    function LoaderComponent() {
-    }
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-        __metadata("design:type", String)
-    ], LoaderComponent.prototype, "type", void 0);
-    LoaderComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'loader',template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/components/loader/loader.html"*/'<div *ngIf="type == \'title\'">\n  <h1 class="title animated-background"></h1>\n  <p class="subtitle animated-background"></p>\n</div>\n\n<ion-row *ngIf="type == \'grid\'">\n  <ion-col col-2>\n    <div class="left-item animated-background"></div>\n  </ion-col>\n  <ion-col col-4>\n    <div class="right-item animated-background"></div>\n  </ion-col>\n  <ion-col text-right>\n    <div class="right-item animated-background"></div>\n  </ion-col>\n  <ion-col col-2 hideWhen="portrait">\n    <div class="animated-background"></div>\n  </ion-col>\n  <ion-col col-2 text-right>\n    <div class="right-item animated-background"></div>\n  </ion-col>\n</ion-row>\n\n<div *ngIf="type == \'tx-list\' || type == \'tx-full-list\'" class="box-loader">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-7>\n        <div class="left-item animated-background"></div>\n      </ion-col>\n      <ion-col col-5 text-right>\n        <ion-note>\n          <div class="right-item animated-background"></div>\n        </ion-note>\n      </ion-col>\n    </ion-row>\n\n    <ion-row align-items-end class="small" *ngIf="type == \'tx-full-list\'">\n      <ion-col col-12 text-right text-uppercase>\n        <ion-chip class="animated-background">\n        </ion-chip>\n        <ion-chip class="animated-background">\n        </ion-chip>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</div>'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/components/loader/loader.html"*/
-        })
-    ], LoaderComponent);
-    return LoaderComponent;
-}());
-
-//# sourceMappingURL=loader.js.map
-
-/***/ }),
-
-/***/ 821:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ErrorComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2519,7 +2484,7 @@ var ErrorComponent = /** @class */ (function () {
     ], ErrorComponent.prototype, "message", void 0);
     ErrorComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'error',template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/components/error/error.html"*/'<ion-row class="error-message">\n  <ion-col col-12>\n    {{ message }}\n  </ion-col>\n</ion-row>'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/components/error/error.html"*/
+            selector: 'error',template:/*ion-inline-start:"/home/enrique/smart/sapi-insight/src/components/error/error.html"*/'<ion-row class="error-message">\n  <ion-col col-12>\n    {{ message }}\n  </ion-col>\n</ion-row>'/*ion-inline-end:"/home/enrique/smart/sapi-insight/src/components/error/error.html"*/
         })
     ], ErrorComponent);
     return ErrorComponent;
@@ -2529,7 +2494,7 @@ var ErrorComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 822:
+/***/ 821:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2564,7 +2529,7 @@ var FooterComponent = /** @class */ (function () {
     FooterComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'footer',template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/components/footer/footer.html"*/'<ion-footer>\n  <ion-toolbar fixed color="dark">\n    <div class="pages">\n      <!-- <a *ngIf="chainNetwork" (click)="openPage(\'broadcast-tx\')">Broadcast Transaction</a> -->\n    </div>\n    <div class="about">\n      <a href="https://github.com/bitpay/bitcore/tree/master/packages/insight" target="_blank">\n        <span class="logo">smartcash</span>\n        <span class="version">v1.0.0</span>\n      </a>\n    </div>\n  </ion-toolbar>\n</ion-footer>'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/components/footer/footer.html"*/
+            selector: 'footer',template:/*ion-inline-start:"/home/enrique/smart/sapi-insight/src/components/footer/footer.html"*/'<ion-footer>\n  <ion-toolbar fixed color="dark">\n    <div class="pages">\n      <!-- <a *ngIf="chainNetwork" (click)="openPage(\'broadcast-tx\')">Broadcast Transaction</a> -->\n    </div>\n    <div class="about">\n      <a href="https://github.com/bitpay/bitcore/tree/master/packages/insight" target="_blank">\n        <span class="logo">smartcash</span>\n        <span class="version">v1.3</span>\n      </a>\n    </div>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/home/enrique/smart/sapi-insight/src/components/footer/footer.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */]])
     ], FooterComponent);
@@ -2575,7 +2540,7 @@ var FooterComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 823:
+/***/ 822:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2590,7 +2555,7 @@ var FooterComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_price_price__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_redir_redir__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_search_search__ = __webpack_require__(322);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__denomination_denomination__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__denomination_denomination__ = __webpack_require__(320);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2781,7 +2746,7 @@ var HeadNavComponent = /** @class */ (function () {
     ], HeadNavComponent.prototype, "chainNetwork", void 0);
     HeadNavComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'head-nav',template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/components/head-nav/head-nav.html"*/'<ion-header no-border>\n  <ion-navbar color="bp-blue" class="nav-container" hideBackButton>\n    <ion-title (click)="goHome()" class="logo-header"><img src="../../assets/img/smartlogo.png" class="img-logo" alt="SMARTCASH" /></ion-title>\n    <!--search bar -->\n    <form class="search" (ngSubmit)="search()">\n      <div class="input-container">\n        <div class="search-image-container">\n          <img class="search-image" src="assets/img/search-icon.svg">\n        </div>\n        <input dir="auto" placeholder="{{ \'Search for block, transaction or address\' }}" [(ngModel)]="q" name="search" autocomplete="off" autocorrect="off" spellcheck="false">\n      </div>\n    </form>\n\n    <!--network selector -->\n    <!-- <ion-buttons>\n      <button ion-button (click)="changeCurrency($event)" class="cn-button hover-lite">\n        <ion-icon class="currency-icon" name="logo-bitcoin" *ngIf="(chainNetwork.chain === \'BTC\' || chainNetwork.chain === \'BCH\') && currencyProvider?.currencySymbol !== \'USD\'"></ion-icon>\n        <ion-icon class="currency-icon" name="logo-usd" *ngIf="currencyProvider?.currencySymbol === \'USD\'"></ion-icon>\n        <img src="assets/img/ethicon.svg" *ngIf="chainNetwork.chain === \'ETH\' && currencyProvider?.currencySymbol !== \'USD\'" width="12">\n        <span class="currency-symbol" *ngIf="chainNetwork?.chain !== \'ALL\'">{{ currencyProvider?.currencySymbol }}</span>\n        <span class="currency-symbol" *ngIf="chainNetwork?.chain === \'ALL\'">All Blockchains</span>\n        <small class="pill" *ngIf="currencyProvider?.currencySymbol === \'USD\' && chainNetwork?.network === \'testnet\';else networkOnly">{{ chainNetwork?.chain }} - {{ (chainNetwork?.network) }} </small>\n        <ng-template #networkOnly><small class="pill" *ngIf="chainNetwork?.network === \'testnet\'">{{ (chainNetwork?.network) }} </small></ng-template>\n        &nbsp;\n        <ion-icon name="md-arrow-dropdown"></ion-icon>\n      </button>\n    </ion-buttons> -->\n  </ion-navbar>\n\n  <ion-toolbar class="mobile-searchbar" fixed>\n    <form (ngSubmit)="search()">\n      <ion-searchbar #searchbar placeholder="{{ \'Search for block, transaction or address\' }}" [(ngModel)]="q" name="search"></ion-searchbar>\n    </form>\n  </ion-toolbar>\n</ion-header>'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/components/head-nav/head-nav.html"*/
+            selector: 'head-nav',template:/*ion-inline-start:"/home/enrique/smart/sapi-insight/src/components/head-nav/head-nav.html"*/'<ion-header no-border>\n  <ion-navbar color="bp-blue" class="nav-container" hideBackButton>\n    <ion-title (click)="goHome()" class="logo-header"><img src="../../assets/img/smartlogo.png" class="img-logo" alt="SMARTCASH" /></ion-title>\n    <!--search bar -->\n    <form class="search" (ngSubmit)="search()">\n      <div class="input-container">\n        <div class="search-image-container">\n          <img class="search-image" src="assets/img/search-icon.svg">\n        </div>\n        <input dir="auto" placeholder="{{ \'Search for block, transaction or address\' }}" [(ngModel)]="q" name="search" autocomplete="off" autocorrect="off" spellcheck="false">\n      </div>\n    </form>\n\n    <!--network selector -->\n    <!-- <ion-buttons>\n      <button ion-button (click)="changeCurrency($event)" class="cn-button hover-lite">\n        <ion-icon class="currency-icon" name="logo-bitcoin" *ngIf="(chainNetwork.chain === \'BTC\' || chainNetwork.chain === \'BCH\') && currencyProvider?.currencySymbol !== \'USD\'"></ion-icon>\n        <ion-icon class="currency-icon" name="logo-usd" *ngIf="currencyProvider?.currencySymbol === \'USD\'"></ion-icon>\n        <img src="assets/img/ethicon.svg" *ngIf="chainNetwork.chain === \'ETH\' && currencyProvider?.currencySymbol !== \'USD\'" width="12">\n        <span class="currency-symbol" *ngIf="chainNetwork?.chain !== \'ALL\'">{{ currencyProvider?.currencySymbol }}</span>\n        <span class="currency-symbol" *ngIf="chainNetwork?.chain === \'ALL\'">All Blockchains</span>\n        <small class="pill" *ngIf="currencyProvider?.currencySymbol === \'USD\' && chainNetwork?.network === \'testnet\';else networkOnly">{{ chainNetwork?.chain }} - {{ (chainNetwork?.network) }} </small>\n        <ng-template #networkOnly><small class="pill" *ngIf="chainNetwork?.network === \'testnet\'">{{ (chainNetwork?.network) }} </small></ng-template>\n        &nbsp;\n        <ion-icon name="md-arrow-dropdown"></ion-icon>\n      </button>\n    </ion-buttons> -->\n  </ion-navbar>\n\n  <ion-toolbar class="mobile-searchbar" fixed>\n    <form (ngSubmit)="search()">\n      <ion-searchbar #searchbar placeholder="{{ \'Search for block, transaction or address\' }}" [(ngModel)]="q" name="search"></ion-searchbar>\n    </form>\n  </ion-toolbar>\n</ion-header>'/*ion-inline-end:"/home/enrique/smart/sapi-insight/src/components/head-nav/head-nav.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */],
             __WEBPACK_IMPORTED_MODULE_4__providers_currency_currency__["a" /* CurrencyProvider */],
@@ -2799,6 +2764,41 @@ var HeadNavComponent = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=head-nav.js.map
+
+/***/ }),
+
+/***/ 823:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoaderComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var LoaderComponent = /** @class */ (function () {
+    function LoaderComponent() {
+    }
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], LoaderComponent.prototype, "type", void 0);
+    LoaderComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'loader',template:/*ion-inline-start:"/home/enrique/smart/sapi-insight/src/components/loader/loader.html"*/'<div *ngIf="type == \'title\'">\n  <h1 class="title animated-background"></h1>\n  <p class="subtitle animated-background"></p>\n</div>\n\n<ion-row *ngIf="type == \'grid\'">\n  <ion-col col-2>\n    <div class="left-item animated-background"></div>\n  </ion-col>\n  <ion-col col-4>\n    <div class="right-item animated-background"></div>\n  </ion-col>\n  <ion-col text-right>\n    <div class="right-item animated-background"></div>\n  </ion-col>\n  <ion-col col-2 hideWhen="portrait">\n    <div class="animated-background"></div>\n  </ion-col>\n  <ion-col col-2 text-right>\n    <div class="right-item animated-background"></div>\n  </ion-col>\n</ion-row>\n\n<div *ngIf="type == \'tx-list\' || type == \'tx-full-list\'" class="box-loader">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-7>\n        <div class="left-item animated-background"></div>\n      </ion-col>\n      <ion-col col-5 text-right>\n        <ion-note>\n          <div class="right-item animated-background"></div>\n        </ion-note>\n      </ion-col>\n    </ion-row>\n\n    <ion-row align-items-end class="small" *ngIf="type == \'tx-full-list\'">\n      <ion-col col-12 text-right text-uppercase>\n        <ion-chip class="animated-background">\n        </ion-chip>\n        <ion-chip class="animated-background">\n        </ion-chip>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</div>'/*ion-inline-end:"/home/enrique/smart/sapi-insight/src/components/loader/loader.html"*/
+        })
+    ], LoaderComponent);
+    return LoaderComponent;
+}());
+
+//# sourceMappingURL=loader.js.map
 
 /***/ }),
 
@@ -3093,17 +3093,17 @@ webpackContext.id = 825;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(472);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(474);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__home_home__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__address_address__ = __webpack_require__(514);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__address_address__ = __webpack_require__(516);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__block_detail_block_detail__ = __webpack_require__(515);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__block_detail_block_detail__ = __webpack_require__(514);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__blocks_blocks__ = __webpack_require__(470);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__blocks_blocks__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__broadcast_tx_broadcast_tx__ = __webpack_require__(474);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__broadcast_tx_broadcast_tx__ = __webpack_require__(472);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__transaction_transaction__ = __webpack_require__(516);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__transaction_transaction__ = __webpack_require__(515);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_module__ = __webpack_require__(845);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_6__pages_module__["a"]; });
@@ -3131,8 +3131,8 @@ webpackContext.id = 825;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_head_nav_head_nav_module__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_latest_blocks_latest_blocks_module__ = __webpack_require__(145);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_blocks_blocks_module__ = __webpack_require__(323);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__broadcast_tx_broadcast_tx_module__ = __webpack_require__(473);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__home_home_module__ = __webpack_require__(471);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__broadcast_tx_broadcast_tx_module__ = __webpack_require__(471);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__home_home_module__ = __webpack_require__(473);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3365,7 +3365,7 @@ var InsightApp = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */])
     ], InsightApp.prototype, "nav", void 0);
     InsightApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/app/app.html"*/'<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/home/enrique/smart/sapi-insight/src/app/app.html"*/'<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/home/enrique/smart/sapi-insight/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */],
@@ -3385,7 +3385,7 @@ var InsightApp = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoaderComponentModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__loader__ = __webpack_require__(820);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__loader__ = __webpack_require__(823);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3419,7 +3419,7 @@ var LoaderComponentModule = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ErrorComponentModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__error__ = __webpack_require__(821);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__error__ = __webpack_require__(820);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);

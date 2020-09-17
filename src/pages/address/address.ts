@@ -71,7 +71,7 @@ export class AddressPage {
                         balance: data.balance || 0,
                         balance_eligible: data.balance_eligible || 0,
                         is_smartnode: data.is_smartnode || 0,
-                        activated: (data.activated) === 1 ? 'yes' : 'no',
+                        activated: data.activated,
                         eligible: data.eligible,
                         address: data.address
                     };
