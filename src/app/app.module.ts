@@ -12,6 +12,7 @@ import { HttpErrorInterceptor } from '../providers/error-handler/error-handler';
 import { Logger } from '../providers/logger/logger';
 import { PriceProvider } from '../providers/price/price';
 import { RedirProvider } from '../providers/redir/redir';
+import { RewardsProvider } from '../providers/rewards/rewards';
 import { SearchProvider } from '../providers/search/search';
 import { TxsProvider } from '../providers/transactions/transactions';
 import { InsightApp } from './app.component';
@@ -44,7 +45,8 @@ import { InsightApp } from './app.component';
     SearchProvider,
     RedirProvider,
     Logger,
-    AddressProvider
+    AddressProvider,
+    RewardsProvider
   ]
 })
 export class AppModule {}

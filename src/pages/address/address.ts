@@ -60,6 +60,7 @@ export class AddressPage {
                 },
                 err => {
                     this.errorMessage = err;
+                    
                     this.loading = false;
                 }
             );
@@ -78,7 +79,7 @@ export class AddressPage {
                     this.loading = false;
                 },
                 err => {
-                    this.errorMessage = JSON.parse(err).message;
+                   // this.errorMessage = JSON.parse(err).message;                    
                     this.loading = false;
                 }
             );

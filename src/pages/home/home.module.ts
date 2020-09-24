@@ -5,6 +5,7 @@ import { FooterComponentModule } from '../../components/footer/footer.module';
 import { HeadNavComponentModule } from '../../components/head-nav/head-nav.module';
 import { LatestBlocksComponentModule } from '../../components/latest-blocks/latest-blocks.module';
 import { LoaderComponentModule } from '../../components/loader/loader.module';
+import { RewardComponentModule } from '../../components/rewards/rewards.module';
 import { HomePage } from './home';
 
 @NgModule({
@@ -15,7 +16,8 @@ import { HomePage } from './home';
     FooterComponentModule,
     HeadNavComponentModule,
     LoaderComponentModule,
-    ErrorComponentModule
+    ErrorComponentModule,
+    RewardComponentModule
   ],
   exports: [HomePage]
 })
