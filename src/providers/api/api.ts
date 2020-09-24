@@ -146,10 +146,9 @@ export class ApiProvider {
             `http://195.201.22.112:8080/v1/`,
             `http://195.201.22.113:8080/v1/`,
             `http://195.201.22.117:8080/v1/`,
-            `http://195.201.22.101:8080/v1/`,
+            `http://195.201.22.101:8080/v1/`
         ];
 
-        console.log('protocol', window.location.protocol)
         if (window.location.protocol === 'http:') {
             return sapis[random.int(0, sapis.length - 1)];
         }
