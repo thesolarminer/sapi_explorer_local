@@ -5,8 +5,9 @@ import { from } from 'rxjs/observable/from';
 
 @Injectable()
 export class RewardsProvider {
-    private urlSmartRewards = "https://sapi2.smartcash.org/v1/smartrewards/roi";
-    private urlSmartNodes = "https://sapi2.smartcash.org/v1/smartnodes/roi";
+    //TODO: Change this when all SAPIS have 1.3.4
+    private urlSmartRewards = "https://sapi.smartcash.cc/v1/smartrewards/roi";
+    private urlSmartNodes = "https://sapi.smartcash.cc/v1/smartnodes/roi";
 
     constructor(public httpClient: HttpClient) { }
 

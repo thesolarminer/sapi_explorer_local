@@ -6,8 +6,8 @@ import { map } from 'rxjs/operators';
 import { ApiProvider, ChainNetwork } from '../api/api';
 
 @Injectable()
-export class SearchProvider {  
-  private urlSapi = "https://sapi.smartcash.cc/v1/blockchain";
+export class SearchProvider {
+  private urlSapi = `${this.apiProvider.getRandomSapiUrl()}blockchain`;
 
   constructor(
     private apiProvider: ApiProvider,
@@ -46,17 +46,17 @@ export class SearchProvider {
   //   }
   // }
 
-  public search(input: string): Observable<any> {   
-      const searchArray: Array<Observable<any>> = [];            
+  public search(input: string): Observable<any> {
+      const searchArray: Array<Observable<any>> = [];
       searchArray.push(this.searchBlock(input).catch(err => Observable.of(err)));
       searchArray.push(this.searchTx(input).catch(err => Observable.of(err)));
       searchArray.push(this.searchAddr(input).catch(err => Observable.of(err)));
-            
-      return Observable.forkJoin(searchArray);    
+
+      return Observable.forkJoin(searchArray);
   }
 
   public isInputValid(inputValue): Observable<any> {
-      return Observable.of({ isValid: true, type: 'all' });    
+      return Observable.of({ isValid: true, type: 'all' });
   }
 
   private searchBlock(block: string): Observable<{ block: any }> {
@@ -64,12 +64,12 @@ export class SearchProvider {
     return this.httpClient.get<{ block: any }>(url).pipe(map(res => ({ block: res })));
   }
   private searchTx(txid: string): Observable<{ tx: any }> {
-    const url = `https://sapi.smartcash.cc/v1/transaction/check/${txid}`;
+    const url = `${this.apiProvider.getRandomSapiUrl()}transaction/check/${txid}`;
     return this.httpClient.get<{ tx: any }>(url).pipe(map(res => ({ tx: res })));
   }
 
-  private searchAddr(addr: string): Observable<{ addr: any }> {  
-    const url = `https://sapi.smartcash.cc/v1/address/balance/${addr}`;
+  private searchAddr(addr: string): Observable<{ addr: any }> {
+    const url = `${this.apiProvider.getRandomSapiUrl()}address/balance/${addr}`;
     return this.httpClient.get<{ addr: any }>(url).pipe(map(res => ({ addr: res })));
   }
 

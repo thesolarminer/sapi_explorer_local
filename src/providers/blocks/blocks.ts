@@ -59,13 +59,13 @@ export class BlocksProvider {
     public chainNetworkTipValues;
     public currentChainNetwork;
     public tipValue;
-    private urlSapi = "https://sapi.smartcash.cc/v1/blockchain";
-    private urlExplorer = "https://explorer.smartcash.cc/api/blocks";
+    private urlSapi = `${this.apiProvider.getRandomSapiUrl()}blockchain`;
+    private urlExplorer = `https://explorer.smartcash.cc/api/blocks`;
 
     constructor(
         public httpClient: HttpClient,
         public currency: CurrencyProvider,
-        private api: ApiProvider
+        private apiProvider: ApiProvider
     ) { }
 
     public getBlocks(): Observable<AppBlock[]> {

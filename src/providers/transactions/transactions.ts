@@ -202,7 +202,7 @@ export class TxsProvider {
     }
 
     async getTransactionsPerBlock(blockHash: string) {
-        const url = `https://sapi.smartcash.cc/v1/blockchain/block/${blockHash}`;
+        const url = `${this.apiProvider.getRandomSapiUrl()}blockchain/block/${blockHash}`;
         let block: AppBlock;
         let txs: ApiTx[] = [];
 
@@ -216,7 +216,7 @@ export class TxsProvider {
     }
     async getTransactionsPerAddress(address: string) {
 
-        const url = `https://sapi.smartcash.cc/v1/address/transactions/${address}`;
+        const url = `${this.apiProvider.getRandomSapiUrl()}address/transactions/${address}`;
 
         let txs: ApiTx[] = [];
 
@@ -281,12 +281,12 @@ export class TxsProvider {
     }
 
     public async getUnmappedTxByAddress(addrStr: string) {
-        const url = `https://sapi.smartcash.cc/v1/address/transactions/${addrStr}`;
+        const url = `${this.apiProvider.getRandomSapiUrl()}address/transactions/${addrStr}`;
         return this.httpClient.get<any>(url).toPromise();
     }
 
     public async getUnmappedTx(hash: string) {
-        const url = `https://sapi.smartcash.cc/v1/transaction/check/${hash}`;
+        const url = `${this.apiProvider.getRandomSapiUrl()}transaction/check/${hash}`;
         return this.httpClient.get<any>(url).toPromise();
     }
 
