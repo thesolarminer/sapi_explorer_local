@@ -575,8 +575,11 @@ var ApiProvider = /** @class */ (function () {
             "http://195.201.22.117:8080/v1/",
             "http://195.201.22.101:8080/v1/",
         ];
-        //        `http://:8080/v1/`
-        return sapis[__WEBPACK_IMPORTED_MODULE_2_random___default.a.int(0, sapis.length - 1)];
+        console.log('protocol', window.location.protocol);
+        if (window.location.protocol === 'http:') {
+            return sapis[__WEBPACK_IMPORTED_MODULE_2_random___default.a.int(0, sapis.length - 1)];
+        }
+        return "https://sapi.smartcash.cc/v1/";
     };
     ApiProvider.prototype.getUrl = function (params) {
         var chain = params.chain, network = params.network;
@@ -645,11 +648,11 @@ var map = {
 		476
 	],
 	"../pages/search/search.module": [
-		891,
+		890,
 		3
 	],
 	"../pages/transaction/transaction.module": [
-		890,
+		891,
 		2
 	]
 };
@@ -2276,8 +2279,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/blocks/blocks.module#BlocksPageModule', name: 'blocks', segment: 'blocks', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'home', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/broadcast-tx/broadcast-tx.module#BroadcastTxPageModule', name: 'broadcast-tx', segment: 'broadcast-tx', priority: 'low', defaultHistory: ['home'] },
-                        { loadChildren: '../pages/transaction/transaction.module#TransactionPageModule', name: 'transaction', segment: 'tx/:txId', priority: 'low', defaultHistory: ['home'] },
-                        { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'search', segment: 'search', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'search', segment: 'search', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/transaction/transaction.module#TransactionPageModule', name: 'transaction', segment: 'tx/:txId', priority: 'low', defaultHistory: ['home'] }
                     ]
                 })
             ],
