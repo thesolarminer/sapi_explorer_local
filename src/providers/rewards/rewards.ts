@@ -7,7 +7,7 @@ import { from } from 'rxjs/observable/from';
 export class RewardsProvider {
     //TODO: Change this when all SAPIS have 1.3.4
     private urlSmartRewards = "https://sapi.smartcash.cc/v1/smartrewards/roi";
-    private urlSmartNodes = "https://sapi.smartcash.cc/v1/smartnodes/roi";
+    private urlSmartNodes = "https://sapi.smartcash.cc/v1/smartnode/roi";
 
     constructor(public httpClient: HttpClient) { }
 
