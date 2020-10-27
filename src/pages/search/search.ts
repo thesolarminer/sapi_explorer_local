@@ -8,58 +8,58 @@ import { RedirProvider } from '../../providers/redir/redir';
 
 @Injectable()
 @IonicPage({
-  name: 'search',
-  segment: 'search'
+    name: 'search',
+    segment: 'search'
 })
 @Component({
-  selector: 'page-search',
-  templateUrl: 'search.html'
+    selector: 'page-search',
+    templateUrl: 'search.html'
 })
 export class SearchPage {
-  public chain: string;
-  public chainNetwork: ChainNetwork;
-  public network: string;
-  public availableNetworks;
-  public matches;
-  constructor(
-    public navParams: NavParams,
-    private apiProvider: ApiProvider,
-    private priceProvider: PriceProvider,
-    public events: Events,
-    public currencyProvider: CurrencyProvider,
-    public redirProvider: RedirProvider
-  ) {
-    // const chain: string =
-    //   this.navParams.get('chain') || this.apiProvider.getConfig().chain;
-    // const network: string =
-    //   this.navParams.get('network') || this.apiProvider.getConfig().network;
-    this.matches = this.navParams.get('matches');
+    public chain: string;
+    public chainNetwork: ChainNetwork;
+    public network: string;
+    public availableNetworks;
+    public matches;
+    constructor(
+        public navParams: NavParams,
+        private apiProvider: ApiProvider,
+        private priceProvider: PriceProvider,
+        public events: Events,
+        public currencyProvider: CurrencyProvider,
+        public redirProvider: RedirProvider
+    ) {
+        // const chain: string =
+        //   this.navParams.get('chain') || this.apiProvider.getConfig().chain;
+        // const network: string =
+        //   this.navParams.get('network') || this.apiProvider.getConfig().network;
+        this.matches = this.navParams.get('matches');
 
-    // this.chainNetwork = {
-    //   chain,
-    //   network
-    // };
+        // this.chainNetwork = {
+        //   chain,
+        //   network
+        // };
 
-    // this.priceProvider.setCurrency();
-    // this.apiProvider.changeNetwork(this.chainNetwork);
-    // this.currencyProvider.setCurrency(this.chainNetwork);
-  }
+        // this.priceProvider.setCurrency();
+        // this.apiProvider.changeNetwork(this.chainNetwork);
+        // this.currencyProvider.setCurrency(this.chainNetwork);
+    }
 
-  public goToBlock(block: any): void {
-    this.redirProvider.redir('block-detail', {
-      blockHash: block.hash
-    });
-  }
+    public goToBlock(block: any): void {
+        this.redirProvider.redir('block-detail', {
+            blockHash: block.hash
+        });
+    }
 
-  public goToTx(tx): void {
-    this.redirProvider.redir('transaction', {
-      txId: tx.txid
-    });
-  }
+    public goToTx(tx): void {
+        this.redirProvider.redir('transaction', {
+            txId: tx.txid
+        });
+    }
 
-  public goToAddress(addr): void {
-    this.redirProvider.redir('address', {
-      addrStr: addr.address
-    });
-  }
+    public goToAddress(addr): void {
+        this.redirProvider.redir('address', {
+            addrStr: addr.address
+        });
+    }
 }
