@@ -87,9 +87,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var DefaultProvider = /** @class */ (function () {
     function DefaultProvider() {
         this.defaults = {
-            '%CHAIN%': process.env.CHAIN || 'BTC',
-            '%API_PREFIX%': process.env.API_PREFIX || '/api',
-            '%NETWORK%': process.env.NETWORK || 'mainnet',
+            '%CHAIN%': "ALL" || 'BTC',
+            '%API_PREFIX%': "https://api.bitcore.io/api" || '/api',
+            '%NETWORK%': "mainnet" || 'mainnet',
             '%NUM_BLOCKS%': process.env.NUM_BLOCKS || '15'
         };
     }
@@ -2276,8 +2276,8 @@ var AppModule = /** @class */ (function () {
                 }, {
                     links: [
                         { loadChildren: '../pages/address/address.module#AddressPageModule', name: 'address', segment: 'address/:addrStr', priority: 'low', defaultHistory: ['home'] },
-                        { loadChildren: '../pages/block-detail/block-detail.module#BlockDetailPageModule', name: 'block-detail', segment: 'block/:blockHash', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/blocks/blocks.module#BlocksPageModule', name: 'blocks', segment: 'blocks', priority: 'low', defaultHistory: ['home'] },
+                        { loadChildren: '../pages/block-detail/block-detail.module#BlockDetailPageModule', name: 'block-detail', segment: 'block/:blockHash', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/broadcast-tx/broadcast-tx.module#BroadcastTxPageModule', name: 'broadcast-tx', segment: 'broadcast-tx', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'home', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'search', segment: 'search', priority: 'low', defaultHistory: [] },
@@ -2473,6 +2473,30 @@ var TxsProvider = /** @class */ (function () {
             });
         });
     };
+    TxsProvider.prototype.getTransactionsPerAddressNew = function (address) {
+        return __awaiter(this, void 0, void 0, function () {
+            var url, txs, addressData;
+            var _this = this;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        url = this.apiProvider.getRandomSapiUrl() + "address/transactions/";
+                        txs = [];
+                        return [4 /*yield*/, this.httpClient.post(url, {
+                                "pageNumber": 1,
+                                "pageSize": 10,
+                                "address": address
+                            }).toPromise()];
+                    case 1:
+                        addressData = _a.sent();
+                        addressData.data.forEach(function (item) {
+                            _this.getMappedTxs(item).then(function (data) { return txs.push(data.tx); });
+                        });
+                        return [2 /*return*/, txs];
+                }
+            });
+        });
+    };
     TxsProvider.prototype.getTxs = function (chainNetwork, args) {
         var queryString = '';
         if (args.blockHash) {
@@ -2591,10 +2615,12 @@ var TxsProvider = /** @class */ (function () {
         };
         return x;
     };
-    var _a, _b, _c, _d;
     TxsProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__providers_currency_currency__["a" /* CurrencyProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_currency_currency__["a" /* CurrencyProvider */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__blocks_blocks__["a" /* BlocksProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__blocks_blocks__["a" /* BlocksProvider */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */]) === "function" ? _d : Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_currency_currency__["a" /* CurrencyProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__blocks_blocks__["a" /* BlocksProvider */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */]])
     ], TxsProvider);
     return TxsProvider;
 }());
