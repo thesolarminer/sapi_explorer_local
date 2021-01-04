@@ -87,9 +87,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var DefaultProvider = /** @class */ (function () {
     function DefaultProvider() {
         this.defaults = {
-            '%CHAIN%': "ALL" || 'BTC',
-            '%API_PREFIX%': "https://api.bitcore.io/api" || '/api',
-            '%NETWORK%': "mainnet" || 'mainnet',
+            '%CHAIN%': process.env.CHAIN || 'BTC',
+            '%API_PREFIX%': process.env.API_PREFIX || '/api',
+            '%NETWORK%': process.env.NETWORK || 'mainnet',
             '%NUM_BLOCKS%': process.env.NUM_BLOCKS || '15'
         };
     }
@@ -1156,10 +1156,11 @@ var PriceProvider = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LatestBlocksComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_blocks_blocks__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_currency_currency__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_default_default__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_redir_redir__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_api_api__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_blocks_blocks__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_currency_currency__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_default_default__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_redir_redir__ = __webpack_require__(56);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1169,6 +1170,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -1208,6 +1210,9 @@ var LatestBlocksComponent = /** @class */ (function () {
                 return block;
             });
             _this.blocks = blocks;
+            if (_this.blocks.length === 0) {
+                _this.errorMessage = "Service temporarily unavailable: Loading block index...";
+            }
             _this.loading = false;
             if (_this.blocks[_this.blocks.length - 1].height < _this.numBlocks) {
                 _this.isHomePage = false;
@@ -1255,6 +1260,7 @@ var LatestBlocksComponent = /** @class */ (function () {
     LatestBlocksComponent.prototype.ngOnDestroy = function () {
         clearInterval(this.reloadInterval);
     };
+    var _a, _b, _c, _d, _e, _f;
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
         __metadata("design:type", Number)
@@ -1273,17 +1279,13 @@ var LatestBlocksComponent = /** @class */ (function () {
     ], LatestBlocksComponent.prototype, "showTimeAs", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-        __metadata("design:type", Object)
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__providers_api_api__["ChainNetwork"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__providers_api_api__["ChainNetwork"]) === "function" ? _a : Object)
     ], LatestBlocksComponent.prototype, "chainNetwork", void 0);
     LatestBlocksComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'latest-blocks',template:/*ion-inline-start:"C:\Projects\smartcash\explorer\src\components\latest-blocks\latest-blocks.html"*/'<error [message]="errorMessage" *ngIf="errorMessage"></error>\n\n<div *ngIf="!errorMessage">\n\n  <ion-grid class="grid--table blocks-container">\n\n\n\n    <ion-row>\n\n      <ion-col>\n\n        <h6>Height</h6>\n\n      </ion-col>\n\n      <ion-col *ngIf="showTimeAs === \'age\'">\n\n        <h6>Mined</h6>\n\n      </ion-col>\n\n      <ion-col *ngIf="showTimeAs === \'timestamp\'">\n\n        <h6>Timestamp</h6>\n\n      </ion-col>\n\n      <ion-col>\n\n        <h6>Transactions</h6>\n\n      </ion-col>\n\n      <ion-col>\n\n        <h6>Size</h6>\n\n      </ion-col>\n\n    </ion-row>\n\n\n\n    <loader *ngIf="loading" [type]="\'grid\'"></loader>\n\n\n\n    <div *ngIf="!loading" class="blocks-container__blocks">\n\n      <ion-row *ngFor="let block of blocks" (click)="goToBlock(block.hash)">\n\n        <ion-col>\n\n          <a (click)="goToBlock(block.hash)">{{ block.height }}</a>\n\n        </ion-col>\n\n        <ion-col *ngIf="showTimeAs === \'age\'">\n\n          {{ block.time | amFromUnix | amTimeAgo:true }}\n\n        </ion-col>\n\n        <ion-col *ngIf="showTimeAs === \'timestamp\'">\n\n          {{ block.time * 1000 | date:\'long\' }}\n\n        </ion-col>\n\n        <ion-col>\n\n          {{ block.tx.length }}\n\n        </ion-col>\n\n        <ion-col>\n\n          {{ block.size }}\n\n        </ion-col>\n\n      </ion-row>\n\n\n\n      <!-- <ion-row *ngIf="showAllBlocksButton" class="blocks-cta">\n\n        <ion-col text-center>\n\n          <button ion-button (click)="goToBlocks()" [disabled]="blocks.length == 0">Load More</button>\n\n        </ion-col>\n\n      </ion-row>\n\n\n\n      <ion-row *ngIf="isHomePage">\n\n        <ion-infinite-scroll (ionInfinite)="loadMoreBlocks($event)">\n\n          <loader [type]="\'grid\'"></loader>\n\n        </ion-infinite-scroll>\n\n      </ion-row> -->\n\n    </div>\n\n  </ion-grid>\n\n</div>'/*ion-inline-end:"C:\Projects\smartcash\explorer\src\components\latest-blocks\latest-blocks.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_currency_currency__["a" /* CurrencyProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_default_default__["a" /* DefaultProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_redir_redir__["a" /* RedirProvider */],
-            __WEBPACK_IMPORTED_MODULE_1__providers_blocks_blocks__["a" /* BlocksProvider */],
-            __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__providers_currency_currency__["a" /* CurrencyProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_currency_currency__["a" /* CurrencyProvider */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__providers_default_default__["a" /* DefaultProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_default_default__["a" /* DefaultProvider */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__providers_redir_redir__["a" /* RedirProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_redir_redir__["a" /* RedirProvider */]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__providers_blocks_blocks__["a" /* BlocksProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_blocks_blocks__["a" /* BlocksProvider */]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]) === "function" ? _f : Object])
     ], LatestBlocksComponent);
     return LatestBlocksComponent;
 }());
@@ -2276,8 +2278,8 @@ var AppModule = /** @class */ (function () {
                 }, {
                     links: [
                         { loadChildren: '../pages/address/address.module#AddressPageModule', name: 'address', segment: 'address/:addrStr', priority: 'low', defaultHistory: ['home'] },
-                        { loadChildren: '../pages/blocks/blocks.module#BlocksPageModule', name: 'blocks', segment: 'blocks', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/block-detail/block-detail.module#BlockDetailPageModule', name: 'block-detail', segment: 'block/:blockHash', priority: 'low', defaultHistory: ['home'] },
+                        { loadChildren: '../pages/blocks/blocks.module#BlocksPageModule', name: 'blocks', segment: 'blocks', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/broadcast-tx/broadcast-tx.module#BroadcastTxPageModule', name: 'broadcast-tx', segment: 'broadcast-tx', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'home', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'search', segment: 'search', priority: 'low', defaultHistory: [] },
