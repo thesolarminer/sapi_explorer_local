@@ -11,8 +11,6 @@ export class RewardsComponent implements OnInit {
   public subscriber: Subscription;
   public smartRewards: string;
   public superRewards: string;
-  public smartCompounds: string;
-  public superCompounds: string;
   public colateral:string;
   public yearly_rewards: string;
   public yearly_yield: string;
@@ -31,10 +29,8 @@ export class RewardsComponent implements OnInit {
       .getSmartRewards()
       .subscribe(
         response => {          
-          this.smartRewards = response['SmartRewards Yearly Yield % with 4 Week Bonus'];
-          this.superRewards = response['SuperRewards Yearly Yield % with 4 week Bonux'];
-          this.smartCompounds = response['SmartRewards Yearly Yield % 4 week with compounding'];
-          this.superCompounds = response['SuperRewards Yearly Yield % 4 week with compounding'];
+          this.smartRewards = response['SmartRewards Yearly Yield % 4 week with compounding'];
+          this.superRewards = response['SuperRewards Yearly Yield % 4 week with compounding'];
         },
         err => {
           this.subscriber.unsubscribe();

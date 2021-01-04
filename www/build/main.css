@@ -15664,6 +15664,7 @@ h3 span {
 .contentRewards {
   background-color: #fff;
   padding: 0 30px;
+  height: 150px;
 }
 
 transaction-details ion-grid {

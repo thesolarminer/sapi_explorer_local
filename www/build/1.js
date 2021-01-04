@@ -1,6 +1,6 @@
 webpackJsonp([1],{
 
-/***/ 888:
+/***/ 887:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,15 +8,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BlockDetailPageModule", function() { return BlockDetailPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_block_summary_eth_block_summary_eth_module__ = __webpack_require__(905);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_block_summary_block_summary_module__ = __webpack_require__(907);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_block_summary_eth_block_summary_eth_module__ = __webpack_require__(899);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_block_summary_block_summary_module__ = __webpack_require__(901);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_error_error_module__ = __webpack_require__(104);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_footer_footer_module__ = __webpack_require__(76);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_head_nav_head_nav_module__ = __webpack_require__(77);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_loader_loader_module__ = __webpack_require__(103);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_transaction_list_transaction_list_module__ = __webpack_require__(897);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__directives_copy_to_clipboard_copy_to_clipboard_module__ = __webpack_require__(895);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__block_detail__ = __webpack_require__(518);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__block_detail__ = __webpack_require__(517);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -725,14 +725,14 @@ var TransactionListComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 905:
+/***/ 899:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BlockSummaryEthComponentModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__block_summary_eth__ = __webpack_require__(906);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__block_summary_eth__ = __webpack_require__(900);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -759,7 +759,7 @@ var BlockSummaryEthComponentModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 906:
+/***/ 900:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -809,14 +809,14 @@ var BlockSummaryEthComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 907:
+/***/ 901:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BlockSummaryComponentModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__block_summary__ = __webpack_require__(908);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__block_summary__ = __webpack_require__(902);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -843,7 +843,7 @@ var BlockSummaryComponentModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 908:
+/***/ 902:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
