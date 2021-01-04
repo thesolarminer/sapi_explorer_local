@@ -78,7 +78,7 @@ export class LatestBlocksComponent implements OnInit, OnDestroy {
         err => {
           this.subscriber.unsubscribe();
           clearInterval(this.reloadInterval);
-          // this.errorMessage = err;
+          this.errorMessage = "Service temporarily unavailable: Loading block index...";
           this.loading = false;
         }
       );    
