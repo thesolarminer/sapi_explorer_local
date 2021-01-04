@@ -1204,13 +1204,10 @@ var LatestBlocksComponent = /** @class */ (function () {
         this.subscriber = this.blocksProvider
             .getBlocks()
             .subscribe(function (response) {
-            // const blocks = response.map(          
-            //   (block: AppBlock) => {                           
-            //       return block;
-            //   }
-            // );
-            // this.blocks = blocks;
-            _this.errorMessage = "Service temporarily unavailable: Loading block index...";
+            var blocks = response.map(function (block) {
+                return block;
+            });
+            _this.blocks = blocks;
             if (_this.blocks == null || _this.blocks.length === 0) {
                 _this.errorMessage = "Service temporarily unavailable: Loading block index...";
             }
@@ -1222,7 +1219,6 @@ var LatestBlocksComponent = /** @class */ (function () {
             _this.subscriber.unsubscribe();
             clearInterval(_this.reloadInterval);
             // this.errorMessage = err;
-            _this.errorMessage = "Service temporarily unavailable: Loading block index...";
             _this.loading = false;
         });
     };
@@ -3414,6 +3410,8 @@ var RewardsComponent = /** @class */ (function () {
             .subscribe(function (response) {
             _this.smartRewards = response['SmartRewards Yearly Yield % with 4 Week Bonus'];
             _this.superRewards = response['SuperRewards Yearly Yield % with 4 week Bonux'];
+            _this.smartCompounds = response['SmartRewards Yearly Yield % 4 week with compounding'];
+            _this.superCompounds = response['SuperRewards Yearly Yield % 4 week with compounding'];
         }, function (err) {
             _this.subscriber.unsubscribe();
         });
@@ -3432,7 +3430,7 @@ var RewardsComponent = /** @class */ (function () {
     };
     RewardsComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'rewards',template:/*ion-inline-start:"C:\Projects\smartcash\explorer\src\components\rewards\rewards.html"*/'    <ion-row>\n\n        <ion-col col-lg-6 col-12 class="text-center">\n\n            <ion-row class="">\n\n                <ion-col col-lg-12 class="headerTitle">\n\n                    <h2>1K+ SmartRewards 1MM+</h2>\n\n                </ion-col>                \n\n            </ion-row>\n\n            <ion-row class="contentRewards">\n\n                <ion-col col-lg-6 class="text-center">\n\n                    <h2>SmartRewards</h2>\n\n                    <h3>{{ smartRewards }} <span>%</span></h3>\n\n                </ion-col>\n\n        \n\n                <ion-col col-lg-6 class="text-center">\n\n                    <h2>SuperRewards </h2>\n\n                    <h3>{{ superRewards }} <span>%</span></h3>\n\n                </ion-col>\n\n            </ion-row>\n\n        </ion-col>\n\n\n\n        <ion-col col-lg-6 col-12 class="text-center">\n\n            <ion-row>\n\n                <ion-col col-lg-12 class="headerTitle">\n\n                    <h2>SmartNodes</h2>\n\n                </ion-col>            \n\n            </ion-row>\n\n            <ion-row class="contentRewards">\n\n                <ion-col col-lg-4>\n\n                    <h2>SmartNode Collateral</h2>\n\n                    <h3>{{ colateral }}</h3>\n\n                </ion-col>\n\n                <ion-col col-lg-4>\n\n                    <h2>Yearly Rewards</h2>\n\n                    <h3>{{ yearly_rewards }}</h3>\n\n                </ion-col>\n\n                <ion-col col-lg-4>\n\n                    <h2>Yearly Yield</h2>\n\n                    <h3>{{ yearly_yield }} <span>%</span></h3>\n\n                </ion-col>\n\n            </ion-row>\n\n        </ion-col>\n\n    </ion-row>\n\n'/*ion-inline-end:"C:\Projects\smartcash\explorer\src\components\rewards\rewards.html"*/
+            selector: 'rewards',template:/*ion-inline-start:"C:\Projects\smartcash\explorer\src\components\rewards\rewards.html"*/'    <ion-row>\n\n        <ion-col col-lg-6 col-12 class="text-center">\n\n            <ion-row class="">\n\n                <ion-col col-lg-12 class="headerTitle">\n\n                    <h2>1K+ SmartRewards 1MM+</h2>\n\n                </ion-col>                \n\n            </ion-row>\n\n            <ion-row class="contentRewards">\n\n                <ion-col col-lg-6 class="text-center">\n\n                    <h2>SmartRewards</h2>\n\n                    <h3>{{ smartRewards }} <span>%</span></h3>\n\n                </ion-col>\n\n        \n\n                <ion-col col-lg-6 class="text-center">\n\n                    <h2>SuperRewards </h2>\n\n                    <h3>{{ superRewards }} <span>%</span></h3>\n\n                </ion-col>\n\n            </ion-row>\n\n\n\n            <ion-row class="contentRewards">\n\n                <ion-col col-lg-6 class="text-center">\n\n                    <h2>SmartRewards Compound</h2>\n\n                    <h3>{{ smartCompounds }} <span>%</span></h3>\n\n                </ion-col>\n\n        \n\n                <ion-col col-lg-6 class="text-center">\n\n                    <h2>SuperRewards Compound</h2>\n\n                    <h3>{{ superCompounds }} <span>%</span></h3>\n\n                </ion-col>\n\n            </ion-row>\n\n        </ion-col>\n\n\n\n        <ion-col col-lg-6 col-12 class="text-center">\n\n            <ion-row>\n\n                <ion-col col-lg-12 class="headerTitle">\n\n                    <h2>SmartNodes</h2>\n\n                </ion-col>            \n\n            </ion-row>\n\n            <ion-row class="contentRewards" style="height: 200px;">\n\n                <ion-col col-lg-4>\n\n                    <h2>SmartNode Collateral</h2>\n\n                    <h3>{{ colateral }}</h3>\n\n                </ion-col>\n\n                <ion-col col-lg-4>\n\n                    <h2>Yearly Rewards</h2>\n\n                    <h3>{{ yearly_rewards }}</h3>\n\n                </ion-col>\n\n                <ion-col col-lg-4>\n\n                    <h2>Yearly Yield</h2>\n\n                    <h3>{{ yearly_yield }} <span>%</span></h3>\n\n                </ion-col>\n\n            </ion-row>\n\n        </ion-col>\n\n    </ion-row>\n\n'/*ion-inline-end:"C:\Projects\smartcash\explorer\src\components\rewards\rewards.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_rewards_rewards__["a" /* RewardsProvider */]])
     ], RewardsComponent);
