@@ -495,11 +495,11 @@ var map = {
 		474
 	],
 	"../pages/search/search.module": [
-		890,
+		889,
 		3
 	],
 	"../pages/transaction/transaction.module": [
-		889,
+		890,
 		2
 	]
 };
@@ -1204,11 +1204,14 @@ var LatestBlocksComponent = /** @class */ (function () {
         this.subscriber = this.blocksProvider
             .getBlocks()
             .subscribe(function (response) {
-            var blocks = response.map(function (block) {
-                return block;
-            });
-            _this.blocks = blocks;
-            if (_this.blocks.length === 0) {
+            // const blocks = response.map(          
+            //   (block: AppBlock) => {                           
+            //       return block;
+            //   }
+            // );
+            // this.blocks = blocks;
+            _this.errorMessage = "Service temporarily unavailable: Loading block index...";
+            if (_this.blocks == null || _this.blocks.length === 0) {
                 _this.errorMessage = "Service temporarily unavailable: Loading block index...";
             }
             _this.loading = false;
@@ -1218,7 +1221,8 @@ var LatestBlocksComponent = /** @class */ (function () {
         }, function (err) {
             _this.subscriber.unsubscribe();
             clearInterval(_this.reloadInterval);
-            _this.errorMessage = err;
+            // this.errorMessage = err;
+            _this.errorMessage = "Service temporarily unavailable: Loading block index...";
             _this.loading = false;
         });
     };
@@ -2283,8 +2287,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/blocks/blocks.module#BlocksPageModule', name: 'blocks', segment: 'blocks', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/broadcast-tx/broadcast-tx.module#BroadcastTxPageModule', name: 'broadcast-tx', segment: 'broadcast-tx', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'home', segment: 'home', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/transaction/transaction.module#TransactionPageModule', name: 'transaction', segment: 'tx/:txId', priority: 'low', defaultHistory: ['home'] },
-                        { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'search', segment: 'search', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'search', segment: 'search', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/transaction/transaction.module#TransactionPageModule', name: 'transaction', segment: 'tx/:txId', priority: 'low', defaultHistory: ['home'] }
                     ]
                 })
             ],

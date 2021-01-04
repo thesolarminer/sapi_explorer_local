@@ -59,14 +59,17 @@ export class LatestBlocksComponent implements OnInit, OnDestroy {
       .getBlocks()
       .subscribe(
         response => {
-          const blocks = response.map(          
-            (block: AppBlock) => {                           
-                return block;
-            }
-          );
-          this.blocks = blocks;
+          // const blocks = response.map(          
+          //   (block: AppBlock) => {                           
+          //       return block;
+          //   }
+          // );
+          // this.blocks = blocks;
           
-          if(this.blocks.length === 0){                        
+
+          this.errorMessage = "Service temporarily unavailable: Loading block index...";
+          
+          if(this.blocks == null || this.blocks.length === 0){                        
             this.errorMessage = "Service temporarily unavailable: Loading block index...";
           }
 
@@ -78,7 +81,8 @@ export class LatestBlocksComponent implements OnInit, OnDestroy {
         err => {
           this.subscriber.unsubscribe();
           clearInterval(this.reloadInterval);
-          this.errorMessage = err;
+          // this.errorMessage = err;
+          this.errorMessage = "Service temporarily unavailable: Loading block index...";
           this.loading = false;
         }
       );    
