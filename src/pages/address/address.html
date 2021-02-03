@@ -7,7 +7,7 @@
 
             <div *ngIf="!loading">
 
-                <h1 class="content-container--heading">Address <small>{{ address.balance }}
+                <h1 class="content-container--heading">Address <small>{{ address.balance.total }}
                         {{ currencyProvider.currencySymbol }}</small>
                 </h1>
                 <p class="ellipsis">{{ address.addrStr }}
@@ -34,38 +34,42 @@
                                         {{ address.sent }} {{ currencyProvider.currencySymbol }}
                                     </ion-note>
                                 </ion-item>
-
                                 <ion-item>
-                                    Final Balance
+                                    Total Final Balance
                                     <ion-note item-end>
-                                        {{ address.balance }} {{ currencyProvider.currencySymbol }}
+                                        {{ address.balance.total }} {{ currencyProvider.currencySymbol }}
                                     </ion-note>
                                 </ion-item>
-
-                                <!-- <ion-item *ngIf="address.unconfirmed > 0">
-                  Unconfirmed Balance
-                  <ion-note item-end>
-                    {{ getConvertedNumber(address.unconfirmed) | number:'1.0-8' }} {{ currencyProvider.currencySymbol }}
-                  </ion-note>
-                </ion-item> -->
-
-                                <!-- <ion-item>
-                  Nro. Transactions
-                  <ion-note item-end>
-                    {{ nroTransactions || 0 }}
-                  </ion-note>
-                </ion-item> -->
-
+                                <ion-item>
+                                    Locked Balance
+                                    <ion-note item-end>
+                                        {{ address.balance.locked }} {{ currencyProvider.currencySymbol }}
+                                    </ion-note>
+                                </ion-item>
+                                <ion-item>
+                                    Free Balance
+                                    <ion-note item-end>
+                                        {{ address.balance.unlocked }} {{ currencyProvider.currencySymbol }}
+                                    </ion-note>
+                                </ion-item>
                                 <ion-item>
                                     Is active for rewards
                                     <ion-note item-end>
-                                        {{ reward.activated }}
+                                        {{ (reward.activated && (reward.activated === 1 || reward.activated===true)) ?
+                                        "Yes" : "No"}}
                                     </ion-note>
                                 </ion-item>
                                 <ion-item>
                                     Balance eligible for rewards
+                                    in the next round.
                                     <ion-note item-end>
-                                        {{ reward.balance_eligible || 0 }}
+                                        {{ (reward.balance_eligible || 0)}}
+                                    </ion-note>
+                                </ion-item>
+                                <ion-item>
+                                    * If your address is active for rewards but the balance eligible for rewards is equal to 0, it means you are only eligible for the next round.
+                                    <ion-note item-end>
+
                                     </ion-note>
                                 </ion-item>
                             </ion-list>

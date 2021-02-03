@@ -148,7 +148,7 @@ export class ApiProvider {
             `http://195.201.22.117:8080/v1/`,
             `http://195.201.22.101:8080/v1/`
         ];
-
+        return `https://sapi.smartcash.cc/v1/`;
         if (window.location.protocol === 'http:') {
             return sapis[random.int(0, sapis.length - 1)];
         }

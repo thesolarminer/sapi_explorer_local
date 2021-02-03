@@ -216,11 +216,12 @@ export class TxsProvider {
     }
     async getTransactionsPerAddress(address: string) {
 
-        const url = `${this.apiProvider.getRandomSapiUrl()}address/transactions/${address}`;
+        const url = `${this.apiProvider.getRandomSapiUrl()}address/transactions`;
 
         let txs: ApiTx[] = [];
 
         let addressData: any = await this.httpClient.post<any>(url, {
+            "address": address,
             "pageNumber": 1,
             "pageSize": 10
         }).toPromise();
@@ -237,8 +238,6 @@ export class TxsProvider {
         if (args.blockHash) {
             queryString += `?blockHash=${args.blockHash}`;
         }
-
-        //return from(this.getTransactionsPerBlock(args.blockHash));
 
         const url = `${this.apiProvider.getUrl(chainNetwork)}/tx/${queryString}`;
         return this.httpClient.get<ApiUtxoCoinTx[]>(url);
