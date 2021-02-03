@@ -239,7 +239,6 @@ export class TxsProvider {
             "address": address,
             "pageNumber": 1,
             "pageSize": 10,
-            "address": address
         }).toPromise();
 
         addressData.data.forEach(item => {

@@ -1,6 +1,6 @@
 webpackJsonp([3],{
 
-/***/ 889:
+/***/ 890:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,11 +8,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchPageModule", function() { return SearchPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_error_error_module__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_error_error_module__ = __webpack_require__(103);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_footer_footer_module__ = __webpack_require__(76);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_head_nav_head_nav_module__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_loader_loader_module__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__search__ = __webpack_require__(909);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_loader_loader_module__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__search__ = __webpack_require__(913);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -49,7 +49,7 @@ var SearchPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 909:
+/***/ 913:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -114,7 +114,7 @@ var SearchPage = /** @class */ (function () {
     SearchPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-search',template:/*ion-inline-start:"C:\Projects\smartcash\explorer\src\pages\search\search.html"*/'<head-nav></head-nav>\n\n\n\n<ion-content class="content-container">\n\n    <ion-grid class="page-content-grid">\n\n        <ion-row *ngIf="matches?.blocks && matches?.blocks.length > 0">\n\n            <ion-col col-12>\n\n                <h2 class="content-container--heading">Blocks:</h2>\n\n            </ion-col>\n\n            <ion-col col-md-6 col-12 class="page-content" *ngFor="let block of matches?.blocks"\n\n                (click)="goToBlock(block)">\n\n                <div ion-item no-lines>\n\n                    <div ion-text color="primary">\n\n                        Block Hash {{ block?.hash }}\n\n                    </div>\n\n                    <div ion-text color="dark-light">Mined on {{ block?.time | date:\'medium\' }}</div>\n\n                </div>\n\n            </ion-col>\n\n        </ion-row>\n\n        <ion-row *ngIf="matches?.txs && matches?.txs.length > 0">\n\n            <ion-col col-12>\n\n                <h2 class="content-container--heading">Transactions:</h2>\n\n            </ion-col>\n\n            <ion-col col-md-6 col-12 class="page-content" *ngFor="let tx of matches?.txs" (click)="goToTx(tx)">\n\n\n\n                <div ion-item no-lines>\n\n                    <div ion-text color="primary">\n\n                        {{ tx?.txid }}\n\n                    </div>\n\n                    <div ion-text color="dark-light">Received Time {{ tx?.blockTime | date:\'medium\' }}</div>\n\n                </div>\n\n            </ion-col>\n\n        </ion-row>\n\n        <ion-row *ngIf="matches?.addresses && matches?.addresses.length > 0">\n\n            <ion-col col-12>\n\n                <h2 class="content-container--heading">Addresses:</h2>\n\n            </ion-col>\n\n            <ion-col col-md-6 col-12 class="page-content" *ngFor="let addr of matches?.addresses"\n\n                (click)="goToAddress(addr)">\n\n\n\n                <div ion-item no-lines>\n\n                    <div ion-text color="primary">\n\n                        {{ addr?.address }}\n\n                    </div>\n\n                </div>\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n</ion-content>\n\n<footer></footer>\n\n'/*ion-inline-end:"C:\Projects\smartcash\explorer\src\pages\search\search.html"*/
+            selector: 'page-search',template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/pages/search/search.html"*/'<head-nav></head-nav>\n\n<ion-content class="content-container">\n    <ion-grid class="page-content-grid">\n        <ion-row *ngIf="matches?.blocks && matches?.blocks.length > 0">\n            <ion-col col-12>\n                <h2 class="content-container--heading">Blocks:</h2>\n            </ion-col>\n            <ion-col col-md-6 col-12 class="page-content" *ngFor="let block of matches?.blocks"\n                (click)="goToBlock(block)">\n                <div ion-item no-lines>\n                    <div ion-text color="primary">\n                        Block Hash {{ block?.hash }}\n                    </div>\n                    <div ion-text color="dark-light">Mined on {{ block?.time | date:\'medium\' }}</div>\n                </div>\n            </ion-col>\n        </ion-row>\n        <ion-row *ngIf="matches?.txs && matches?.txs.length > 0">\n            <ion-col col-12>\n                <h2 class="content-container--heading">Transactions:</h2>\n            </ion-col>\n            <ion-col col-md-6 col-12 class="page-content" *ngFor="let tx of matches?.txs" (click)="goToTx(tx)">\n\n                <div ion-item no-lines>\n                    <div ion-text color="primary">\n                        {{ tx?.txid }}\n                    </div>\n                    <div ion-text color="dark-light">Received Time {{ tx?.blockTime | date:\'medium\' }}</div>\n                </div>\n            </ion-col>\n        </ion-row>\n        <ion-row *ngIf="matches?.addresses && matches?.addresses.length > 0">\n            <ion-col col-12>\n                <h2 class="content-container--heading">Addresses:</h2>\n            </ion-col>\n            <ion-col col-md-6 col-12 class="page-content" *ngFor="let addr of matches?.addresses"\n                (click)="goToAddress(addr)">\n\n                <div ion-item no-lines>\n                    <div ion-text color="primary">\n                        {{ addr?.address }}\n                    </div>\n                </div>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>\n<footer></footer>\n'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/pages/search/search.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */],
