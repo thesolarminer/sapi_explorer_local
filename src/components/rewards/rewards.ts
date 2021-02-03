@@ -21,7 +21,7 @@ export class RewardsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.loadRewardsInfo();
-    this.loadNodesInfo();   
+    this.loadNodesInfo();    
   }
 
   loadRewardsInfo(){
@@ -29,8 +29,8 @@ export class RewardsComponent implements OnInit {
       .getSmartRewards()
       .subscribe(
         response => {          
-          this.smartRewards = response['SmartRewards Yearly Yield % with 4 Week Bonus'];
-          this.superRewards = response['SuperRewards Yearly Yield % with 4 week Bonux'];
+          this.smartRewards = response['SmartRewards Yearly Yield % 4 week with compounding'];
+          this.superRewards = response['SuperRewards Yearly Yield % 4 week with compounding'];
         },
         err => {
           this.subscriber.unsubscribe();

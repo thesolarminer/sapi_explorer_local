@@ -214,16 +214,32 @@ export class TxsProvider {
 
         return txs;
     }
+
     async getTransactionsPerAddress(address: string) {
+        const url = `${this.apiProvider.getRandomSapiUrl()}address/transactions/${address}`;
+        let txs: ApiTx[] = [];
 
-        const url = `${this.apiProvider.getRandomSapiUrl()}address/transactions`;
+        let addressData: any = await this.httpClient.post<any>(url, {
+            "pageNumber": 1,
+            "pageSize": 10
+        }).toPromise();
 
+        addressData.data.forEach(item => {
+            this.getMappedTxs(item).then(data => txs.push(data.tx));
+        });
+
+        return txs;
+    }
+
+    async getTransactionsPerAddressNew(address: string) {
+        const url = `${this.apiProvider.getRandomSapiUrl()}address/transactions/`;
         let txs: ApiTx[] = [];
 
         let addressData: any = await this.httpClient.post<any>(url, {
             "address": address,
             "pageNumber": 1,
-            "pageSize": 10
+            "pageSize": 10,
+            "address": address
         }).toPromise();
 
         addressData.data.forEach(item => {

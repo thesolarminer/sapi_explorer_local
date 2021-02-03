@@ -1,5 +1,6 @@
 import { Component, Input, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { ErrorLoadTransaction } from '../../models/error';
 import { ChainNetwork } from '../../providers/api/api';
 import {
   AppBlock,
@@ -58,12 +59,17 @@ export class LatestBlocksComponent implements OnInit, OnDestroy {
       .getBlocks()
       .subscribe(
         response => {
-          const blocks = response.map(
-            (block: AppBlock) => {
-                return block;                
+          const blocks = response.map(          
+            (block: AppBlock) => {                           
+                return block;
             }
           );
           this.blocks = blocks;
+          
+          if(this.blocks == null || this.blocks.length === 0){                        
+            this.errorMessage = "Service temporarily unavailable: Loading block index...";
+          }
+
           this.loading = false;
           if (this.blocks[this.blocks.length - 1].height < this.numBlocks) {
             this.isHomePage = false;
@@ -72,7 +78,7 @@ export class LatestBlocksComponent implements OnInit, OnDestroy {
         err => {
           this.subscriber.unsubscribe();
           clearInterval(this.reloadInterval);
-          this.errorMessage = err;
+          this.errorMessage = "Service temporarily unavailable: Loading block index...";
           this.loading = false;
         }
       );    
