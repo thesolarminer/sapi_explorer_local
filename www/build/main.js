@@ -7,7 +7,7 @@ webpackJsonp([4],{
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoaderComponentModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__loader__ = __webpack_require__(856);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__loader__ = __webpack_require__(859);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,7 +41,7 @@ var LoaderComponentModule = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ErrorComponentModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__error__ = __webpack_require__(857);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__error__ = __webpack_require__(856);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -367,20 +367,15 @@ var ApiProvider = /** @class */ (function () {
     };
     ApiProvider.prototype.getRandomSapiUrl = function () {
         var sapis = [
-            "167.86.103.167:8080",
             "51.75.158.4:8080",
-            "218.16.15.25:8080",
-            "218.36.71.59:8080",
-            "121.31.152.240:8080",
-            "218.35.79.66:8080",
-            "222.71.95.191:8080",
-            "195.201.12.93:8080",
-            "173.249.33.239:8080",
+            "75.60.241.114:8080",
+            "85.217.171.185:8080",
             "167.86.91.147:8080",
             "51.75.158.25:8080",
+            "185.216.231.73:8080",
             "167.86.89.56:8080",
-            "144.217.243.36:8080",
-            "94.102.210.157:8080",
+            "207.180.200.240:8080",
+            "207.180.211.105:8080",
             "135.181.85.180:8080",
             "135.181.85.177:8080",
             "135.181.85.186:8080",
@@ -401,25 +396,20 @@ var ApiProvider = /** @class */ (function () {
             "195.201.22.101:8080",
             "195.201.22.107:8080",
             "195.201.22.116:8080",
-            "95.111.234.235:8080",
-            "173.212.202.54:8080",
-            "218.89.21.12:8080",
-            "216.189.151.100:8080",
+            "94.102.210.158:8080",
+            "94.102.210.119:8080",
+            "90.145.247.136:8080",
             "167.86.97.16:8080",
-            "167.86.90.125:8080",
-            "218.88.22.15:8080",
-            "167.86.103.116:8080",
-            "46.29.165.15:8080",
-            "111.155.116.200:8080",
-            "167.86.115.21:8080",
-            "173.249.21.162:8080",
+            "167.86.123.246:8080",
+            "173.249.6.78:8080",
+            "62.171.132.117:8080",
+            "185.141.61.112:8080",
             "173.249.48.174:8080",
             "167.86.124.227:8080",
-            "45.58.52.239:8080",
-            "207.180.208.104:8080",
-            "167.86.71.171:8080",
+            "94.156.35.99:8080",
             "164.68.102.153:8080",
             "37.24.134.95:8080",
+            "5.44.105.132:8080",
             "164.68.112.229:8080",
             "88.198.202.140:8080",
             "213.52.125.41:8080",
@@ -428,81 +418,73 @@ var ApiProvider = /** @class */ (function () {
             "199.247.10.156:8080",
             "167.86.89.3:8080",
             "164.68.112.231:8080",
-            "45.58.52.245:8080",
-            "178.254.35.44:8080",
-            "167.86.90.211:8080",
-            "167.86.97.20:8080",
-            "173.249.54.29:8080",
-            "207.180.216.182:8080",
+            "164.68.102.164:8080",
+            "14.161.22.94:8080",
             "173.249.31.45:8080",
+            "173.249.50.117:8080",
             "167.86.95.13:8080",
             "51.77.124.25:8080",
             "195.201.23.4:8080",
             "195.201.22.241:8080",
             "164.68.112.225:8080",
-            "167.86.91.99:8080",
-            "178.238.230.37:8080",
+            "167.86.90.125:8080",
+            "79.143.187.234:8080",
             "167.86.97.15:8080",
-            "207.180.193.156:8080",
             "51.77.124.10:8080",
             "178.238.231.201:8080",
             "71.45.87.12:8080",
-            "167.86.113.143:8080",
+            "164.68.112.210:8080",
             "167.86.111.184:8080",
-            "202.11.45.21:8080",
+            "207.180.201.182:8080",
             "89.181.124.117:8080",
             "95.165.156.202:8080",
             "207.180.212.131:8080",
-            "180.113.222.218:8080",
             "217.160.255.46:8080",
-            "167.86.97.6:8080",
-            "159.69.123.196:8080",
-            "113.200.214.164:8080",
+            "167.86.96.109:8080",
+            "90.145.247.157:8080",
             "80.241.217.151:8080",
+            "173.82.232.13:8080",
             "207.180.193.28:8080",
-            "167.86.89.12:8080",
+            "45.76.250.128:8080",
             "164.68.104.4:8080",
             "167.86.102.234:8080",
             "173.249.32.39:8080",
-            "216.189.151.203:8080",
-            "164.68.113.173:8080",
+            "52.230.4.204:8080",
+            "167.86.87.56:8080",
             "167.86.90.127:8080",
-            "51.15.201.249:8080",
+            "185.205.210.233:8080",
+            "82.146.49.104:8080",
             "164.68.112.213:8080",
-            "144.91.65.38:8080",
+            "173.249.13.217:8080",
             "167.86.96.209:8080",
             "207.180.210.221:8080",
             "167.86.91.163:8080",
             "167.86.96.251:8080",
-            "167.86.89.49:8080",
             "5.187.51.206:8080",
             "167.86.110.12:8080",
-            "89.200.172.119:8080",
+            "173.249.13.232:8080",
             "207.180.211.41:8080",
-            "157.230.214.214:8080",
-            "46.80.65.33:8080",
             "173.249.5.205:8080",
+            "207.180.193.26:8080",
             "5.187.51.231:8080",
-            "95.216.156.245:8080",
-            "94.102.210.123:8080",
-            "216.189.147.222:8080",
+            "167.86.90.143:8080",
+            "167.86.97.17:8080",
+            "167.86.102.231:8080",
+            "164.68.102.161:8080",
+            "62.171.132.111:8080",
             "85.214.97.248:8080",
-            "167.86.115.17:8080",
             "167.86.97.5:8080",
-            "162.245.216.8:8080",
-            "162.245.216.209:8080",
+            "167.86.96.250:8080",
             "207.180.246.171:8080",
+            "185.141.62.35:8080",
             "167.86.111.183:8080",
-            "45.58.52.246:8080",
             "207.180.193.2:8080",
-            "46.80.27.152:8080",
+            "167.86.79.44:8080",
             "167.86.96.249:8080",
             "167.86.97.12:8080",
             "167.86.91.157:8080",
             "167.86.79.45:8080",
-            "213.133.110.230:8080",
-            "167.86.113.142:8080",
-            "218.37.25.44:8080",
+            "90.145.247.153:8080",
             "168.119.57.54:8080",
             "168.119.57.49:8080",
             "168.119.57.48:8080",
@@ -519,85 +501,74 @@ var ApiProvider = /** @class */ (function () {
             "135.181.85.191:8080",
             "135.181.85.196:8080",
             "161.97.144.8:8080",
-            "216.189.150.254:8080",
-            "45.76.98.254:8080",
             "54.38.150.123:8080",
-            "125.126.175.165:8080",
-            "213.136.88.211:8080",
-            "167.86.115.199:8080",
-            "222.219.69.74:8080",
-            "173.212.217.82:8080",
             "167.86.115.104:8080",
             "80.241.216.205:8080",
-            "216.189.151.173:8080",
-            "95.216.158.51:8080",
-            "93.104.213.141:8080",
+            "185.205.209.184:8080",
+            "51.68.138.158:8080",
+            "167.86.90.211:8080",
+            "207.180.250.179:8080",
             "167.86.124.244:8080",
+            "167.86.79.35:8080",
             "70.99.78.22:8080",
-            "167.86.88.223:8080",
-            "46.80.32.45:8080",
+            "159.203.80.139:8080",
             "167.86.124.247:8080",
-            "45.76.42.67:8080",
-            "167.86.90.132:8080",
+            "3.64.66.213:8080",
+            "173.249.51.179:8080",
+            "173.249.40.165:8080",
             "5.187.51.215:8080",
             "167.86.89.39:8080",
             "51.75.158.7:8080",
-            "45.58.56.64:8080",
+            "45.76.116.26:8080",
+            "173.212.253.105:8080",
+            "164.68.102.165:8080",
+            "173.82.208.190:8080",
             "173.249.51.154:8080",
-            "61.155.164.111:8080",
-            "216.189.147.82:8080",
+            "157.90.125.125:8080",
             "173.249.20.101:8080",
             "167.86.89.31:8080",
             "79.143.187.62:8080",
-            "212.26.146.137:8080",
             "51.75.158.99:8080",
             "172.104.77.31:8080",
-            "218.20.54.163:8080",
-            "164.68.112.224:8080",
-            "173.249.6.78:8080",
-            "113.89.53.140:8080",
-            "167.86.97.22:8080",
-            "88.48.196.218:8080",
+            "94.156.189.157:8080",
+            "151.252.59.37:8080",
+            "167.86.97.25:8080",
+            "173.249.54.30:8080",
+            "90.145.247.161:8080",
+            "208.64.227.88:8080",
             "62.171.132.115:8080",
-            "173.249.40.165:8080",
-            "45.77.46.20:8080",
-            "46.80.111.10:8080",
             "167.86.97.14:8080",
-            "216.189.151.94:8080",
-            "167.86.124.235:8080",
-            "167.86.102.231:8080",
+            "164.68.102.159:8080",
             "167.86.110.24:8080",
-            "195.201.12.90:8080",
-            "88.48.196.118:8080",
-            "45.77.137.15:8080",
+            "207.148.15.146:8080",
             "135.181.45.39:8080",
             "167.86.110.26:8080",
+            "62.171.132.109:8080",
             "168.119.109.36:8080",
-            "216.189.151.138:8080",
-            "46.80.42.39:8080",
-            "167.86.106.244:8080",
+            "173.212.223.135:8080",
+            "207.180.229.199:8080",
             "51.77.91.2:8080",
-            "167.86.85.149:8080",
-            "216.189.151.184:8080",
-            "104.128.239.48:8080",
             "85.214.19.239:8080",
-            "51.38.101.174:8080",
             "167.86.110.20:8080",
-            "216.189.147.95:8080",
             "164.68.112.233:8080",
             "167.86.91.129:8080",
-            "95.216.251.180:8080",
+            "71.45.53.64:8080",
+            "51.15.121.17:8080",
+            "172.86.180.4:8080",
             "164.68.112.222:8080",
-            "207.180.198.130:8080",
-            "167.86.113.138:8080",
-            "94.102.210.119:8080",
+            "152.228.130.236:8080",
+            "94.102.211.12:8080",
+            "45.63.95.68:8080",
             "173.249.40.106:8080",
+            "51.15.113.234:8080",
+            "185.205.209.50:8080",
+            "90.145.247.140:8080",
             "167.86.96.252:8080",
             "167.86.89.239:8080",
             "51.75.158.6:8080",
-            "49.87.146.144:8080",
+            "89.149.208.132:8080",
+            "92.222.89.160:8080",
             "167.86.124.239:8080",
-            "164.68.102.163:8080",
             "135.181.85.207:8080",
             "135.181.85.202:8080",
             "135.181.85.205:8080",
@@ -623,72 +594,62 @@ var ApiProvider = /** @class */ (function () {
             "168.119.57.77:8080",
             "168.119.57.73:8080",
             "168.119.57.70:8080",
-            "60.205.125.201:8080",
-            "218.59.63.22:8080",
             "207.180.193.27:8080",
             "167.86.110.13:8080",
             "80.241.216.188:8080",
+            "173.212.217.82:8080",
             "164.68.102.157:8080",
             "213.52.125.44:8080",
-            "88.48.196.18:8080",
             "54.38.150.124:8080",
-            "94.102.211.12:8080",
-            "151.252.57.205:8080",
+            "173.212.214.45:8080",
+            "173.249.6.125:8080",
+            "194.132.222.219:8080",
+            "90.145.247.158:8080",
             "80.241.213.200:8080",
             "164.68.102.152:8080",
-            "173.249.18.2:8080",
-            "45.58.52.235:8080",
             "167.86.91.104:8080",
             "167.86.103.113:8080",
-            "167.86.103.117:8080",
-            "207.180.250.179:8080",
-            "167.86.96.250:8080",
             "167.86.97.11:8080",
-            "218.241.234.48:8080",
-            "167.86.88.172:8080",
-            "202.111.59.34:8080",
+            "93.104.213.141:8080",
             "207.180.204.151:8080",
             "164.68.112.219:8080",
-            "95.216.156.21:8080",
-            "218.66.160.212:8080",
+            "193.38.33.124:8080",
             "164.68.102.155:8080",
-            "202.11.47.22:8080",
             "173.249.18.163:8080",
-            "173.249.31.227:8080",
-            "167.86.89.176:8080",
+            "35.204.167.142:8080",
+            "173.212.202.54:8080",
             "173.249.30.122:8080",
-            "151.252.57.206:8080",
+            "151.252.59.35:8080",
             "167.86.91.152:8080",
-            "167.86.79.4:8080",
+            "62.171.132.116:8080",
+            "167.86.94.163:8080",
             "167.86.87.55:8080",
             "167.86.110.28:8080",
-            "218.35.80.67:8080",
+            "167.86.79.43:8080",
+            "164.68.112.214:8080",
             "173.212.234.230:8080",
-            "167.86.112.51:8080",
-            "218.78.61.25:8080",
+            "62.109.22.250:8080",
+            "167.86.93.185:8080",
             "207.180.245.37:8080",
             "207.180.203.197:8080",
             "51.75.158.19:8080",
-            "216.189.147.174:8080",
-            "104.128.239.52:8080",
+            "185.195.25.186:8080",
+            "151.252.57.207:8080",
+            "116.203.102.87:8080",
+            "91.121.183.173:8080",
             "153.92.208.64:8080",
-            "95.216.251.181:8080",
             "68.183.218.85:8080",
-            "164.68.102.151:8080",
-            "62.171.174.157:8080",
             "164.68.112.227:8080",
             "164.68.102.167:8080",
-            "167.86.124.234:8080",
-            "54.38.221.35:8080",
-            "167.86.124.246:8080",
             "207.180.211.50:8080",
-            "202.11.48.23:8080",
-            "218.46.53.27:8080",
-            "95.216.251.183:8080",
-            "207.180.214.74:8080",
+            "165.227.87.65:8080",
+            "172.107.204.217:8080",
+            "91.92.128.231:8080",
+            "117.20.64.116:8080",
+            "164.68.102.160:8080",
+            "14.161.22.95:8080",
             "167.86.124.242:8080",
-            "216.189.147.45:8080",
-            "193.71.126.42:8080",
+            "167.86.90.110:8080",
             "207.180.204.80:8080",
             "135.181.85.199:8080",
             "135.181.85.197:8080",
@@ -708,29 +669,23 @@ var ApiProvider = /** @class */ (function () {
             "135.181.85.203:8080",
             "135.181.85.204:8080",
             "178.23.222.2:8080",
-            "202.11.49.24:8080",
+            "167.86.90.86:8080",
             "207.180.211.40:8080",
-            "202.111.59.57:8080",
             "213.52.125.42:8080",
             "45.79.239.226:8080",
-            "104.128.239.55:8080",
-            "167.86.90.143:8080",
             "207.180.206.21:8080",
-            "167.86.115.207:8080",
-            "167.86.94.162:8080",
-            "164.68.112.228:8080",
+            "89.200.172.119:8080",
             "207.180.216.178:8080",
-            "167.86.110.19:8080",
-            "51.38.101.175:8080",
             "167.86.91.153:8080",
+            "167.86.112.198:8080",
             "164.68.112.218:8080",
             "173.249.36.55:8080",
             "167.86.87.59:8080",
-            "207.180.210.172:8080",
-            "167.86.107.226:8080",
+            "167.86.124.238:8080",
+            "167.86.97.26:8080",
             "51.77.91.4:8080",
             "174.89.118.143:8080",
-            "94.102.210.158:8080",
+            "173.249.15.232:8080",
             "168.119.57.76:8080",
             "168.119.57.78:8080",
             "168.119.57.75:8080",
@@ -743,72 +698,64 @@ var ApiProvider = /** @class */ (function () {
             "95.216.189.91:8080",
             "135.181.85.150:8080",
             "135.181.85.171:8080",
+            "167.86.91.64:8080",
+            "90.145.247.148:8080",
+            "185.144.28.222:8080",
             "173.212.223.176:8080",
-            "95.216.251.182:8080",
             "164.68.102.148:8080",
             "164.68.112.220:8080",
+            "85.217.171.116:8080",
+            "90.145.247.150:8080",
             "167.86.80.36:8080",
-            "136.244.99.10:8080",
             "207.180.211.144:8080",
             "167.86.97.7:8080",
+            "99.80.82.23:8080",
             "167.86.79.34:8080",
-            "216.189.147.248:8080",
             "167.86.94.165:8080",
+            "173.82.151.10:8080",
             "51.77.124.7:8080",
-            "173.249.53.47:8080",
-            "173.212.225.161:8080",
-            "218.32.99.72:8080",
+            "167.86.88.165:8080",
+            "45.140.168.218:8080",
             "124.187.44.212:8080",
-            "164.68.98.161:8080",
+            "207.180.251.161:8080",
             "167.86.91.140:8080",
-            "218.18.86.43:8080",
-            "216.189.150.163:8080",
+            "167.86.97.4:8080",
+            "167.86.90.132:8080",
             "167.86.88.222:8080",
             "167.86.91.133:8080",
-            "14.117.177.103:8080",
             "167.86.93.226:8080",
             "167.86.97.10:8080",
+            "45.32.126.230:8080",
             "167.86.97.27:8080",
             "95.179.190.8:8080",
             "217.69.5.79:8080",
             "167.86.90.167:8080",
-            "173.249.49.54:8080",
-            "167.86.90.110:8080",
-            "167.86.90.25:8080",
-            "167.86.124.241:8080",
+            "167.86.124.236:8080",
+            "167.86.71.165:8080",
+            "185.203.119.229:8080",
+            "178.238.235.223:8080",
             "207.180.229.173:8080",
-            "173.249.27.254:8080",
-            "167.86.93.186:8080",
-            "180.115.1.87:8080",
-            "202.11.55.27:8080",
-            "167.86.93.203:8080",
-            "167.86.123.246:8080",
-            "89.200.172.159:8080",
+            "51.158.191.187:8080",
+            "207.180.193.10:8080",
+            "213.136.88.211:8080",
+            "167.86.124.245:8080",
+            "208.64.227.82:8080",
+            "207.180.196.81:8080",
             "173.249.15.183:8080",
             "212.227.211.87:8080",
-            "202.11.56.28:8080",
             "45.80.152.12:8080",
-            "88.48.196.108:8080",
             "207.180.204.56:8080",
             "167.86.90.46:8080",
-            "139.180.161.117:8080",
             "173.249.27.22:8080",
-            "218.98.33.24:8080",
-            "167.86.96.253:8080",
-            "216.189.147.65:8080",
-            "202.111.59.29:8080",
-            "218.13.11.186:8080",
-            "27.46.42.250:8080",
-            "95.179.255.254:8080",
-            "173.212.195.229:8080",
+            "51.15.43.204:8080",
             "173.249.13.18:8080",
             "172.105.60.87:8080",
             "68.183.165.70:8080",
             "188.166.121.129:8080",
+            "207.180.202.120:8080",
             "51.77.124.12:8080",
-            "167.86.124.236:8080",
-            "46.80.51.86:8080",
-            "218.68.86.47:8080",
+            "167.86.97.24:8080",
+            "173.82.212.62:8080",
             "95.217.215.17:8080",
             "195.201.23.0:8080",
             "195.201.22.255:8080",
@@ -819,140 +766,123 @@ var ApiProvider = /** @class */ (function () {
             "195.201.22.233:8080",
             "195.201.22.254:8080",
             "167.86.79.59:8080",
-            "167.86.85.248:8080",
+            "167.86.124.230:8080",
             "207.180.216.124:8080",
-            "164.68.102.156:8080",
-            "167.86.97.24:8080",
+            "167.86.124.233:8080",
             "207.180.206.97:8080",
             "207.180.246.218:8080",
             "207.180.212.197:8080",
-            "173.249.31.145:8080",
-            "71.45.53.64:8080",
+            "167.86.124.237:8080",
+            "164.68.102.156:8080",
             "167.86.90.75:8080",
             "167.86.124.251:8080",
             "54.38.150.119:8080",
-            "95.217.14.17:8080",
-            "51.38.101.173:8080",
-            "78.193.207.8:8080",
             "207.180.207.146:8080",
-            "104.128.226.40:8080",
             "51.77.124.18:8080",
+            "157.230.214.214:8080",
             "164.68.102.166:8080",
             "213.52.125.43:8080",
             "45.76.34.140:8080",
             "207.180.202.230:8080",
-            "62.171.163.23:8080",
+            "45.63.43.164:8080",
             "51.75.158.103:8080",
+            "193.38.33.123:8080",
             "167.86.88.157:8080",
-            "193.126.149.139:8080",
             "207.180.200.239:8080",
             "173.249.51.210:8080",
-            "45.32.126.230:8080",
+            "167.86.81.59:8080",
             "51.75.158.111:8080",
-            "164.68.99.213:8080",
-            "121.31.150.110:8080",
             "78.60.219.169:8080",
             "173.249.16.58:8080",
+            "167.86.91.99:8080",
             "164.68.112.216:8080",
             "207.180.210.63:8080",
-            "173.249.12.82:8080",
             "167.86.124.228:8080",
             "164.68.112.215:8080",
             "167.86.91.98:8080",
-            "167.86.124.248:8080",
-            "46.80.142.28:8080",
+            "164.68.102.163:8080",
             "173.249.24.50:8080",
-            "202.111.66.166:8080",
-            "218.47.23.55:8080",
+            "167.86.124.241:8080",
             "51.77.124.22:8080",
+            "167.86.91.55:8080",
+            "173.249.28.149:8080",
+            "173.212.247.22:8080",
             "173.212.252.120:8080",
             "207.180.234.61:8080",
-            "207.180.202.120:8080",
+            "90.145.247.162:8080",
+            "167.86.87.57:8080",
             "167.86.91.12:8080",
             "51.75.158.23:8080",
             "173.249.15.238:8080",
             "167.86.89.215:8080",
-            "167.86.124.249:8080",
+            "185.141.61.179:8080",
             "207.180.218.18:8080",
-            "167.86.107.224:8080",
             "167.86.89.6:8080",
             "173.249.21.154:8080",
-            "138.201.247.198:8080",
-            "218.80.79.55:8080",
             "173.249.60.78:8080",
-            "218.53.33.24:8080",
-            "144.91.78.28:8080",
-            "173.249.54.4:8080",
-            "5.187.51.212:8080",
             "209.250.224.212:8080",
             "167.86.103.114:8080",
-            "218.88.21.55:8080",
-            "45.58.52.250:8080",
-            "216.189.151.207:8080",
+            "95.179.149.67:8080",
             "70.52.79.114:8080",
-            "164.68.102.149:8080",
             "164.68.102.158:8080",
             "164.68.102.162:8080",
             "173.249.23.24:8080",
-            "46.80.171.215:8080",
-            "46.80.29.78:8080",
+            "167.86.90.25:8080",
             "167.86.88.137:8080",
             "95.111.235.137:8080",
-            "218.86.68.23:8080",
+            "167.86.88.200:8080",
+            "95.179.199.47:8080",
+            "167.86.71.164:8080",
             "167.86.85.147:8080",
             "167.86.110.23:8080",
             "51.210.243.4:8080",
+            "164.68.102.150:8080",
+            "89.149.208.133:8080",
             "173.212.211.55:8080",
             "167.86.90.88:8080",
-            "167.86.107.227:8080",
+            "90.145.247.176:8080",
             "207.180.227.207:8080",
-            "207.180.200.237:8080",
             "79.143.181.118:8080",
-            "88.48.196.128:8080",
             "167.86.87.54:8080",
             "173.249.14.78:8080",
             "173.249.46.109:8080",
-            "218.78.131.22:8080",
             "109.87.231.183:8080",
             "51.38.101.172:8080",
             "173.249.11.196:8080",
             "167.86.112.151:8080",
-            "164.68.113.171:8080",
+            "90.145.247.177:8080",
             "51.77.227.47:8080",
-            "167.86.88.253:8080",
-            "164.68.112.234:8080",
-            "151.252.57.207:8080",
+            "167.86.91.156:8080",
+            "95.179.219.105:8080",
             "195.201.3.145:8080",
-            "104.128.239.212:8080",
             "93.188.165.193:8080",
-            "144.91.65.235:8080",
+            "158.247.227.242:8080",
             "45.32.183.71:8080",
-            "207.180.212.152:8080",
             "167.86.88.160:8080",
-            "202.111.59.68:8080",
-            "173.212.202.225:8080",
             "167.86.124.232:8080",
-            "151.252.57.204:8080",
+            "89.200.172.159:8080",
             "51.77.124.2:8080",
+            "167.86.103.117:8080",
             "167.86.91.2:8080",
             "172.104.36.13:8080",
+            "45.32.236.166:8080",
             "167.86.96.5:8080",
-            "151.252.57.208:8080",
-            "173.249.23.185:8080",
-            "46.80.64.82:8080",
+            "90.145.247.168:8080",
+            "173.212.225.161:8080",
             "51.77.227.30:8080",
-            "14.161.22.94:8080",
             "54.38.221.37:8080",
             "167.86.97.21:8080",
-            "182.88.128.64:8080",
+            "164.68.102.149:8080",
             "80.241.213.83:8080",
+            "62.171.132.113:8080",
             "173.249.18.165:8080",
-            "104.128.226.72:8080",
-            "207.180.228.119:8080",
-            "164.68.99.241:8080",
-            "45.58.52.230:8080",
+            "149.28.162.235:8080",
+            "91.92.136.194:8080",
+            "167.86.124.250:8080",
+            "167.86.97.8:8080",
+            "167.86.97.19:8080",
             "164.68.102.154:8080",
-            "165.227.173.131:8080"
+            "165.227.173.131:8080",
         ];
         if (window.location.protocol === 'http:') {
             var electedSapi = sapis[__WEBPACK_IMPORTED_MODULE_2_random___default.a.int(0, sapis.length - 1)];
@@ -1011,24 +941,24 @@ var ApiProvider = /** @class */ (function () {
 
 var map = {
 	"../pages/address/address.module": [
-		887,
+		888,
 		0
 	],
 	"../pages/block-detail/block-detail.module": [
-		890,
+		887,
 		1
 	],
 	"../pages/blocks/blocks.module": [
 		324
 	],
 	"../pages/broadcast-tx/broadcast-tx.module": [
-		472
+		476
 	],
 	"../pages/home/home.module": [
-		474
+		472
 	],
 	"../pages/search/search.module": [
-		888,
+		890,
 		3
 	],
 	"../pages/transaction/transaction.module": [
@@ -1902,148 +1832,6 @@ var BlocksPage = /** @class */ (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BroadcastTxPageModule", function() { return BroadcastTxPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_footer_footer_module__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_head_nav_head_nav_module__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__broadcast_tx__ = __webpack_require__(473);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-var BroadcastTxPageModule = /** @class */ (function () {
-    function BroadcastTxPageModule() {
-    }
-    BroadcastTxPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            declarations: [__WEBPACK_IMPORTED_MODULE_4__broadcast_tx__["a" /* BroadcastTxPage */]],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_4__broadcast_tx__["a" /* BroadcastTxPage */]),
-                __WEBPACK_IMPORTED_MODULE_2__components_footer_footer_module__["a" /* FooterComponentModule */],
-                __WEBPACK_IMPORTED_MODULE_3__components_head_nav_head_nav_module__["a" /* HeadNavComponentModule */]
-            ],
-            exports: [__WEBPACK_IMPORTED_MODULE_4__broadcast_tx__["a" /* BroadcastTxPage */]]
-        })
-    ], BroadcastTxPageModule);
-    return BroadcastTxPageModule;
-}());
-
-//# sourceMappingURL=broadcast-tx.module.js.map
-
-/***/ }),
-
-/***/ 473:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BroadcastTxPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_api_api__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_currency_currency__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_price_price__ = __webpack_require__(37);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-var BroadcastTxPage = /** @class */ (function () {
-    function BroadcastTxPage(toastCtrl, formBuilder, navParams, httpClient, apiProvider, priceProvider, currencyProvider) {
-        this.toastCtrl = toastCtrl;
-        this.formBuilder = formBuilder;
-        this.navParams = navParams;
-        this.httpClient = httpClient;
-        this.apiProvider = apiProvider;
-        this.priceProvider = priceProvider;
-        this.currencyProvider = currencyProvider;
-        var chain = navParams.get('chain');
-        var network = navParams.get('network');
-        this.chainNetwork = {
-            chain: chain,
-            network: network
-        };
-        this.apiProvider.changeNetwork(this.chainNetwork);
-        this.currencyProvider.setCurrency(this.chainNetwork);
-        this.priceProvider.setCurrency();
-        this.title = 'Broadcast Transaction';
-        this.txForm = formBuilder.group({
-            rawData: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].pattern(/^[0-9A-Fa-f]+$/)]
-        });
-    }
-    BroadcastTxPage.prototype.send = function () {
-        var _this = this;
-        var postData = {
-            rawtx: this.transaction
-        };
-        this.httpClient
-            .post(this.apiProvider.getUrl(this.chainNetwork) + '/tx/send', postData)
-            .subscribe(function (response) {
-            _this.presentToast(true, response);
-        }, function (err) {
-            _this.presentToast(false, err);
-        });
-    };
-    BroadcastTxPage.prototype.presentToast = function (success, response) {
-        var message = success
-            ? 'Transaction successfully broadcast. Trasaction id: ' + response.txid
-            : 'An error occurred: ' + response;
-        if (this.toast) {
-            this.toast.dismiss();
-        }
-        this.toast = this.toastCtrl.create({
-            message: message,
-            position: 'bottom',
-            showCloseButton: true,
-            dismissOnPageChange: true
-        });
-        this.toast.present();
-    };
-    BroadcastTxPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-            selector: 'page-broadcast-tx',template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/pages/broadcast-tx/broadcast-tx.html"*/'<head-nav [chainNetwork]="chainNetwork"></head-nav>\n<ion-content>\n  <ion-grid fixed>\n    <div class="page-content">\n      <h1>Broadcast Transaction</h1>\n      <form [formGroup]="txForm">\n        <ion-list>\n          <ion-item>\n            <p>This form can be used to broadcast a raw transaction in hex format over the Bitcoin network.</p>\n          </ion-item>\n\n          <ion-item>\n            <ion-label floating>Raw transaction data</ion-label>\n            <ion-input type="text" [(ngModel)]="transaction" formControlName="rawData"></ion-input>\n          </ion-item>\n\n          <ion-item *ngIf="!txForm.controls.rawData.valid">\n            <p>Raw transaction data must be a valid hexadecimal string.</p>\n          </ion-item>\n\n          <ion-item>\n            <button ion-button outline (click)="send()" [disabled]="!txForm.touched || !txForm.valid">Send\n              transaction</button>\n          </ion-item>\n        </ion-list>\n      </form>\n    </div>\n  </ion-grid>\n</ion-content>\n<footer [chainNetwork]="chainNetwork"></footer>'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/pages/broadcast-tx/broadcast-tx.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["m" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_api_api__["a" /* ApiProvider */],
-            __WEBPACK_IMPORTED_MODULE_6__providers_price_price__["a" /* PriceProvider */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_currency_currency__["a" /* CurrencyProvider */]])
-    ], BroadcastTxPage);
-    return BroadcastTxPage;
-}());
-
-//# sourceMappingURL=broadcast-tx.js.map
-
-/***/ }),
-
-/***/ 474:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
@@ -2052,8 +1840,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_head_nav_head_nav_module__ = __webpack_require__(77);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_latest_blocks_latest_blocks_module__ = __webpack_require__(150);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_loader_loader_module__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_rewards_rewards_module__ = __webpack_require__(475);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__home__ = __webpack_require__(477);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_rewards_rewards_module__ = __webpack_require__(473);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__home__ = __webpack_require__(475);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2094,7 +1882,7 @@ var HomePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 475:
+/***/ 473:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2132,7 +1920,7 @@ var RewardComponentModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 476:
+/***/ 474:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2233,7 +2021,7 @@ var RewardsProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 477:
+/***/ 475:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2321,6 +2109,148 @@ var HomePage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=home.js.map
+
+/***/ }),
+
+/***/ 476:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BroadcastTxPageModule", function() { return BroadcastTxPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_footer_footer_module__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_head_nav_head_nav_module__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__broadcast_tx__ = __webpack_require__(477);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+var BroadcastTxPageModule = /** @class */ (function () {
+    function BroadcastTxPageModule() {
+    }
+    BroadcastTxPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [__WEBPACK_IMPORTED_MODULE_4__broadcast_tx__["a" /* BroadcastTxPage */]],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_4__broadcast_tx__["a" /* BroadcastTxPage */]),
+                __WEBPACK_IMPORTED_MODULE_2__components_footer_footer_module__["a" /* FooterComponentModule */],
+                __WEBPACK_IMPORTED_MODULE_3__components_head_nav_head_nav_module__["a" /* HeadNavComponentModule */]
+            ],
+            exports: [__WEBPACK_IMPORTED_MODULE_4__broadcast_tx__["a" /* BroadcastTxPage */]]
+        })
+    ], BroadcastTxPageModule);
+    return BroadcastTxPageModule;
+}());
+
+//# sourceMappingURL=broadcast-tx.module.js.map
+
+/***/ }),
+
+/***/ 477:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BroadcastTxPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_api_api__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_currency_currency__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_price_price__ = __webpack_require__(37);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var BroadcastTxPage = /** @class */ (function () {
+    function BroadcastTxPage(toastCtrl, formBuilder, navParams, httpClient, apiProvider, priceProvider, currencyProvider) {
+        this.toastCtrl = toastCtrl;
+        this.formBuilder = formBuilder;
+        this.navParams = navParams;
+        this.httpClient = httpClient;
+        this.apiProvider = apiProvider;
+        this.priceProvider = priceProvider;
+        this.currencyProvider = currencyProvider;
+        var chain = navParams.get('chain');
+        var network = navParams.get('network');
+        this.chainNetwork = {
+            chain: chain,
+            network: network
+        };
+        this.apiProvider.changeNetwork(this.chainNetwork);
+        this.currencyProvider.setCurrency(this.chainNetwork);
+        this.priceProvider.setCurrency();
+        this.title = 'Broadcast Transaction';
+        this.txForm = formBuilder.group({
+            rawData: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].pattern(/^[0-9A-Fa-f]+$/)]
+        });
+    }
+    BroadcastTxPage.prototype.send = function () {
+        var _this = this;
+        var postData = {
+            rawtx: this.transaction
+        };
+        this.httpClient
+            .post(this.apiProvider.getUrl(this.chainNetwork) + '/tx/send', postData)
+            .subscribe(function (response) {
+            _this.presentToast(true, response);
+        }, function (err) {
+            _this.presentToast(false, err);
+        });
+    };
+    BroadcastTxPage.prototype.presentToast = function (success, response) {
+        var message = success
+            ? 'Transaction successfully broadcast. Trasaction id: ' + response.txid
+            : 'An error occurred: ' + response;
+        if (this.toast) {
+            this.toast.dismiss();
+        }
+        this.toast = this.toastCtrl.create({
+            message: message,
+            position: 'bottom',
+            showCloseButton: true,
+            dismissOnPageChange: true
+        });
+        this.toast.present();
+    };
+    BroadcastTxPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
+            selector: 'page-broadcast-tx',template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/pages/broadcast-tx/broadcast-tx.html"*/'<head-nav [chainNetwork]="chainNetwork"></head-nav>\n<ion-content>\n  <ion-grid fixed>\n    <div class="page-content">\n      <h1>Broadcast Transaction</h1>\n      <form [formGroup]="txForm">\n        <ion-list>\n          <ion-item>\n            <p>This form can be used to broadcast a raw transaction in hex format over the Bitcoin network.</p>\n          </ion-item>\n\n          <ion-item>\n            <ion-label floating>Raw transaction data</ion-label>\n            <ion-input type="text" [(ngModel)]="transaction" formControlName="rawData"></ion-input>\n          </ion-item>\n\n          <ion-item *ngIf="!txForm.controls.rawData.valid">\n            <p>Raw transaction data must be a valid hexadecimal string.</p>\n          </ion-item>\n\n          <ion-item>\n            <button ion-button outline (click)="send()" [disabled]="!txForm.touched || !txForm.valid">Send\n              transaction</button>\n          </ion-item>\n        </ion-list>\n      </form>\n    </div>\n  </ion-grid>\n</ion-content>\n<footer [chainNetwork]="chainNetwork"></footer>'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/pages/broadcast-tx/broadcast-tx.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["m" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_api_api__["a" /* ApiProvider */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_price_price__["a" /* PriceProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_currency_currency__["a" /* CurrencyProvider */]])
+    ], BroadcastTxPage);
+    return BroadcastTxPage;
+}());
+
+//# sourceMappingURL=broadcast-tx.js.map
 
 /***/ }),
 
@@ -2436,6 +2366,107 @@ var BlocksProvider = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BlockDetailPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_blocks_blocks__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_currency_currency__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_price_price__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_redir_redir__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_transactions_transactions__ = __webpack_require__(55);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+var BlockDetailPage = /** @class */ (function () {
+    function BlockDetailPage(navParams, currencyProvider, redirProvider, txProvider, blocksProvider, apiProvider, priceProvider) {
+        this.navParams = navParams;
+        this.currencyProvider = currencyProvider;
+        this.redirProvider = redirProvider;
+        this.txProvider = txProvider;
+        this.blocksProvider = blocksProvider;
+        this.apiProvider = apiProvider;
+        this.priceProvider = priceProvider;
+        this.loading = true;
+        this.block = {
+            tx: []
+        };
+        this.blockHash = navParams.get('blockHash');
+        // const chain: string = navParams.get('chain');
+        // const network: string = navParams.get('network');
+        // this.chainNetwork = {
+        //   chain,
+        //   network
+        // };
+        // this.apiProvider.changeNetwork(this.chainNetwork);
+        // this.currencyProvider.setCurrency(this.chainNetwork);
+        // this.priceProvider.setCurrency();
+    }
+    BlockDetailPage.prototype.ionViewDidEnter = function () {
+        var _this = this;
+        this.blocksProvider.getBlock(this.blockHash).subscribe(function (response) {
+            var block;
+            block = response;
+            _this.block = block;
+            //this.txProvider.getConfirmations(this.block.height).subscribe(confirmations => (this.confirmations = confirmations));
+            _this.loading = false;
+        }, function (err) {
+            _this.errorMessage = err;
+            _this.loading = false;
+        });
+    };
+    BlockDetailPage.prototype.goToPreviousBlock = function () {
+        this.redirProvider.redir('block-detail', {
+            blockHash: this.block.previousblockhash,
+            chain: this.chainNetwork.chain,
+            network: this.chainNetwork.network
+        });
+    };
+    BlockDetailPage.prototype.goToNextBlock = function () {
+        this.redirProvider.redir('block-detail', {
+            blockHash: this.block.nextblockhash,
+            chain: this.chainNetwork.chain,
+            network: this.chainNetwork.network
+        });
+    };
+    BlockDetailPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-block-detail',template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/pages/block-detail/block-detail.html"*/'<head-nav [chainNetwork]="chainNetwork"></head-nav>\n<ion-content>\n  <ion-grid fixed>\n\n    <div class="page-content">\n\n      <loader *ngIf="loading" [type]="\'title\'"></loader>\n\n      <error [message]="errorMessage" *ngIf="!loading && errorMessage"></error>\n\n      <div *ngIf="!loading && !errorMessage">\n\n        <h1 class="content-container--heading">Block #{{ block.height }}</h1>\n        <p class="item-hash">\n          <b>Block Hash</b> {{ block.hash }} <button [copyToClipboard]="block.hash">\n            <ion-icon md="md-copy"></ion-icon>\n          </button>\n        </p>\n\n        <h2>Summary</h2>\n\n        <ion-list *ngIf="!loading" class="list--summary">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-12 col-md class="allow-truncated-text">\n                <block-summary [block]="block"></block-summary>\n                <!-- <block-summary-eth *ngIf="chainNetwork.chain === \'ETH\'" [block]="block" [chainNetwork]="chainNetwork"></block-summary-eth> -->\n                <ion-item>\n                  Number of Transactions\n                  <ion-note item-end>\n                    {{ block.tx.length }}\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Height\n                  <ion-note item-end>\n                    {{ block.height }}\n                    <span [hidden]="!block.isMainChain">(Mainchain)</span>\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Block Reward\n                  <ion-note item-end>\n                    <!-- {{ currencyProvider.getConvertedNumber(block.reward, chainNetwork.chain) | number }} -->\n                    {{ currencyProvider.currencySymbol }}\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Timestamp\n                  <ion-note item-end>\n                    {{ block.time * 1000 | date:\'long\' }}\n                  </ion-note>\n                </ion-item>\n          <!-- TODO      <ion-item>\n                  Mined by\n                  <ion-note item-end *ngIf="block.poolInfo">\n                    <a href="{{ block.poolInfo.url }}">{{ block.poolInfo.poolName }}</a>\n                  </ion-note>\n                </ion-item> -->\n              </ion-col>\n              <ion-col col-12 col-md class="allow-truncated-text">\n                <ion-item>\n                  Difficulty\n                  <ion-note item-end>\n                    {{ block.difficulty }}\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Size (bytes)\n                  <ion-note item-end>\n                    {{ block.size }}\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Nonce\n                  <ion-note item-end>\n                    {{ block.nonce }}\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Previous Block\n                  <ion-note item-end>\n                    <a (click)="goToPreviousBlock()"\n                      [ngClass]="{\'disabled-link\': block.height - 1 === 0 }">{{ block.height - 1 }}</a>\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Next Block\n                  <ion-note item-end>\n                    <a (click)="goToNextBlock()"\n                      [ngClass]="{\'disabled-link\': !block.nextblockhash }">{{ block.height + 1 }}</a>\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Confirmations\n                  <ion-note item-end>\n                    {{ confirmations }}\n                  </ion-note>\n                </ion-item>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </ion-list>\n\n        <h2>Transactions</h2>\n        <transaction-list [blocktime]="block.time" [queryType]="\'blockHash\'" [queryValue]="block.hash">\n        </transaction-list>\n      </div>\n\n    </div>\n  </ion-grid>\n</ion-content>\n<footer [chainNetwork]="chainNetwork"></footer>\n'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/pages/block-detail/block-detail.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_currency_currency__["a" /* CurrencyProvider */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_redir_redir__["a" /* RedirProvider */],
+            __WEBPACK_IMPORTED_MODULE_7__providers_transactions_transactions__["a" /* TxsProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_blocks_blocks__["a" /* BlocksProvider */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_price_price__["a" /* PriceProvider */]])
+    ], BlockDetailPage);
+    return BlockDetailPage;
+}());
+
+//# sourceMappingURL=block-detail.js.map
+
+/***/ }),
+
+/***/ 518:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddressPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
@@ -2537,7 +2568,7 @@ var AddressPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 518:
+/***/ 519:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2628,107 +2659,6 @@ var TransactionPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 519:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BlockDetailPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_blocks_blocks__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_currency_currency__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_price_price__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_redir_redir__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_transactions_transactions__ = __webpack_require__(55);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-var BlockDetailPage = /** @class */ (function () {
-    function BlockDetailPage(navParams, currencyProvider, redirProvider, txProvider, blocksProvider, apiProvider, priceProvider) {
-        this.navParams = navParams;
-        this.currencyProvider = currencyProvider;
-        this.redirProvider = redirProvider;
-        this.txProvider = txProvider;
-        this.blocksProvider = blocksProvider;
-        this.apiProvider = apiProvider;
-        this.priceProvider = priceProvider;
-        this.loading = true;
-        this.block = {
-            tx: []
-        };
-        this.blockHash = navParams.get('blockHash');
-        // const chain: string = navParams.get('chain');
-        // const network: string = navParams.get('network');
-        // this.chainNetwork = {
-        //   chain,
-        //   network
-        // };
-        // this.apiProvider.changeNetwork(this.chainNetwork);
-        // this.currencyProvider.setCurrency(this.chainNetwork);
-        // this.priceProvider.setCurrency();
-    }
-    BlockDetailPage.prototype.ionViewDidEnter = function () {
-        var _this = this;
-        this.blocksProvider.getBlock(this.blockHash).subscribe(function (response) {
-            var block;
-            block = response;
-            _this.block = block;
-            //this.txProvider.getConfirmations(this.block.height).subscribe(confirmations => (this.confirmations = confirmations));
-            _this.loading = false;
-        }, function (err) {
-            _this.errorMessage = err;
-            _this.loading = false;
-        });
-    };
-    BlockDetailPage.prototype.goToPreviousBlock = function () {
-        this.redirProvider.redir('block-detail', {
-            blockHash: this.block.previousblockhash,
-            chain: this.chainNetwork.chain,
-            network: this.chainNetwork.network
-        });
-    };
-    BlockDetailPage.prototype.goToNextBlock = function () {
-        this.redirProvider.redir('block-detail', {
-            blockHash: this.block.nextblockhash,
-            chain: this.chainNetwork.chain,
-            network: this.chainNetwork.network
-        });
-    };
-    BlockDetailPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-block-detail',template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/pages/block-detail/block-detail.html"*/'<head-nav [chainNetwork]="chainNetwork"></head-nav>\n<ion-content>\n  <ion-grid fixed>\n\n    <div class="page-content">\n\n      <loader *ngIf="loading" [type]="\'title\'"></loader>\n\n      <error [message]="errorMessage" *ngIf="!loading && errorMessage"></error>\n\n      <div *ngIf="!loading && !errorMessage">\n\n        <h1 class="content-container--heading">Block #{{ block.height }}</h1>\n        <p class="item-hash">\n          <b>Block Hash</b> {{ block.hash }} <button [copyToClipboard]="block.hash">\n            <ion-icon md="md-copy"></ion-icon>\n          </button>\n        </p>\n\n        <h2>Summary</h2>\n\n        <ion-list *ngIf="!loading" class="list--summary">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-12 col-md class="allow-truncated-text">\n                <block-summary [block]="block"></block-summary>\n                <!-- <block-summary-eth *ngIf="chainNetwork.chain === \'ETH\'" [block]="block" [chainNetwork]="chainNetwork"></block-summary-eth> -->\n                <ion-item>\n                  Number of Transactions\n                  <ion-note item-end>\n                    {{ block.tx.length }}\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Height\n                  <ion-note item-end>\n                    {{ block.height }}\n                    <span [hidden]="!block.isMainChain">(Mainchain)</span>\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Block Reward\n                  <ion-note item-end>\n                    <!-- {{ currencyProvider.getConvertedNumber(block.reward, chainNetwork.chain) | number }} -->\n                    {{ currencyProvider.currencySymbol }}\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Timestamp\n                  <ion-note item-end>\n                    {{ block.time * 1000 | date:\'long\' }}\n                  </ion-note>\n                </ion-item>\n          <!-- TODO      <ion-item>\n                  Mined by\n                  <ion-note item-end *ngIf="block.poolInfo">\n                    <a href="{{ block.poolInfo.url }}">{{ block.poolInfo.poolName }}</a>\n                  </ion-note>\n                </ion-item> -->\n              </ion-col>\n              <ion-col col-12 col-md class="allow-truncated-text">\n                <ion-item>\n                  Difficulty\n                  <ion-note item-end>\n                    {{ block.difficulty }}\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Size (bytes)\n                  <ion-note item-end>\n                    {{ block.size }}\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Nonce\n                  <ion-note item-end>\n                    {{ block.nonce }}\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Previous Block\n                  <ion-note item-end>\n                    <a (click)="goToPreviousBlock()"\n                      [ngClass]="{\'disabled-link\': block.height - 1 === 0 }">{{ block.height - 1 }}</a>\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Next Block\n                  <ion-note item-end>\n                    <a (click)="goToNextBlock()"\n                      [ngClass]="{\'disabled-link\': !block.nextblockhash }">{{ block.height + 1 }}</a>\n                  </ion-note>\n                </ion-item>\n                <ion-item>\n                  Confirmations\n                  <ion-note item-end>\n                    {{ confirmations }}\n                  </ion-note>\n                </ion-item>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </ion-list>\n\n        <h2>Transactions</h2>\n        <transaction-list [blocktime]="block.time" [queryType]="\'blockHash\'" [queryValue]="block.hash">\n        </transaction-list>\n      </div>\n\n    </div>\n  </ion-grid>\n</ion-content>\n<footer [chainNetwork]="chainNetwork"></footer>\n'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/pages/block-detail/block-detail.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_currency_currency__["a" /* CurrencyProvider */],
-            __WEBPACK_IMPORTED_MODULE_6__providers_redir_redir__["a" /* RedirProvider */],
-            __WEBPACK_IMPORTED_MODULE_7__providers_transactions_transactions__["a" /* TxsProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_blocks_blocks__["a" /* BlocksProvider */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_price_price__["a" /* PriceProvider */]])
-    ], BlockDetailPage);
-    return BlockDetailPage;
-}());
-
-//# sourceMappingURL=block-detail.js.map
-
-/***/ }),
-
 /***/ 520:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2766,7 +2696,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_logger_logger__ = __webpack_require__(322);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_price_price__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_redir_redir__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_rewards_rewards__ = __webpack_require__(476);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_rewards_rewards__ = __webpack_require__(474);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_search_search__ = __webpack_require__(323);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_transactions_transactions__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__app_component__ = __webpack_require__(886);
@@ -2810,13 +2740,13 @@ var AppModule = /** @class */ (function () {
                     animate: false
                 }, {
                     links: [
+                        { loadChildren: '../pages/block-detail/block-detail.module#BlockDetailPageModule', name: 'block-detail', segment: 'block/:blockHash', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/address/address.module#AddressPageModule', name: 'address', segment: 'address/:addrStr', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/blocks/blocks.module#BlocksPageModule', name: 'blocks', segment: 'blocks', priority: 'low', defaultHistory: ['home'] },
-                        { loadChildren: '../pages/broadcast-tx/broadcast-tx.module#BroadcastTxPageModule', name: 'broadcast-tx', segment: 'broadcast-tx', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'home', segment: 'home', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'search', segment: 'search', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/broadcast-tx/broadcast-tx.module#BroadcastTxPageModule', name: 'broadcast-tx', segment: 'broadcast-tx', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/transaction/transaction.module#TransactionPageModule', name: 'transaction', segment: 'tx/:txId', priority: 'low', defaultHistory: ['home'] },
-                        { loadChildren: '../pages/block-detail/block-detail.module#BlockDetailPageModule', name: 'block-detail', segment: 'block/:blockHash', priority: 'low', defaultHistory: ['home'] }
+                        { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'search', segment: 'search', priority: 'low', defaultHistory: [] }
                     ]
                 })
             ],
@@ -3214,7 +3144,7 @@ var RedirProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__denomination_denomination_module__ = __webpack_require__(320);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__footer__ = __webpack_require__(858);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__footer__ = __webpack_require__(857);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3250,7 +3180,7 @@ var FooterComponentModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__denomination_denomination_module__ = __webpack_require__(320);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__head_nav__ = __webpack_require__(859);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__head_nav__ = __webpack_require__(858);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3279,41 +3209,6 @@ var HeadNavComponentModule = /** @class */ (function () {
 /***/ }),
 
 /***/ 856:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoaderComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var LoaderComponent = /** @class */ (function () {
-    function LoaderComponent() {
-    }
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-        __metadata("design:type", String)
-    ], LoaderComponent.prototype, "type", void 0);
-    LoaderComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'loader',template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/components/loader/loader.html"*/'<div *ngIf="type == \'title\'">\n  <h1 class="title animated-background"></h1>\n  <p class="subtitle animated-background"></p>\n</div>\n\n<ion-row *ngIf="type == \'grid\'">\n  <ion-col col-2>\n    <div class="left-item animated-background"></div>\n  </ion-col>\n  <ion-col col-4>\n    <div class="right-item animated-background"></div>\n  </ion-col>\n  <ion-col text-right>\n    <div class="right-item animated-background"></div>\n  </ion-col>\n  <ion-col col-2 hideWhen="portrait">\n    <div class="animated-background"></div>\n  </ion-col>\n  <ion-col col-2 text-right>\n    <div class="right-item animated-background"></div>\n  </ion-col>\n</ion-row>\n\n<div *ngIf="type == \'tx-list\' || type == \'tx-full-list\'" class="box-loader">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-7>\n        <div class="left-item animated-background"></div>\n      </ion-col>\n      <ion-col col-5 text-right>\n        <ion-note>\n          <div class="right-item animated-background"></div>\n        </ion-note>\n      </ion-col>\n    </ion-row>\n\n    <ion-row align-items-end class="small" *ngIf="type == \'tx-full-list\'">\n      <ion-col col-12 text-right text-uppercase>\n        <ion-chip class="animated-background">\n        </ion-chip>\n        <ion-chip class="animated-background">\n        </ion-chip>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</div>'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/components/loader/loader.html"*/
-        })
-    ], LoaderComponent);
-    return LoaderComponent;
-}());
-
-//# sourceMappingURL=loader.js.map
-
-/***/ }),
-
-/***/ 857:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3348,7 +3243,7 @@ var ErrorComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 858:
+/***/ 857:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3394,7 +3289,7 @@ var FooterComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 859:
+/***/ 858:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3618,6 +3513,41 @@ var HeadNavComponent = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=head-nav.js.map
+
+/***/ }),
+
+/***/ 859:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoaderComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var LoaderComponent = /** @class */ (function () {
+    function LoaderComponent() {
+    }
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], LoaderComponent.prototype, "type", void 0);
+    LoaderComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'loader',template:/*ion-inline-start:"/Users/enricrypto/git2020/bitcore/src/components/loader/loader.html"*/'<div *ngIf="type == \'title\'">\n  <h1 class="title animated-background"></h1>\n  <p class="subtitle animated-background"></p>\n</div>\n\n<ion-row *ngIf="type == \'grid\'">\n  <ion-col col-2>\n    <div class="left-item animated-background"></div>\n  </ion-col>\n  <ion-col col-4>\n    <div class="right-item animated-background"></div>\n  </ion-col>\n  <ion-col text-right>\n    <div class="right-item animated-background"></div>\n  </ion-col>\n  <ion-col col-2 hideWhen="portrait">\n    <div class="animated-background"></div>\n  </ion-col>\n  <ion-col col-2 text-right>\n    <div class="right-item animated-background"></div>\n  </ion-col>\n</ion-row>\n\n<div *ngIf="type == \'tx-list\' || type == \'tx-full-list\'" class="box-loader">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-7>\n        <div class="left-item animated-background"></div>\n      </ion-col>\n      <ion-col col-5 text-right>\n        <ion-note>\n          <div class="right-item animated-background"></div>\n        </ion-note>\n      </ion-col>\n    </ion-row>\n\n    <ion-row align-items-end class="small" *ngIf="type == \'tx-full-list\'">\n      <ion-col col-12 text-right text-uppercase>\n        <ion-chip class="animated-background">\n        </ion-chip>\n        <ion-chip class="animated-background">\n        </ion-chip>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</div>'/*ion-inline-end:"/Users/enricrypto/git2020/bitcore/src/components/loader/loader.html"*/
+        })
+    ], LoaderComponent);
+    return LoaderComponent;
+}());
+
+//# sourceMappingURL=loader.js.map
 
 /***/ }),
 
@@ -3914,7 +3844,7 @@ webpackContext.id = 861;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RewardsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_rewards_rewards__ = __webpack_require__(476);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_rewards_rewards__ = __webpack_require__(474);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3974,17 +3904,17 @@ var RewardsComponent = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(477);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home_home__ = __webpack_require__(475);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__home_home__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__address_address__ = __webpack_require__(517);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__address_address__ = __webpack_require__(518);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__block_detail_block_detail__ = __webpack_require__(519);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__block_detail_block_detail__ = __webpack_require__(517);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__blocks_blocks__ = __webpack_require__(471);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__blocks_blocks__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__broadcast_tx_broadcast_tx__ = __webpack_require__(473);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__broadcast_tx_broadcast_tx__ = __webpack_require__(477);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__transaction_transaction__ = __webpack_require__(518);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__transaction_transaction__ = __webpack_require__(519);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_module__ = __webpack_require__(882);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_6__pages_module__["a"]; });
@@ -4011,10 +3941,10 @@ var RewardsComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_footer_footer_module__ = __webpack_require__(76);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_head_nav_head_nav_module__ = __webpack_require__(77);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_latest_blocks_latest_blocks_module__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_rewards_rewards_module__ = __webpack_require__(475);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_rewards_rewards_module__ = __webpack_require__(473);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_blocks_blocks_module__ = __webpack_require__(324);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__broadcast_tx_broadcast_tx_module__ = __webpack_require__(472);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__home_home_module__ = __webpack_require__(474);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__broadcast_tx_broadcast_tx_module__ = __webpack_require__(476);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__home_home_module__ = __webpack_require__(472);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
