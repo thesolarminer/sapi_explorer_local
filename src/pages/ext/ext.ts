@@ -20,14 +20,14 @@ export class ExtPage {
     // this.currencyProvider.setCurrency(this.chainNetwork);
     // this.priceProvider.setCurrency();
 
+    
+  }
+
+  public ionViewWillLoad(): void {
     this.getValue();
   }
 
   public getValue(){
       this.ext = JSON.stringify('3.000.000.000,00');
   }
-
-  public ionViewDidEnter(): void {
-  
-  }  
 }
