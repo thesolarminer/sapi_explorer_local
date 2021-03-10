@@ -8,6 +8,7 @@ import { LatestBlocksComponentModule } from '../components/latest-blocks/latest-
 import { RewardComponentModule } from '../components/rewards/rewards.module';
 import { BlocksPageModule } from '../pages/blocks/blocks.module';
 import { BroadcastTxPageModule } from './broadcast-tx/broadcast-tx.module';
+import { ExtPageModule } from './ext/ext.module';
 import { HomePageModule } from './home/home.module';
 
 @NgModule({
@@ -23,6 +24,7 @@ import { HomePageModule } from './home/home.module';
     LatestBlocksComponentModule,
     ErrorComponentModule,
     RewardComponentModule,
+    ExtPageModule
   ],
   entryComponents: [],
   providers: []
