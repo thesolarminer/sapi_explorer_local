@@ -214,9 +214,9 @@ export class TxsProvider {
 
         return txs;
     }
-    
+
     async getTransactionsPerAddress(address: string) {
-        const url = `${this.apiProvider.getRandomSapiUrl()}address/transactions/${address}`;     
+        const url = `${this.apiProvider.getRandomSapiUrl()}address/transactions/${address}`;
         let txs: ApiTx[] = [];
 
         let addressData: any = await this.httpClient.post<any>(url, {
@@ -232,13 +232,13 @@ export class TxsProvider {
     }
 
     async getTransactionsPerAddressNew(address: string) {
-        const url = `${this.apiProvider.getRandomSapiUrl()}address/transactions/`;     
+        const url = `${this.apiProvider.getRandomSapiUrl()}address/transactions/`;
         let txs: ApiTx[] = [];
 
         let addressData: any = await this.httpClient.post<any>(url, {
+            "address": address,
             "pageNumber": 1,
             "pageSize": 10,
-            "address": address
         }).toPromise();
 
         addressData.data.forEach(item => {
@@ -253,8 +253,6 @@ export class TxsProvider {
         if (args.blockHash) {
             queryString += `?blockHash=${args.blockHash}`;
         }
-
-        //return from(this.getTransactionsPerBlock(args.blockHash));
 
         const url = `${this.apiProvider.getUrl(chainNetwork)}/tx/${queryString}`;
         return this.httpClient.get<ApiUtxoCoinTx[]>(url);

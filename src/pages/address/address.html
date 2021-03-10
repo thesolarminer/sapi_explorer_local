@@ -7,7 +7,7 @@
 
             <div *ngIf="!loading">
 
-                <h1 class="content-container--heading">Address <small>{{ address.balance }}
+                <h1 class="content-container--heading">Address <small>{{ address.balance.total }}
                         {{ currencyProvider.currencySymbol }}</small>
                 </h1>
                 <p class="ellipsis">{{ address.addrStr }}
@@ -19,6 +19,14 @@
                 <h2>Summary</h2>
                 <ion-grid>
                     <ion-row align-items-start justify-content-center>
+                    <ion-col col-auto text-center>
+                            <qr-code [value]="address.addrStr" [size]="160"></qr-code>
+                            <br />
+                            <img *ngIf="reward.activated && reward.balance_eligible>1000 && reward.balance_eligible<1000000"
+                                src="https://contattafiles.s3.us-west-1.amazonaws.com/tnt19836/2185nbLSm5JHuAj/457861.png" />
+                            <img *ngIf="reward.activated && reward.balance_eligible>=1000000"
+                                src="https://contattafiles.s3.us-west-1.amazonaws.com/tnt19836/lCyEE1RhD8AMjfV/4578621.png" />
+                        </ion-col>
                         <ion-col>
                             <ion-list class="list--summary">
                                 <ion-item>
@@ -34,50 +42,47 @@
                                         {{ address.sent }} {{ currencyProvider.currencySymbol }}
                                     </ion-note>
                                 </ion-item>
-
                                 <ion-item>
-                                    Final Balance
+                                    Total Final Balance
                                     <ion-note item-end>
-                                        {{ address.balance }} {{ currencyProvider.currencySymbol }}
+                                        {{ address.balance.total }} {{ currencyProvider.currencySymbol }}
                                     </ion-note>
                                 </ion-item>
-
-                                <!-- <ion-item *ngIf="address.unconfirmed > 0">
-                  Unconfirmed Balance
-                  <ion-note item-end>
-                    {{ getConvertedNumber(address.unconfirmed) | number:'1.0-8' }} {{ currencyProvider.currencySymbol }}
-                  </ion-note>
-                </ion-item> -->
-
-                                <!-- <ion-item>
-                  Nro. Transactions
-                  <ion-note item-end>
-                    {{ nroTransactions || 0 }}
-                  </ion-note>
-                </ion-item> -->
-
+                                <ion-item>
+                                    Locked Balance
+                                    <ion-note item-end>
+                                        {{ address.balance.locked }} {{ currencyProvider.currencySymbol }}
+                                    </ion-note>
+                                </ion-item>
+                                <ion-item>
+                                    Free Balance
+                                    <ion-note item-end>
+                                        {{ address.balance.unlocked }} {{ currencyProvider.currencySymbol }}
+                                    </ion-note>
+                                </ion-item>
                                 <ion-item>
                                     Is active for rewards
                                     <ion-note item-end>
-                                        {{ reward.activated }}
+                                        {{ (reward.activated && (reward.activated === 1 || reward.activated===true)) ?
+                                        "Yes" : "No"}}
                                     </ion-note>
                                 </ion-item>
                                 <ion-item>
                                     Balance eligible for rewards
+                                    in the next round.
                                     <ion-note item-end>
-                                        {{ reward.balance_eligible || 0 }}
+                                        {{ (reward.balance_eligible || 0)}}
+                                    </ion-note>
+                                </ion-item>
+                                <ion-item>
+                                    * An activated address will have a balance eligible of 0 until the start of first round.
+                                    <ion-note item-end>
+
                                     </ion-note>
                                 </ion-item>
                             </ion-list>
                         </ion-col>
-                        <ion-col col-auto text-center>
-                            <qr-code [value]="address.addrStr" [size]="160"></qr-code>
-                            <br />
-                            <img *ngIf="reward.activated && reward.balance_eligible>1000 && reward.balance_eligible<1000000"
-                                src="https://contattafiles.s3.us-west-1.amazonaws.com/tnt19836/2185nbLSm5JHuAj/457861.png" />
-                            <img *ngIf="reward.activated && reward.balance_eligible>=1000000"
-                                src="https://contattafiles.s3.us-west-1.amazonaws.com/tnt19836/lCyEE1RhD8AMjfV/4578621.png" />
-                        </ion-col>
+
                     </ion-row>
                 </ion-grid>
 
