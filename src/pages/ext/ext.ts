@@ -29,6 +29,6 @@ export class ExtPage {
   }
 
   public getValue(){
-      this.ext = JSON.stringify('3.000.000.000,00');
+      this.ext = JSON.stringify('2637267080');
   }
 }

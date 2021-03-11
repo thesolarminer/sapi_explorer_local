@@ -14,16 +14,7 @@ import { ExtPage } from './ext';
 @NgModule({
   declarations: [ExtPage],
   imports: [
-    IonicPageModule.forChild(ExtPage),
-    TransactionSummaryEthComponentModule,
-    TransactionSummaryComponentModule,
-    TransactionDetailsComponentModule,
-    TransactionDetailsEthComponentModule,
-    FooterComponentModule,
-    HeadNavComponentModule,
-    LoaderComponentModule,
-    ErrorComponentModule,
-    CopyToClipboardModule
+    IonicPageModule.forChild(ExtPage)
   ],
   exports: [ExtPage]
 })
