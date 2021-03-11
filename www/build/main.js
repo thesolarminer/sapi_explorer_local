@@ -2413,13 +2413,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var ExtPage = /** @class */ (function () {
     function ExtPage() {
+        this.ext = '';
         // this.apiProvider.changeNetwork(this.chainNetwork);
         // this.currencyProvider.setCurrency(this.chainNetwork);
         // this.priceProvider.setCurrency();
-        this.ext = '';
+        this.getValue();
+        console.log('call:' + this.ext);
     }
     ExtPage.prototype.ionViewWillLoad = function () {
-        this.getValue();
     };
     ExtPage.prototype.getValue = function () {
         this.ext = JSON.stringify('3.000.000.000,00');
@@ -2427,7 +2428,7 @@ var ExtPage = /** @class */ (function () {
     ExtPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-ext',template:/*ion-inline-start:"C:\Projects\smartcash\explorer\src\pages\ext\ext.html"*/'<ion-content>\n\n    {{ext}}\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Projects\smartcash\explorer\src\pages\ext\ext.html"*/
+            selector: 'page-ext',template:/*ion-inline-start:"C:\Projects\smartcash\explorer\src\pages\ext\ext.html"*/'<h1>2637267080</h1>'/*ion-inline-end:"C:\Projects\smartcash\explorer\src\pages\ext\ext.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], ExtPage);
@@ -3309,10 +3310,10 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/block-detail/block-detail.module#BlockDetailPageModule', name: 'block-detail', segment: 'block/:blockHash', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/broadcast-tx/broadcast-tx.module#BroadcastTxPageModule', name: 'broadcast-tx', segment: 'broadcast-tx', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/blocks/blocks.module#BlocksPageModule', name: 'blocks', segment: 'blocks', priority: 'low', defaultHistory: ['home'] },
-                        { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'search', segment: 'search', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/ext/ext.module#ExtPageModule', name: 'ext', segment: 'ext/getmoneysupply', priority: 'low', defaultHistory: ['home'] },
-                        { loadChildren: '../pages/transaction/transaction.module#TransactionPageModule', name: 'transaction', segment: 'tx/:txId', priority: 'low', defaultHistory: ['home'] },
-                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'home', segment: 'home', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'home', segment: 'home', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'search', segment: 'search', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/transaction/transaction.module#TransactionPageModule', name: 'transaction', segment: 'tx/:txId', priority: 'low', defaultHistory: ['home'] }
                     ]
                 })
             ],

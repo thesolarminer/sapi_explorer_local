@@ -19,12 +19,13 @@ export class ExtPage {
     // this.apiProvider.changeNetwork(this.chainNetwork);
     // this.currencyProvider.setCurrency(this.chainNetwork);
     // this.priceProvider.setCurrency();
-
+    this.getValue();
+    console.log('call:' + this.ext);
     
   }
 
   public ionViewWillLoad(): void {
-    this.getValue();
+    
   }
 
   public getValue(){
