@@ -75,6 +75,7 @@
     "karma-jasmine": "1.1.0",
     "karma-jasmine-html-reporter": "0.2.2",
     "lodash": "^4.17.20",
+    "node-fetch": "^2.6.1",
     "path": "^0.12.7",
     "prettier": "^1.15.3",
     "random": "^2.2.0",

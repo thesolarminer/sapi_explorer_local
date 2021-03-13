@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const fetch = require('node-fetch');
 app.use(bodyParser.json());
 const distDir = __dirname + '/www/';
 app.use(express.static(distDir));
@@ -27,7 +28,11 @@ app.get('/address/*', function(req, res) {
 
 app.get('/ext/getmoneysupply', function(req, res) {
     res.setHeader('Content-Type', 'application/json');
-    res.send('2637267080');
+    fetch('https://sapi.smartcash.cc/v1/blockchain/supply')
+        .then(res => res.json())
+        .then(json => {
+            res.send(json.CurrentSupply.toString());
+        });
 });
 
 // app.use('/api', apiController);
