@@ -232,17 +232,10 @@ export class TxsProvider {
     }
 
     async getTransactionsPerAddressNew(address: string) {
-        const url = `${this.apiProvider.getRandomSapiUrl()}address/transactions`;
+        const url = `api/getTransactions/` + address;
         let txs: ApiTx[] = [];
 
-        let addressData: any = await this.httpClient.post<any>(url, {
-            "pageNumber": 1,
-            "pageSize": 10,
-            "ascending": false,
-            "address": address
-        }).toPromise();
-
-        console.log(addressData);
+        let addressData: any = await this.httpClient.get<any>(url).toPromise();
 
         addressData.data.forEach(item => {
             this.getMappedTxs(item).then(data => txs.push(data.tx));

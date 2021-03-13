@@ -19,9 +19,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var DefaultProvider = /** @class */ (function () {
     function DefaultProvider() {
         this.defaults = {
-            '%CHAIN%': process.env.CHAIN || 'BTC',
-            '%API_PREFIX%': process.env.API_PREFIX || '/api',
-            '%NETWORK%': process.env.NETWORK || 'mainnet',
+            '%CHAIN%': "ALL" || 'BTC',
+            '%API_PREFIX%': "https://api.bitcore.io/api" || '/api',
+            '%NETWORK%': "mainnet" || 'mainnet',
             '%NUM_BLOCKS%': process.env.NUM_BLOCKS || '15'
         };
     }
@@ -54,7 +54,7 @@ var DefaultProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_loader_loader_module__ = __webpack_require__(98);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__error_error_module__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__latest_blocks__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__latest_blocks__ = __webpack_require__(465);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -356,10 +356,10 @@ var map = {
 		1
 	],
 	"../pages/blocks/blocks.module": [
-		321
+		319
 	],
 	"../pages/broadcast-tx/broadcast-tx.module": [
-		319
+		467
 	],
 	"../pages/ext/ext.module": [
 		473
@@ -858,148 +858,6 @@ var SearchProvider = /** @class */ (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BroadcastTxPageModule", function() { return BroadcastTxPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_footer_footer_module__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_head_nav_head_nav_module__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__broadcast_tx__ = __webpack_require__(320);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-var BroadcastTxPageModule = /** @class */ (function () {
-    function BroadcastTxPageModule() {
-    }
-    BroadcastTxPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            declarations: [__WEBPACK_IMPORTED_MODULE_4__broadcast_tx__["a" /* BroadcastTxPage */]],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_4__broadcast_tx__["a" /* BroadcastTxPage */]),
-                __WEBPACK_IMPORTED_MODULE_2__components_footer_footer_module__["a" /* FooterComponentModule */],
-                __WEBPACK_IMPORTED_MODULE_3__components_head_nav_head_nav_module__["a" /* HeadNavComponentModule */]
-            ],
-            exports: [__WEBPACK_IMPORTED_MODULE_4__broadcast_tx__["a" /* BroadcastTxPage */]]
-        })
-    ], BroadcastTxPageModule);
-    return BroadcastTxPageModule;
-}());
-
-//# sourceMappingURL=broadcast-tx.module.js.map
-
-/***/ }),
-
-/***/ 320:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BroadcastTxPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_api_api__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_currency_currency__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_price_price__ = __webpack_require__(35);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-var BroadcastTxPage = /** @class */ (function () {
-    function BroadcastTxPage(toastCtrl, formBuilder, navParams, httpClient, apiProvider, priceProvider, currencyProvider) {
-        this.toastCtrl = toastCtrl;
-        this.formBuilder = formBuilder;
-        this.navParams = navParams;
-        this.httpClient = httpClient;
-        this.apiProvider = apiProvider;
-        this.priceProvider = priceProvider;
-        this.currencyProvider = currencyProvider;
-        var chain = navParams.get('chain');
-        var network = navParams.get('network');
-        this.chainNetwork = {
-            chain: chain,
-            network: network
-        };
-        this.apiProvider.changeNetwork(this.chainNetwork);
-        this.currencyProvider.setCurrency(this.chainNetwork);
-        this.priceProvider.setCurrency();
-        this.title = 'Broadcast Transaction';
-        this.txForm = formBuilder.group({
-            rawData: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].pattern(/^[0-9A-Fa-f]+$/)]
-        });
-    }
-    BroadcastTxPage.prototype.send = function () {
-        var _this = this;
-        var postData = {
-            rawtx: this.transaction
-        };
-        this.httpClient
-            .post(this.apiProvider.getUrl(this.chainNetwork) + '/tx/send', postData)
-            .subscribe(function (response) {
-            _this.presentToast(true, response);
-        }, function (err) {
-            _this.presentToast(false, err);
-        });
-    };
-    BroadcastTxPage.prototype.presentToast = function (success, response) {
-        var message = success
-            ? 'Transaction successfully broadcast. Trasaction id: ' + response.txid
-            : 'An error occurred: ' + response;
-        if (this.toast) {
-            this.toast.dismiss();
-        }
-        this.toast = this.toastCtrl.create({
-            message: message,
-            position: 'bottom',
-            showCloseButton: true,
-            dismissOnPageChange: true
-        });
-        this.toast.present();
-    };
-    BroadcastTxPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-            selector: 'page-broadcast-tx',template:/*ion-inline-start:"C:\Projects\smartcash\explorer\src\pages\broadcast-tx\broadcast-tx.html"*/'<head-nav [chainNetwork]="chainNetwork"></head-nav>\n\n<ion-content>\n\n  <ion-grid fixed>\n\n    <div class="page-content">\n\n      <h1>Broadcast Transaction</h1>\n\n      <form [formGroup]="txForm">\n\n        <ion-list>\n\n          <ion-item>\n\n            <p>This form can be used to broadcast a raw transaction in hex format over the Bitcoin network.</p>\n\n          </ion-item>\n\n\n\n          <ion-item>\n\n            <ion-label floating>Raw transaction data</ion-label>\n\n            <ion-input type="text" [(ngModel)]="transaction" formControlName="rawData"></ion-input>\n\n          </ion-item>\n\n\n\n          <ion-item *ngIf="!txForm.controls.rawData.valid">\n\n            <p>Raw transaction data must be a valid hexadecimal string.</p>\n\n          </ion-item>\n\n\n\n          <ion-item>\n\n            <button ion-button outline (click)="send()" [disabled]="!txForm.touched || !txForm.valid">Send\n\n              transaction</button>\n\n          </ion-item>\n\n        </ion-list>\n\n      </form>\n\n    </div>\n\n  </ion-grid>\n\n</ion-content>\n\n<footer [chainNetwork]="chainNetwork"></footer>'/*ion-inline-end:"C:\Projects\smartcash\explorer\src\pages\broadcast-tx\broadcast-tx.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["m" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_api_api__["a" /* ApiProvider */],
-            __WEBPACK_IMPORTED_MODULE_6__providers_price_price__["a" /* PriceProvider */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_currency_currency__["a" /* CurrencyProvider */]])
-    ], BroadcastTxPage);
-    return BroadcastTxPage;
-}());
-
-//# sourceMappingURL=broadcast-tx.js.map
-
-/***/ }),
-
-/***/ 321:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BlocksPageModule", function() { return BlocksPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
@@ -1007,7 +865,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_head_nav_head_nav_module__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_latest_blocks_latest_blocks_module__ = __webpack_require__(145);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_loader_loader_module__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__blocks__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__blocks__ = __webpack_require__(466);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1165,7 +1023,7 @@ var PriceProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 467:
+/***/ 465:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1312,7 +1170,7 @@ var LatestBlocksComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 468:
+/***/ 466:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1378,6 +1236,148 @@ var BlocksPage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=blocks.js.map
+
+/***/ }),
+
+/***/ 467:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BroadcastTxPageModule", function() { return BroadcastTxPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_footer_footer_module__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_head_nav_head_nav_module__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__broadcast_tx__ = __webpack_require__(468);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+var BroadcastTxPageModule = /** @class */ (function () {
+    function BroadcastTxPageModule() {
+    }
+    BroadcastTxPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [__WEBPACK_IMPORTED_MODULE_4__broadcast_tx__["a" /* BroadcastTxPage */]],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_4__broadcast_tx__["a" /* BroadcastTxPage */]),
+                __WEBPACK_IMPORTED_MODULE_2__components_footer_footer_module__["a" /* FooterComponentModule */],
+                __WEBPACK_IMPORTED_MODULE_3__components_head_nav_head_nav_module__["a" /* HeadNavComponentModule */]
+            ],
+            exports: [__WEBPACK_IMPORTED_MODULE_4__broadcast_tx__["a" /* BroadcastTxPage */]]
+        })
+    ], BroadcastTxPageModule);
+    return BroadcastTxPageModule;
+}());
+
+//# sourceMappingURL=broadcast-tx.module.js.map
+
+/***/ }),
+
+/***/ 468:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BroadcastTxPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_api_api__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_currency_currency__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_price_price__ = __webpack_require__(35);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var BroadcastTxPage = /** @class */ (function () {
+    function BroadcastTxPage(toastCtrl, formBuilder, navParams, httpClient, apiProvider, priceProvider, currencyProvider) {
+        this.toastCtrl = toastCtrl;
+        this.formBuilder = formBuilder;
+        this.navParams = navParams;
+        this.httpClient = httpClient;
+        this.apiProvider = apiProvider;
+        this.priceProvider = priceProvider;
+        this.currencyProvider = currencyProvider;
+        var chain = navParams.get('chain');
+        var network = navParams.get('network');
+        this.chainNetwork = {
+            chain: chain,
+            network: network
+        };
+        this.apiProvider.changeNetwork(this.chainNetwork);
+        this.currencyProvider.setCurrency(this.chainNetwork);
+        this.priceProvider.setCurrency();
+        this.title = 'Broadcast Transaction';
+        this.txForm = formBuilder.group({
+            rawData: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].pattern(/^[0-9A-Fa-f]+$/)]
+        });
+    }
+    BroadcastTxPage.prototype.send = function () {
+        var _this = this;
+        var postData = {
+            rawtx: this.transaction
+        };
+        this.httpClient
+            .post(this.apiProvider.getUrl(this.chainNetwork) + '/tx/send', postData)
+            .subscribe(function (response) {
+            _this.presentToast(true, response);
+        }, function (err) {
+            _this.presentToast(false, err);
+        });
+    };
+    BroadcastTxPage.prototype.presentToast = function (success, response) {
+        var message = success
+            ? 'Transaction successfully broadcast. Trasaction id: ' + response.txid
+            : 'An error occurred: ' + response;
+        if (this.toast) {
+            this.toast.dismiss();
+        }
+        this.toast = this.toastCtrl.create({
+            message: message,
+            position: 'bottom',
+            showCloseButton: true,
+            dismissOnPageChange: true
+        });
+        this.toast.present();
+    };
+    BroadcastTxPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
+            selector: 'page-broadcast-tx',template:/*ion-inline-start:"C:\Projects\smartcash\explorer\src\pages\broadcast-tx\broadcast-tx.html"*/'<head-nav [chainNetwork]="chainNetwork"></head-nav>\n\n<ion-content>\n\n  <ion-grid fixed>\n\n    <div class="page-content">\n\n      <h1>Broadcast Transaction</h1>\n\n      <form [formGroup]="txForm">\n\n        <ion-list>\n\n          <ion-item>\n\n            <p>This form can be used to broadcast a raw transaction in hex format over the Bitcoin network.</p>\n\n          </ion-item>\n\n\n\n          <ion-item>\n\n            <ion-label floating>Raw transaction data</ion-label>\n\n            <ion-input type="text" [(ngModel)]="transaction" formControlName="rawData"></ion-input>\n\n          </ion-item>\n\n\n\n          <ion-item *ngIf="!txForm.controls.rawData.valid">\n\n            <p>Raw transaction data must be a valid hexadecimal string.</p>\n\n          </ion-item>\n\n\n\n          <ion-item>\n\n            <button ion-button outline (click)="send()" [disabled]="!txForm.touched || !txForm.valid">Send\n\n              transaction</button>\n\n          </ion-item>\n\n        </ion-list>\n\n      </form>\n\n    </div>\n\n  </ion-grid>\n\n</ion-content>\n\n<footer [chainNetwork]="chainNetwork"></footer>'/*ion-inline-end:"C:\Projects\smartcash\explorer\src\pages\broadcast-tx\broadcast-tx.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["m" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_api_api__["a" /* ApiProvider */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_price_price__["a" /* PriceProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_currency_currency__["a" /* CurrencyProvider */]])
+    ], BroadcastTxPage);
+    return BroadcastTxPage;
+}());
+
+//# sourceMappingURL=broadcast-tx.js.map
 
 /***/ }),
 
@@ -1690,7 +1690,7 @@ var RewardsProvider = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_latest_blocks_latest_blocks__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_latest_blocks_latest_blocks__ = __webpack_require__(465);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_api__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_currency_currency__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_price_price__ = __webpack_require__(35);
@@ -2025,17 +2025,11 @@ var TxsProvider = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        url = this.apiProvider.getRandomSapiUrl() + "address/transactions";
+                        url = "api/getTransactions/" + address;
                         txs = [];
-                        return [4 /*yield*/, this.httpClient.post(url, {
-                                "pageNumber": 1,
-                                "pageSize": 10,
-                                "ascending": false,
-                                "address": address
-                            }).toPromise()];
+                        return [4 /*yield*/, this.httpClient.get(url).toPromise()];
                     case 1:
                         addressData = _a.sent();
-                        console.log(addressData);
                         addressData.data.forEach(function (item) {
                             _this.getMappedTxs(item).then(function (data) { return txs.push(data.tx); });
                         });
@@ -2161,10 +2155,12 @@ var TxsProvider = /** @class */ (function () {
         };
         return x;
     };
-    var _a, _b, _c, _d;
     TxsProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__providers_currency_currency__["a" /* CurrencyProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_currency_currency__["a" /* CurrencyProvider */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__blocks_blocks__["a" /* BlocksProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__blocks_blocks__["a" /* BlocksProvider */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */]) === "function" ? _d : Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_currency_currency__["a" /* CurrencyProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__blocks_blocks__["a" /* BlocksProvider */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */]])
     ], TxsProvider);
     return TxsProvider;
 }());
@@ -2590,8 +2586,8 @@ var AppModule = /** @class */ (function () {
                     links: [
                         { loadChildren: '../pages/address/address.module#AddressPageModule', name: 'address', segment: 'address/:addrStr', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/block-detail/block-detail.module#BlockDetailPageModule', name: 'block-detail', segment: 'block/:blockHash', priority: 'low', defaultHistory: ['home'] },
-                        { loadChildren: '../pages/broadcast-tx/broadcast-tx.module#BroadcastTxPageModule', name: 'broadcast-tx', segment: 'broadcast-tx', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/blocks/blocks.module#BlocksPageModule', name: 'blocks', segment: 'blocks', priority: 'low', defaultHistory: ['home'] },
+                        { loadChildren: '../pages/broadcast-tx/broadcast-tx.module#BroadcastTxPageModule', name: 'broadcast-tx', segment: 'broadcast-tx', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'home', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/ext/ext.module#ExtPageModule', name: 'ext', segment: 'ext/getmoneysupply', priority: 'low', defaultHistory: ['home'] },
                         { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'search', segment: 'search', priority: 'low', defaultHistory: [] },
@@ -3043,270 +3039,270 @@ var HeadNavComponent = /** @class */ (function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 323,
-	"./af.js": 323,
-	"./ar": 324,
-	"./ar-dz": 325,
-	"./ar-dz.js": 325,
-	"./ar-kw": 326,
-	"./ar-kw.js": 326,
-	"./ar-ly": 327,
-	"./ar-ly.js": 327,
-	"./ar-ma": 328,
-	"./ar-ma.js": 328,
-	"./ar-sa": 329,
-	"./ar-sa.js": 329,
-	"./ar-tn": 330,
-	"./ar-tn.js": 330,
-	"./ar.js": 324,
-	"./az": 331,
-	"./az.js": 331,
-	"./be": 332,
-	"./be.js": 332,
-	"./bg": 333,
-	"./bg.js": 333,
-	"./bm": 334,
-	"./bm.js": 334,
-	"./bn": 335,
-	"./bn.js": 335,
-	"./bo": 336,
-	"./bo.js": 336,
-	"./br": 337,
-	"./br.js": 337,
-	"./bs": 338,
-	"./bs.js": 338,
-	"./ca": 339,
-	"./ca.js": 339,
-	"./cs": 340,
-	"./cs.js": 340,
-	"./cv": 341,
-	"./cv.js": 341,
-	"./cy": 342,
-	"./cy.js": 342,
-	"./da": 343,
-	"./da.js": 343,
-	"./de": 344,
-	"./de-at": 345,
-	"./de-at.js": 345,
-	"./de-ch": 346,
-	"./de-ch.js": 346,
-	"./de.js": 344,
-	"./dv": 347,
-	"./dv.js": 347,
-	"./el": 348,
-	"./el.js": 348,
-	"./en-au": 349,
-	"./en-au.js": 349,
-	"./en-ca": 350,
-	"./en-ca.js": 350,
-	"./en-gb": 351,
-	"./en-gb.js": 351,
-	"./en-ie": 352,
-	"./en-ie.js": 352,
-	"./en-il": 353,
-	"./en-il.js": 353,
-	"./en-in": 354,
-	"./en-in.js": 354,
-	"./en-nz": 355,
-	"./en-nz.js": 355,
-	"./en-sg": 356,
-	"./en-sg.js": 356,
-	"./eo": 357,
-	"./eo.js": 357,
-	"./es": 358,
-	"./es-do": 359,
-	"./es-do.js": 359,
-	"./es-us": 360,
-	"./es-us.js": 360,
-	"./es.js": 358,
-	"./et": 361,
-	"./et.js": 361,
-	"./eu": 362,
-	"./eu.js": 362,
-	"./fa": 363,
-	"./fa.js": 363,
-	"./fi": 364,
-	"./fi.js": 364,
-	"./fil": 365,
-	"./fil.js": 365,
-	"./fo": 366,
-	"./fo.js": 366,
-	"./fr": 367,
-	"./fr-ca": 368,
-	"./fr-ca.js": 368,
-	"./fr-ch": 369,
-	"./fr-ch.js": 369,
-	"./fr.js": 367,
-	"./fy": 370,
-	"./fy.js": 370,
-	"./ga": 371,
-	"./ga.js": 371,
-	"./gd": 372,
-	"./gd.js": 372,
-	"./gl": 373,
-	"./gl.js": 373,
-	"./gom-deva": 374,
-	"./gom-deva.js": 374,
-	"./gom-latn": 375,
-	"./gom-latn.js": 375,
-	"./gu": 376,
-	"./gu.js": 376,
-	"./he": 377,
-	"./he.js": 377,
-	"./hi": 378,
-	"./hi.js": 378,
-	"./hr": 379,
-	"./hr.js": 379,
-	"./hu": 380,
-	"./hu.js": 380,
-	"./hy-am": 381,
-	"./hy-am.js": 381,
-	"./id": 382,
-	"./id.js": 382,
-	"./is": 383,
-	"./is.js": 383,
-	"./it": 384,
-	"./it-ch": 385,
-	"./it-ch.js": 385,
-	"./it.js": 384,
-	"./ja": 386,
-	"./ja.js": 386,
-	"./jv": 387,
-	"./jv.js": 387,
-	"./ka": 388,
-	"./ka.js": 388,
-	"./kk": 389,
-	"./kk.js": 389,
-	"./km": 390,
-	"./km.js": 390,
-	"./kn": 391,
-	"./kn.js": 391,
-	"./ko": 392,
-	"./ko.js": 392,
-	"./ku": 393,
-	"./ku.js": 393,
-	"./ky": 394,
-	"./ky.js": 394,
-	"./lb": 395,
-	"./lb.js": 395,
-	"./lo": 396,
-	"./lo.js": 396,
-	"./lt": 397,
-	"./lt.js": 397,
-	"./lv": 398,
-	"./lv.js": 398,
-	"./me": 399,
-	"./me.js": 399,
-	"./mi": 400,
-	"./mi.js": 400,
-	"./mk": 401,
-	"./mk.js": 401,
-	"./ml": 402,
-	"./ml.js": 402,
-	"./mn": 403,
-	"./mn.js": 403,
-	"./mr": 404,
-	"./mr.js": 404,
-	"./ms": 405,
-	"./ms-my": 406,
-	"./ms-my.js": 406,
-	"./ms.js": 405,
-	"./mt": 407,
-	"./mt.js": 407,
-	"./my": 408,
-	"./my.js": 408,
-	"./nb": 409,
-	"./nb.js": 409,
-	"./ne": 410,
-	"./ne.js": 410,
-	"./nl": 411,
-	"./nl-be": 412,
-	"./nl-be.js": 412,
-	"./nl.js": 411,
-	"./nn": 413,
-	"./nn.js": 413,
-	"./oc-lnc": 414,
-	"./oc-lnc.js": 414,
-	"./pa-in": 415,
-	"./pa-in.js": 415,
-	"./pl": 416,
-	"./pl.js": 416,
-	"./pt": 417,
-	"./pt-br": 418,
-	"./pt-br.js": 418,
-	"./pt.js": 417,
-	"./ro": 419,
-	"./ro.js": 419,
-	"./ru": 420,
-	"./ru.js": 420,
-	"./sd": 421,
-	"./sd.js": 421,
-	"./se": 422,
-	"./se.js": 422,
-	"./si": 423,
-	"./si.js": 423,
-	"./sk": 424,
-	"./sk.js": 424,
-	"./sl": 425,
-	"./sl.js": 425,
-	"./sq": 426,
-	"./sq.js": 426,
-	"./sr": 427,
-	"./sr-cyrl": 428,
-	"./sr-cyrl.js": 428,
-	"./sr.js": 427,
-	"./ss": 429,
-	"./ss.js": 429,
-	"./sv": 430,
-	"./sv.js": 430,
-	"./sw": 431,
-	"./sw.js": 431,
-	"./ta": 432,
-	"./ta.js": 432,
-	"./te": 433,
-	"./te.js": 433,
-	"./tet": 434,
-	"./tet.js": 434,
-	"./tg": 435,
-	"./tg.js": 435,
-	"./th": 436,
-	"./th.js": 436,
-	"./tl-ph": 437,
-	"./tl-ph.js": 437,
-	"./tlh": 438,
-	"./tlh.js": 438,
-	"./tr": 439,
-	"./tr.js": 439,
-	"./tzl": 440,
-	"./tzl.js": 440,
-	"./tzm": 441,
-	"./tzm-latn": 442,
-	"./tzm-latn.js": 442,
-	"./tzm.js": 441,
-	"./ug-cn": 443,
-	"./ug-cn.js": 443,
-	"./uk": 444,
-	"./uk.js": 444,
-	"./ur": 445,
-	"./ur.js": 445,
-	"./uz": 446,
-	"./uz-latn": 447,
-	"./uz-latn.js": 447,
-	"./uz.js": 446,
-	"./vi": 448,
-	"./vi.js": 448,
-	"./x-pseudo": 449,
-	"./x-pseudo.js": 449,
-	"./yo": 450,
-	"./yo.js": 450,
-	"./zh-cn": 451,
-	"./zh-cn.js": 451,
-	"./zh-hk": 452,
-	"./zh-hk.js": 452,
-	"./zh-mo": 453,
-	"./zh-mo.js": 453,
-	"./zh-tw": 454,
-	"./zh-tw.js": 454
+	"./af": 321,
+	"./af.js": 321,
+	"./ar": 322,
+	"./ar-dz": 323,
+	"./ar-dz.js": 323,
+	"./ar-kw": 324,
+	"./ar-kw.js": 324,
+	"./ar-ly": 325,
+	"./ar-ly.js": 325,
+	"./ar-ma": 326,
+	"./ar-ma.js": 326,
+	"./ar-sa": 327,
+	"./ar-sa.js": 327,
+	"./ar-tn": 328,
+	"./ar-tn.js": 328,
+	"./ar.js": 322,
+	"./az": 329,
+	"./az.js": 329,
+	"./be": 330,
+	"./be.js": 330,
+	"./bg": 331,
+	"./bg.js": 331,
+	"./bm": 332,
+	"./bm.js": 332,
+	"./bn": 333,
+	"./bn.js": 333,
+	"./bo": 334,
+	"./bo.js": 334,
+	"./br": 335,
+	"./br.js": 335,
+	"./bs": 336,
+	"./bs.js": 336,
+	"./ca": 337,
+	"./ca.js": 337,
+	"./cs": 338,
+	"./cs.js": 338,
+	"./cv": 339,
+	"./cv.js": 339,
+	"./cy": 340,
+	"./cy.js": 340,
+	"./da": 341,
+	"./da.js": 341,
+	"./de": 342,
+	"./de-at": 343,
+	"./de-at.js": 343,
+	"./de-ch": 344,
+	"./de-ch.js": 344,
+	"./de.js": 342,
+	"./dv": 345,
+	"./dv.js": 345,
+	"./el": 346,
+	"./el.js": 346,
+	"./en-au": 347,
+	"./en-au.js": 347,
+	"./en-ca": 348,
+	"./en-ca.js": 348,
+	"./en-gb": 349,
+	"./en-gb.js": 349,
+	"./en-ie": 350,
+	"./en-ie.js": 350,
+	"./en-il": 351,
+	"./en-il.js": 351,
+	"./en-in": 352,
+	"./en-in.js": 352,
+	"./en-nz": 353,
+	"./en-nz.js": 353,
+	"./en-sg": 354,
+	"./en-sg.js": 354,
+	"./eo": 355,
+	"./eo.js": 355,
+	"./es": 356,
+	"./es-do": 357,
+	"./es-do.js": 357,
+	"./es-us": 358,
+	"./es-us.js": 358,
+	"./es.js": 356,
+	"./et": 359,
+	"./et.js": 359,
+	"./eu": 360,
+	"./eu.js": 360,
+	"./fa": 361,
+	"./fa.js": 361,
+	"./fi": 362,
+	"./fi.js": 362,
+	"./fil": 363,
+	"./fil.js": 363,
+	"./fo": 364,
+	"./fo.js": 364,
+	"./fr": 365,
+	"./fr-ca": 366,
+	"./fr-ca.js": 366,
+	"./fr-ch": 367,
+	"./fr-ch.js": 367,
+	"./fr.js": 365,
+	"./fy": 368,
+	"./fy.js": 368,
+	"./ga": 369,
+	"./ga.js": 369,
+	"./gd": 370,
+	"./gd.js": 370,
+	"./gl": 371,
+	"./gl.js": 371,
+	"./gom-deva": 372,
+	"./gom-deva.js": 372,
+	"./gom-latn": 373,
+	"./gom-latn.js": 373,
+	"./gu": 374,
+	"./gu.js": 374,
+	"./he": 375,
+	"./he.js": 375,
+	"./hi": 376,
+	"./hi.js": 376,
+	"./hr": 377,
+	"./hr.js": 377,
+	"./hu": 378,
+	"./hu.js": 378,
+	"./hy-am": 379,
+	"./hy-am.js": 379,
+	"./id": 380,
+	"./id.js": 380,
+	"./is": 381,
+	"./is.js": 381,
+	"./it": 382,
+	"./it-ch": 383,
+	"./it-ch.js": 383,
+	"./it.js": 382,
+	"./ja": 384,
+	"./ja.js": 384,
+	"./jv": 385,
+	"./jv.js": 385,
+	"./ka": 386,
+	"./ka.js": 386,
+	"./kk": 387,
+	"./kk.js": 387,
+	"./km": 388,
+	"./km.js": 388,
+	"./kn": 389,
+	"./kn.js": 389,
+	"./ko": 390,
+	"./ko.js": 390,
+	"./ku": 391,
+	"./ku.js": 391,
+	"./ky": 392,
+	"./ky.js": 392,
+	"./lb": 393,
+	"./lb.js": 393,
+	"./lo": 394,
+	"./lo.js": 394,
+	"./lt": 395,
+	"./lt.js": 395,
+	"./lv": 396,
+	"./lv.js": 396,
+	"./me": 397,
+	"./me.js": 397,
+	"./mi": 398,
+	"./mi.js": 398,
+	"./mk": 399,
+	"./mk.js": 399,
+	"./ml": 400,
+	"./ml.js": 400,
+	"./mn": 401,
+	"./mn.js": 401,
+	"./mr": 402,
+	"./mr.js": 402,
+	"./ms": 403,
+	"./ms-my": 404,
+	"./ms-my.js": 404,
+	"./ms.js": 403,
+	"./mt": 405,
+	"./mt.js": 405,
+	"./my": 406,
+	"./my.js": 406,
+	"./nb": 407,
+	"./nb.js": 407,
+	"./ne": 408,
+	"./ne.js": 408,
+	"./nl": 409,
+	"./nl-be": 410,
+	"./nl-be.js": 410,
+	"./nl.js": 409,
+	"./nn": 411,
+	"./nn.js": 411,
+	"./oc-lnc": 412,
+	"./oc-lnc.js": 412,
+	"./pa-in": 413,
+	"./pa-in.js": 413,
+	"./pl": 414,
+	"./pl.js": 414,
+	"./pt": 415,
+	"./pt-br": 416,
+	"./pt-br.js": 416,
+	"./pt.js": 415,
+	"./ro": 417,
+	"./ro.js": 417,
+	"./ru": 418,
+	"./ru.js": 418,
+	"./sd": 419,
+	"./sd.js": 419,
+	"./se": 420,
+	"./se.js": 420,
+	"./si": 421,
+	"./si.js": 421,
+	"./sk": 422,
+	"./sk.js": 422,
+	"./sl": 423,
+	"./sl.js": 423,
+	"./sq": 424,
+	"./sq.js": 424,
+	"./sr": 425,
+	"./sr-cyrl": 426,
+	"./sr-cyrl.js": 426,
+	"./sr.js": 425,
+	"./ss": 427,
+	"./ss.js": 427,
+	"./sv": 428,
+	"./sv.js": 428,
+	"./sw": 429,
+	"./sw.js": 429,
+	"./ta": 430,
+	"./ta.js": 430,
+	"./te": 431,
+	"./te.js": 431,
+	"./tet": 432,
+	"./tet.js": 432,
+	"./tg": 433,
+	"./tg.js": 433,
+	"./th": 434,
+	"./th.js": 434,
+	"./tl-ph": 435,
+	"./tl-ph.js": 435,
+	"./tlh": 436,
+	"./tlh.js": 436,
+	"./tr": 437,
+	"./tr.js": 437,
+	"./tzl": 438,
+	"./tzl.js": 438,
+	"./tzm": 439,
+	"./tzm-latn": 440,
+	"./tzm-latn.js": 440,
+	"./tzm.js": 439,
+	"./ug-cn": 441,
+	"./ug-cn.js": 441,
+	"./uk": 442,
+	"./uk.js": 442,
+	"./ur": 443,
+	"./ur.js": 443,
+	"./uz": 444,
+	"./uz-latn": 445,
+	"./uz-latn.js": 445,
+	"./uz.js": 444,
+	"./vi": 446,
+	"./vi.js": 446,
+	"./x-pseudo": 447,
+	"./x-pseudo.js": 447,
+	"./yo": 448,
+	"./yo.js": 448,
+	"./zh-cn": 449,
+	"./zh-cn.js": 449,
+	"./zh-hk": 450,
+	"./zh-hk.js": 450,
+	"./zh-mo": 451,
+	"./zh-mo.js": 451,
+	"./zh-tw": 452,
+	"./zh-tw.js": 452
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -3398,9 +3394,9 @@ var RewardsComponent = /** @class */ (function () {
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__block_detail_block_detail__ = __webpack_require__(515);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__blocks_blocks__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__blocks_blocks__ = __webpack_require__(466);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__blocks_blocks__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__broadcast_tx_broadcast_tx__ = __webpack_require__(320);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__broadcast_tx_broadcast_tx__ = __webpack_require__(468);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__transaction_transaction__ = __webpack_require__(516);
 /* unused harmony namespace reexport */
@@ -3433,8 +3429,8 @@ var RewardsComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_head_nav_head_nav_module__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_latest_blocks_latest_blocks_module__ = __webpack_require__(145);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_rewards_rewards_module__ = __webpack_require__(470);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_blocks_blocks_module__ = __webpack_require__(321);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__broadcast_tx_broadcast_tx_module__ = __webpack_require__(319);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_blocks_blocks_module__ = __webpack_require__(319);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__broadcast_tx_broadcast_tx_module__ = __webpack_require__(467);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ext_ext_module__ = __webpack_require__(473);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__home_home_module__ = __webpack_require__(469);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
