@@ -36,7 +36,7 @@ export class LatestBlocksComponent implements OnInit, OnDestroy {
     public currency: CurrencyProvider,
     public defaults: DefaultProvider,
     public redirProvider: RedirProvider,
-    private blocksProvider: BlocksProvider,
+    private blocksProvider: BlocksProvider,    
     private ngZone: NgZone
   ) {
     this.numBlocks = parseInt(defaults.getDefault('%NUM_BLOCKS%'), 10);
@@ -48,7 +48,10 @@ export class LatestBlocksComponent implements OnInit, OnDestroy {
     this.ngZone.runOutsideAngular(() => {
       this.reloadInterval = setInterval(() => {
         this.ngZone.run(() => {
-          this.loadBlocks.call(this);
+          if(window.location.href.includes('home')){
+            this.loadBlocks.call(this);
+          }
+            
         });
       }, 1000 * seconds);
     });
@@ -126,6 +129,6 @@ export class LatestBlocksComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    clearInterval(this.reloadInterval);
+    clearInterval(this.reloadInterval);    
   }
 }
