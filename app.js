@@ -41,7 +41,11 @@ const options = {
     target: `https://sapi.smartcash.cc`,
     changeOrigin: true,
     onProxyReq: async (proxyReq, req, res) => {
-        proxyReq.setHeader('host', await electedSapi());
+        try {
+            proxyReq.setHeader('host', await electedSapi());
+        } catch (error) {
+            
+        }       
     },
     onProxyRes: (onProxyRes, req, res) => {
     },
