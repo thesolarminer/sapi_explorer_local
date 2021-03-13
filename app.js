@@ -9,6 +9,22 @@ app.get('/', function(req, res) {
     res.sendFile(distDir + 'index.html');
 });
 
+app.get('/home', function(req, res) {
+    res.sendFile(distDir + 'index.html');
+});
+
+app.get('/tx/*', function(req, res) {
+    res.sendFile(distDir + 'index.html');
+});
+
+app.get('/block/*', function(req, res) {
+    res.sendFile(distDir + 'index.html');
+});
+
+app.get('/address/*', function(req, res) {
+    res.sendFile(distDir + 'index.html');
+});
+
 app.get('/ext/getmoneysupply', function(req, res) {
     res.setHeader('Content-Type', 'application/json');
     res.send('2637267080');
