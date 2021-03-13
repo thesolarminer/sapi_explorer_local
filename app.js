@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const fetch = require('node-fetch');
-app.use(bodyParser.json());
 const distDir = __dirname + '/www/';
 const { createProxyMiddleware } = require('http-proxy-middleware');
 var cron = require('node-cron');
@@ -52,6 +51,8 @@ const options = {
 const sapiProxy = createProxyMiddleware(options);
 
 app.use('/v1', sapiProxy);
+
+app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
     res.sendFile(distDir + 'index.html');
