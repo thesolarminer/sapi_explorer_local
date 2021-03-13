@@ -11,7 +11,7 @@ import { IonicPage } from 'ionic-angular';
   selector: 'page-ext',
   templateUrl: 'ext.html'
 })
-export class ExtPage { 
+export class ExtPage {
     public ext = '';
 
   constructor(
@@ -20,12 +20,11 @@ export class ExtPage {
     // this.currencyProvider.setCurrency(this.chainNetwork);
     // this.priceProvider.setCurrency();
     this.getValue();
-    console.log('call:' + this.ext);
-    
+
   }
 
   public ionViewWillLoad(): void {
-    
+
   }
 
   public getValue(){
