@@ -12,10 +12,10 @@ async function getEnabledNodes() {
     let date = new Date();
     let fileName = 'servers' + date.getFullYear() + date.getMonth() + date.getDate() + '.txt';
 
-    try {        
+    try {
         if(!fs.existsSync(fileName)){
             let nodes = await fetch('https://sapi.smartcash.cc/v1/smartnode/check/ENABLED');
-            nodes = await nodes.json();            
+            nodes = await nodes.json();
             const servers = nodes.map((node) => 'http://' + node.ip.replace(':9678', ':8080'));
 
             fs.writeFileSync(fileName, JSON.stringify(servers));
@@ -34,7 +34,7 @@ async function electedSapi(){
 
 async function getRandomSapiUrl() {
     let prefix = `http://${await electedSapi()}:8080`;
-    return prefix;    
+    return prefix;
 }
 
 const options = {
@@ -44,7 +44,6 @@ const options = {
         proxyReq.setHeader('host', await electedSapi());
     },
     onProxyRes: (onProxyRes, req, res) => {
-       console.log(onProxyRes);
     },
 };
 
@@ -86,26 +85,26 @@ app.get('/ext/getmoneysupply', function(req, res) {
 
 app.get('/api/getTransactions/:address', async function(req, res) {
     res.setHeader('Content-Type', 'application/json');
-    fetch(await getRandomSapiUrl() +  "/v1/address/transactions", { 
-      
-    // Adding method type 
-    method: "POST", 
-      
-    // Adding body or contents to send 
-    body: JSON.stringify({ 
+    fetch(await getRandomSapiUrl() +  "/v1/address/transactions", {
+
+    // Adding method type
+    method: "POST",
+
+    // Adding body or contents to send
+    body: JSON.stringify({
         "pageNumber": 1,
         "pageSize": 10,
         "ascending": false,
         "address": req.params.address
-    }), 
-      
-    // Adding headers to the request 
-    headers: { 
+    }),
+
+    // Adding headers to the request
+    headers: {
         "Content-type": "application/json; charset=UTF-8"
-    } 
-}).then(response => response.json()) 
-  
-// Displaying results to console 
+    }
+}).then(response => response.json())
+
+// Displaying results to console
 .then(json => res.send(json));
 });
 module.exports = app;
