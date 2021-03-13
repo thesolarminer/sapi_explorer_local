@@ -35,5 +35,72 @@ app.get('/ext/getmoneysupply', function(req, res) {
         });
 });
 
-// app.use('/api', apiController);
+// THOSE BLOCKS must use the right function from SAPI
+// THEY MUST USE THE GET_RANDOM_SAPI function as well
+
+app.get('/api/blocks', function(req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    fetch('https://sapi.smartcash.cc/v1/')
+        .then(res => res.json())
+        .then(json => {
+            res.send(json);
+        });
+});
+
+app.get('/api/block/{hash}', function(req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    fetch('https://sapi.smartcash.cc/v1/')
+        .then(res => res.json())
+        .then(json => {
+            res.send(json);
+        });
+});
+
+app.get('/api/transactions', function(req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    fetch('https://sapi.smartcash.cc/v1/')
+        .then(res => res.json())
+        .then(json => {
+            res.send(json);
+        });
+});
+
+app.get('/api/transaction/{txid}', function(req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    fetch('https://sapi.smartcash.cc/v1/')
+        .then(res => res.json())
+        .then(json => {
+            res.send(json);
+        });
+});
+
+app.get('/api/address/{address}', function(req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    fetch('https://sapi.smartcash.cc/v1/')
+        .then(res => res.json())
+        .then(json => {
+            res.send(json);
+        });
+});
+
+//Melhor exemplo!
+
+app.get('/api/smartrewards/roi', function(req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    fetch('https://sapi.smartcash.cc/v1/smartrewards/roi')
+        .then(res => res.json())
+        .then(json => {
+            res.send(json);
+        });
+});
+
+app.get('/api/smartnode/roi', function(req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    fetch('https://sapi.smartcash.cc/v1/smartnode/roi')
+        .then(res => res.json())
+        .then(json => {
+            res.send(json);
+        });
+});
+
 module.exports = app;
