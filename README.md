@@ -1,4 +1,4 @@
-# Insight - SAPI Explorer
+# SAPI Explorer
 
 **A blockchain explorer for SmartCash.**
 
@@ -15,17 +15,18 @@ Import the swagger.json file that is in the root folder to see all API calls.
 
 To list the servers you must use:
 
-https://sapi.smartcash.cc/v1/smartnodes/list
+https://sapi.smartcash.cc/v1/smartnode/list
 
 Filter by actives nodes then you can random servers:
 
-http://167.86.103.167:9678/v1/smartnodes/list
+http://167.86.103.167:8080/v1/smartnode/list
 
 ```sh
 
-cd bitcore
+sudo apt install npm
+sudo npm install node
+git clone https://github.com/SmartCash/sapiexplorer
+cd sapi_explorer
 npm install
 npm start
 ```
-
-
