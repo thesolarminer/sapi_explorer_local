@@ -30,3 +30,9 @@ cd sapi_explorer
 npm install
 npm start
 ```
+Add a start script on reboot.
+```
+crontab -e
+@reboot sleep 30 && cd /home/user/sapi_explorer && /usr/bin/npm start
+control x y to save
+```
