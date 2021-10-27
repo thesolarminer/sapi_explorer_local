@@ -124,14 +124,16 @@ var AddressProvider = /** @class */ (function () {
         this.currency = currency;
         this.blocks = blocks;
         this.txsProvider = txsProvider;
+
+        this.urlSapi = "http://localhost:8080/v1/address/balance/";
         this.apiProvider = apiProvider;
-        this.urlSapi = this.apiProvider.getRandomSapiUrl() + "address/balance/";
+
     }
     AddressProvider.prototype.getAddressBalance = function (addrStr) {
         return this.httpClient.get(this.urlSapi + addrStr);
     };
     AddressProvider.prototype.getAddressReward = function (addrStr) {
-        return this.httpClient.get(this.apiProvider.getRandomSapiUrl() + "smartrewards/check/" + addrStr);
+        return this.httpClient.get("http://localhost:8080/v1/smartrewards/check/" + addrStr);
     };
     AddressProvider.prototype.getAddressActivity = function (addrStr) {
         var _this = this;
@@ -629,7 +631,6 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 };
 /* tslint:disable:no-console */
 
-
 var Logger = /** @class */ (function () {
     function Logger() {
         this.levels = [
@@ -786,8 +787,9 @@ var SearchProvider = /** @class */ (function () {
     function SearchProvider(apiProvider, httpClient) {
         this.apiProvider = apiProvider;
         this.httpClient = httpClient;
-        this.urlSapi = this.apiProvider.getRandomSapiUrl() + "blockchain";
+        this.urlSapi = http://localhost:8080/v1/blockchain";
     }
+
     // public search(input: string, type: string): Observable<any> {
     //   if (chainNetwork.chain !== 'ALL') {
     //     this.apiURL = `${this.apiProvider.getUrl(chainNetwork)}`;
@@ -834,11 +836,11 @@ var SearchProvider = /** @class */ (function () {
         return this.httpClient.get(url).pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["map"])(function (res) { return ({ block: res }); }));
     };
     SearchProvider.prototype.searchTx = function (txid) {
-        var url = this.apiProvider.getRandomSapiUrl() + "transaction/check/" + txid;
+        var url = "http://localhost:8080/v1/transaction/check/" + txid;
         return this.httpClient.get(url).pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["map"])(function (res) { return ({ tx: res }); }));
     };
     SearchProvider.prototype.searchAddr = function (addr) {
-        var url = this.apiProvider.getRandomSapiUrl() + "address/balance/" + addr;
+        var url = "http://localhost:8080/v1/address/balance/" + addr;
         return this.httpClient.get(url).pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["map"])(function (res) { return ({ addr: res }); }));
     };
     SearchProvider = __decorate([
@@ -1191,11 +1193,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
-
-
-
-
 var BlocksPage = /** @class */ (function () {
     function BlocksPage(navParams, apiProvider, blocksProvider, currencyProvider, priceProvider) {
         // const chain: string = navParams.get('chain');
@@ -1475,10 +1472,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 
-
-
-
-
 // export interface AppUtxoCoinBlock extends AppBlock {
 //     difficulty: number;
 //     merkleroot: string;
@@ -1486,12 +1479,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 //     version: number;
 // }
 var BlocksProvider = /** @class */ (function () {
+
     function BlocksProvider(httpClient, currency, apiProvider) {
         this.httpClient = httpClient;
         this.currency = currency;
         this.apiProvider = apiProvider;
-        this.urlSapi = this.apiProvider.getRandomSapiUrl() + "blockchain";
-        this.urlExplorer = "https://explorer.smartcash.cc/api/blocks";
+        this.urlSapi = http://localhost:8080/v1/blockchain";
+        this.urlExplorer = "http://localhost:8200/v1//api/blocks";
     }
     BlocksProvider.prototype.getBlocks = function () {
         return Object(__WEBPACK_IMPORTED_MODULE_4_rxjs_observable_from__["from"])(this.getAllBlocks());
@@ -1981,7 +1975,7 @@ var TxsProvider = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        url = this.apiProvider.getRandomSapiUrl() + "blockchain/block/" + blockHash;
+                        url = "http://localhost:8080/v1/blockchain/block/" + blockHash;
                         txs = [];
                         return [4 /*yield*/, this.httpClient.get(url).toPromise().then(function (data) { return block = data; })];
                     case 1:
@@ -2001,7 +1995,7 @@ var TxsProvider = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        url = this.apiProvider.getRandomSapiUrl() + "address/transactions/" + address;
+                        url = "http://localhost:8080/v1/address/transactions/" + address;
                         txs = [];
                         return [4 /*yield*/, this.httpClient.post(url, {
                                 "pageNumber": 1,
@@ -2091,7 +2085,7 @@ var TxsProvider = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             var url;
             return __generator(this, function (_a) {
-                url = this.apiProvider.getRandomSapiUrl() + "address/transactions/" + addrStr;
+                url = "http://localhost:8080/v1/address/transactions/" + addrStr;
                 return [2 /*return*/, this.httpClient.get(url).toPromise()];
             });
         });
@@ -2100,7 +2094,7 @@ var TxsProvider = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             var url;
             return __generator(this, function (_a) {
-                url = this.apiProvider.getRandomSapiUrl() + "transaction/check/" + hash;
+                url = "http://localhost:8080/v1/transaction/check/" + hash;
                 return [2 /*return*/, this.httpClient.get(url).toPromise()];
             });
         });

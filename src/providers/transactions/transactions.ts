@@ -202,7 +202,9 @@ export class TxsProvider {
     }
 
     async getTransactionsPerBlock(blockHash: string) {
-        const url = `${this.apiProvider.getRandomSapiUrl()}blockchain/block/${blockHash}`;
+
+        const url = `http://localhost:8080/v1/blockchain/block/${blockHash}`;
+
         let block: AppBlock;
         let txs: ApiTx[] = [];
 
@@ -216,8 +218,9 @@ export class TxsProvider {
     }
 
     async getTransactionsPerAddress(address: string) {
-        const url = `${this.apiProvider.getRandomSapiUrl()}address/transactions/${address}`;
-        let txs: ApiTx[] = [];
+        const url = `http://localhost:8080/v1/address/transactions/${address}`;
+
+      let txs: ApiTx[] = [];
 
         let addressData: any = await this.httpClient.post<any>(url, {
             "pageNumber": 1,
@@ -296,12 +299,14 @@ export class TxsProvider {
     }
 
     public async getUnmappedTxByAddress(addrStr: string) {
-        const url = `${this.apiProvider.getRandomSapiUrl()}address/transactions/${addrStr}`;
+
+        const url = `http://localhost:8080/v1/address/transactions/${addrStr}`;
         return this.httpClient.get<any>(url).toPromise();
     }
 
     public async getUnmappedTx(hash: string) {
-        const url = `${this.apiProvider.getRandomSapiUrl()}transaction/check/${hash}`;
+
+        const url = `http://localhost:8080/v1/transaction/check/${hash}`;
         return this.httpClient.get<any>(url).toPromise();
     }
 

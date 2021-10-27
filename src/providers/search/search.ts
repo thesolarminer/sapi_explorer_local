@@ -6,8 +6,10 @@ import { map } from 'rxjs/operators';
 import { ApiProvider, ChainNetwork } from '../api/api';
 
 @Injectable()
-export class SearchProvider {
-    private urlSapi = `${this.apiProvider.getRandomSapiUrl()}blockchain`;
+
+export class SearchProvider {  
+  private urlSapi = "http://localhost:8080/v1/blockchain";
+
 
     constructor(
         private apiProvider: ApiProvider,
@@ -63,13 +65,14 @@ export class SearchProvider {
         const url = this.urlSapi + "/block/" + block;
         return this.httpClient.get<{ block: any }>(url).pipe(map(res => ({ block: res })));
     }
+  
     private searchTx(txid: string): Observable<{ tx: any }> {
-        const url = `${this.apiProvider.getRandomSapiUrl()}transaction/check/${txid}`;
+        const url = `http://localhost:8080/v1/transaction/check/${txid}`;
         return this.httpClient.get<{ tx: any }>(url).pipe(map(res => ({ tx: res })));
     }
 
     private searchAddr(addr: string): Observable<{ addr: any }> {
-        const url = `${this.apiProvider.getRandomSapiUrl()}address/balance/${addr}`;
+        const url = `http://localhost:8080/v1/address/balance/${addr}`;
         return this.httpClient.get<{ addr: any }>(url).pipe(map(res => ({ addr: res })));
     }
 
