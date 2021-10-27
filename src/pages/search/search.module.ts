@@ -7,14 +7,14 @@ import { LoaderComponentModule } from '../../components/loader/loader.module';
 import { SearchPage } from './search';
 
 @NgModule({
-  declarations: [SearchPage],
-  imports: [
-    IonicPageModule.forChild(SearchPage),
-    FooterComponentModule,
-    HeadNavComponentModule,
-    LoaderComponentModule,
-    ErrorComponentModule
-  ],
-  exports: [SearchPage]
+    declarations: [SearchPage],
+    imports: [
+        IonicPageModule.forChild(SearchPage),
+        FooterComponentModule,
+        HeadNavComponentModule,
+        LoaderComponentModule,
+        ErrorComponentModule
+    ],
+    exports: [SearchPage]
 })
-export class SearchPageModule {}
+export class SearchPageModule { }

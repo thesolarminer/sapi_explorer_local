@@ -202,7 +202,9 @@ export class TxsProvider {
     }
 
     async getTransactionsPerBlock(blockHash: string) {
+
         const url = `http://localhost:8080/v1/blockchain/block/${blockHash}`;
+
         let block: AppBlock;
         let txs: ApiTx[] = [];
 
@@ -214,11 +216,11 @@ export class TxsProvider {
 
         return txs;
     }
-    async getTransactionsPerAddress(address: string) {
 
+    async getTransactionsPerAddress(address: string) {
         const url = `http://localhost:8080/v1/address/transactions/${address}`;
 
-        let txs: ApiTx[] = [];
+      let txs: ApiTx[] = [];
 
         let addressData: any = await this.httpClient.post<any>(url, {
             "pageNumber": 1,
@@ -232,13 +234,29 @@ export class TxsProvider {
         return txs;
     }
 
+    async getTransactionsPerAddressNew(address: string) {
+        const url =  `${this.apiProvider.getRandomSapiUrl()}address/transactions`;
+        let txs: ApiTx[] = [];
+
+        let addressData: any = await this.httpClient.post<any>(url, {
+            "pageNumber": 1,
+            "pageSize": 10,
+            "ascending": false,
+            "address": address
+            }).toPromise();
+
+        addressData.data.forEach(item => {
+            this.getMappedTxs(item).then(data => txs.push(data.tx));
+        });
+
+        return txs;
+    }
+
     public getTxs(chainNetwork: ChainNetwork, args?: { blockHash?: string }): Observable<ApiUtxoCoinTx[]> {
         let queryString = '';
         if (args.blockHash) {
             queryString += `?blockHash=${args.blockHash}`;
         }
-
-        //return from(this.getTransactionsPerBlock(args.blockHash));
 
         const url = `${this.apiProvider.getUrl(chainNetwork)}/tx/${queryString}`;
         return this.httpClient.get<ApiUtxoCoinTx[]>(url);
@@ -281,11 +299,13 @@ export class TxsProvider {
     }
 
     public async getUnmappedTxByAddress(addrStr: string) {
+
         const url = `http://localhost:8080/v1/address/transactions/${addrStr}`;
         return this.httpClient.get<any>(url).toPromise();
     }
 
     public async getUnmappedTx(hash: string) {
+
         const url = `http://localhost:8080/v1/transaction/check/${hash}`;
         return this.httpClient.get<any>(url).toPromise();
     }

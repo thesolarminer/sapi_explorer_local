@@ -15639,6 +15639,34 @@ loader .box-loader {
   margin: 5px;
 }
 
+h2 {
+  font-size: 16px;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+h3 span {
+  font-size: 30px;
+  color: #F4B517;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.headerTitle {
+  background-color: #F4B517;
+  margin-top: 80px;
+}
+
+.contentRewards {
+  background-color: #fff;
+  padding: 0 30px;
+  height: 150px;
+}
+
 transaction-details ion-grid {
   background-color: #f7f7f7;
   border: 1px solid #f3f3f3;
@@ -15807,6 +15835,12 @@ page-home ion-item.item-md:hover {
   background-color: #fff;
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+
+.headerTitleBlock {
+  background-color: #F4B517;
+  padding: 20px;
+  text-align: center;
 }
 
 page-search .page-content {

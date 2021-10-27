@@ -41,8 +41,7 @@ export class TransactionListComponent implements OnInit {
                 this.transactions = await this.txProvider.getTransactionsPerBlock(this.queryValue);
                 this.loading = false;
             } else if (this.queryType === 'address') {
-                console.log(this.queryValue);
-                this.transactions = await this.txProvider.getTransactionsPerAddress(this.queryValue);
+                this.transactions = await this.txProvider.getTransactionsPerAddressNew(this.queryValue);                               
                 this.loading = false;
             }
         } else {

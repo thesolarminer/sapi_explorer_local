@@ -1,9 +1,10 @@
 <head-nav></head-nav>
 
 <ion-content class="content-container">
-    <!-- <div *ngIf="chainNetwork.chain === 'ALL'"> -->
-        <h2 class="content-container--heading all-coins">Latest Blocks</h2>
-        <ion-grid class="page-content-grid">
+    <!-- <div *ngIf="chainNetwork.chain === 'ALL'"> -->        
+        <ion-grid class="page-content-grid">          
+            <rewards></rewards>
+            <h2 class="headerTitleBlock">Latest Blocks</h2>            
             <ion-row>
                 <ion-col col-md-12 col-12 class="page-content">                    
                     <latest-blocks [showTimeAs]="'age'" [showAllBlocksButton]="true" [numBlocks]="'5'" #latestBlocks>

@@ -1,0 +1,1041 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "SmartCash Decentralised API",
+    "description": "SmartCash API",
+    "version": "1.0-oas3"
+  },
+  "servers": [
+    {
+      "url": "http://sapi.smartcash.cc/v1/"
+    }
+  ],
+  "paths": {
+    "/client/status": {
+      "get": {
+        "tags": [
+          "client"
+        ],
+        "summary": "Get status information of the SAPI client.",
+        "operationId": "ApiClientStatusGet",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/statistic/requests": {
+      "get": {
+        "tags": [
+          "statistic"
+        ],
+        "summary": "Get information on recent SAPI requests made to this node",
+        "operationId": "ApiStatisticRequestsGet",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/statistic/instantpay": {
+      "get": {
+        "tags": [
+          "statistic"
+        ],
+        "summary": "Get information on InstantPay locks of last 24h",
+        "operationId": "ApiStatisticInstantpayGet",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "No InstantPay locks availble"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "statistic"
+        ],
+        "summary": "Get information on InstantPay locks by filtering by timestamp",
+        "operationId": "ApiStatisticInstantpayPost",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InstantPayFilter"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/blockchain/": {
+      "get": {
+        "tags": [
+          "blockchain"
+        ],
+        "summary": "Get some basic information about the SmartCash blockchain.",
+        "operationId": "ApiBlockchainInfoGet",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/blockchain/height": {
+      "get": {
+        "tags": [
+          "blockchain"
+        ],
+        "summary": "Get the current block height of the SmartCash blockchain.",
+        "operationId": "ApiBlockchainHeightGet",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/blockchain/block/{blockinfo}": {
+      "get": {
+        "tags": [
+          "blockchain"
+        ],
+        "summary": "Get information of a block in the SmartCash blockchain. You can either search by block height or a specific block hash.",
+        "operationId": "ApiBlockchainBlockGet",
+        "parameters": [
+          {
+            "name": "blockinfo",
+            "in": "path",
+            "description": "block height or block hash",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": 100000
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/blockchain/block/transactions": {
+      "post": {
+        "tags": [
+          "blockchain"
+        ],
+        "summary": "Query block info and a paginated list of all transactions for a single block either by height or hash.",
+        "operationId": "ApiBlockchainBlockTransactionsPost",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BlockTransactions"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid body data"
+          }
+        }
+      }
+    },
+    "/blockchain/blocks/latest/{count}": {
+      "get": {
+        "tags": [
+          "blockchain"
+        ],
+        "summary": "Get information on latest blocks",
+        "parameters": [
+          {
+            "name": "count",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 100
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/blockchain/blocks/{from}/{to}": {
+      "get": {
+        "tags": [
+          "blockchain"
+        ],
+        "summary": "Get information on a range of blocks",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1000000
+          },
+          {
+            "name": "to",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1000100
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/blockchain/transactions/latest/{count}": {
+      "get": {
+        "tags": [
+          "blockchain"
+        ],
+        "summary": "Get information on latest transactions",
+        "parameters": [
+          {
+            "name": "count",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            },
+            "example": 100
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/address/balance/{address}": {
+      "get": {
+        "tags": [
+          "address"
+        ],
+        "summary": "Get balance information of a SmartCash address.",
+        "operationId": "ApiAddressBalanceByAddressGet",
+        "parameters": [
+          {
+            "name": "address",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "SVahW4L1FUUaUXcbCwineoWXqSktha1KFp"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/address/balances": {
+      "post": {
+        "tags": [
+          "address"
+        ],
+        "summary": "Get balance information of multiple SmartCash addresses.",
+        "operationId": "ApiAddressBalancesPost",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Balances"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/address/deposit": {
+      "post": {
+        "tags": [
+          "address"
+        ],
+        "summary": "Query a paginated list of deposits to a SmartCash address in a specific timerange.",
+        "operationId": "ApiAddressDepositsPost",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DepositHistory"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid body data"
+          }
+        }
+      }
+    },
+    "/address/unspent": {
+      "post": {
+        "tags": [
+          "address"
+        ],
+        "summary": "Query a paginated list of unspent transaction outputs of a SmartCash address.",
+        "operationId": "AddressUnspentGet",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UnspentOutputs"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid body data"
+          }
+        }
+      }
+    },
+    "/address/unspent/amount": {
+      "post": {
+        "tags": [
+          "address"
+        ],
+        "summary": "Get a selection of unspent transaction outputs to match a given amount for a SmartCash address.",
+        "operationId": "AddressUnspentAmountPost",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UnspentAmount"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/address/transactions/{address}": {
+      "post": {
+        "tags": [
+          "address"
+        ],
+        "summary": "Get transactions linked to a specific address",
+        "operationId": "AddressTransactionsPost",
+        "parameters": [
+          {
+            "name": "address",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "SVahW4L1FUUaUXcbCwineoWXqSktha1KFp"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddressTransactions"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/transaction/send": {
+      "post": {
+        "tags": [
+          "transaction"
+        ],
+        "summary": "Broadcast the raw data of a signed transaction to the SmartCash network.",
+        "operationId": "ApiTransactionSendPost",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransactionData"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/transaction/create": {
+      "post": {
+        "tags": [
+          "transaction"
+        ],
+        "summary": "Create a transaction",
+        "operationId": "ApiTransactionCreatePost",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransactionParams"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/transaction/check/{txid}": {
+      "get": {
+        "tags": [
+          "transaction"
+        ],
+        "summary": "Get all information about a SmartCash transaction by its transaction hash.",
+        "operationId": "ApiTransactionCheckByTxidGet",
+        "parameters": [
+          {
+            "name": "txid",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1c021d53dd333837e03a9c0b0c8201145808e02cbbeff0bf8cc1522b2863fe69"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/smartrewards/current": {
+      "get": {
+        "tags": [
+          "smartrewards"
+        ],
+        "summary": "Get information for the current SmartRewards round.",
+        "operationId": "ApiSmartRewardsCurrentGet",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/smartrewards/history": {
+      "get": {
+        "tags": [
+          "smartrewards"
+        ],
+        "summary": "Get information for the past SmartRewards rounds.",
+        "operationId": "ApiSmartRewardsHistoryGet",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/smartrewards/roi": {
+      "get": {
+        "tags": [
+          "smartrewards"
+        ],
+        "summary": "Get information on the current SmartRewards ROI",
+        "operationId": "ApiSmartRewardsRoiGet",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/smartrewards/check/{address}": {
+      "get": {
+        "tags": [
+          "smartrewards"
+        ],
+        "summary": "Check one SmartCash addresses for its SmartRewards eligibility.",
+        "operationId": "ApiSmartRewardsCheckGet",
+        "parameters": [
+          {
+            "name": "address",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "SVahW4L1FUUaUXcbCwineoWXqSktha1KFp"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/smartrewards/check": {
+      "post": {
+        "tags": [
+          "smartrewards"
+        ],
+        "summary": "Check a list of SmartCash addresses for their SmartRewards eligibility.",
+        "operationId": "ApiSmartRewardsCheckPost",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SmartRewardsCheck"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/smartnodes/count": {
+      "get": {
+        "tags": [
+          "smartnodes"
+        ],
+        "summary": "Count all SmartNodes sorted by their current states.",
+        "operationId": "ApiSmartNodesCountGet",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/smartnodes/list": {
+      "get": {
+        "tags": [
+          "smartnodes"
+        ],
+        "summary": "Get a list of all SmartNodes in the SmartCash Network.",
+        "operationId": "ApiSmartNodesListGet",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/smartnodes/check/{info}": {
+      "get": {
+        "tags": [
+          "smartnodes"
+        ],
+        "summary": "Search for a SmartNode with various types of SmartNode related informations like IP-Addresses, SmartCash Addresses, Collaterals, States.",
+        "operationId": "ApiSmartNodesCheckGet",
+        "parameters": [
+          {
+            "name": "info",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "SVahW4L1FUUaUXcbCwineoWXqSktha1KFp"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/smartnodes/check": {
+      "post": {
+        "tags": [
+          "smartnodes"
+        ],
+        "summary": "Search for multiple SmartNodes with various types of SmartNode related informations like IP-Addresses, SmartCash Addresses, Collaterals, States.",
+        "operationId": "ApiSmartNodesCheckPost",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SmartNodesCheck"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/smartnodes/filter": {
+      "post": {
+        "tags": [
+          "smartnodes"
+        ],
+        "summary": "List SmartNodes filtering by status or protocol",
+        "operationId": "ApiSmartNodesFilterPost",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SmartNodesFilter"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/smartnodes/roi": {
+      "get": {
+        "tags": [
+          "smartnodes"
+        ],
+        "summary": "Get information on current ROI generated by SmartNodes",
+        "operationId": "ApiSmartNodesRoiGet",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DepositHistory": {
+        "required": [
+          "address",
+          "pageNumber",
+          "pageSize"
+        ],
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string",
+            "description": "SmartCash address",
+            "example": "SVahW4L1FUUaUXcbCwineoWXqSktha1KFp"
+          },
+          "from": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1400000000,
+            "default": 0
+          },
+          "to": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1537781573
+          },
+          "pageNumber": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "pageSize": {
+            "maximum": 1000,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int64",
+            "example": 10
+          },
+          "ascending": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      },
+      "BlockTransactions": {
+        "required": [
+          "pageNumber",
+          "pageSize"
+        ],
+        "type": "object",
+        "properties": {
+          "hash": {
+            "type": "string",
+            "description": "Block hash"
+          },
+          "height": {
+            "type": "integer",
+            "description": "Block height",
+            "format": "int64"
+          },
+          "pageNumber": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "pageSize": {
+            "maximum": 100,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int64",
+            "example": 5
+          }
+        }
+      },
+      "UnspentOutputs": {
+        "required": [
+          "address",
+          "pageNumber",
+          "pageSize"
+        ],
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string",
+            "description": "SmartCash address",
+            "example": "SVahW4L1FUUaUXcbCwineoWXqSktha1KFp"
+          },
+          "pageNumber": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "pageSize": {
+            "maximum": 1000,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int64",
+            "example": 10
+          },
+          "ascending": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      },
+      "UnspentAmount": {
+        "required": [
+          "address",
+          "amount"
+        ],
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string",
+            "description": "SmartCash address",
+            "example": "SVahW4L1FUUaUXcbCwineoWXqSktha1KFp"
+          },
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "example": 0.0123
+          },
+          "random": {
+            "type": "boolean",
+            "default": true
+          },
+          "instantpay": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      },
+      "TransactionData": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "format": "hex",
+            "example": "010000000185dfbce3c8cf203b5763119003fddec04c52480fc7543e0145dd96bdfe97ed91000000006a473044022003ffd3966e8358727d38583c23c00d3ccbbf3aca6c9af49bd96e8d305798f5750220783dc4fe45e6a7fe13e02a69904e00b91d27baf568b905f938901b27e5bc4c1b01210291073763c5e5676f06e10a2ccbff1a504a99b6dc8b163879e193e7e0934a00d7ffffffff0205de9c41220000001976a9142376ac37c7f58654a799fac6e3bc30b3d71f5db088ac5b1cb2ca0e0000001976a914bfca4f07bec8a3b94dde07f6e5df0d6024db048088acd2340a00"
+          },
+          "instantpay": {
+            "type": "boolean",
+            "default": false
+          },
+          "overrideFees": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      },
+      "TransactionParams": {
+        "required": [
+          "inputs",
+          "outputs"
+        ],
+        "type": "object",
+        "properties": {
+          "inputs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "txid": {
+                  "type": "string",
+                  "example": "fe1d6a5a2edda02586c2335bcff6b7008b47379bc3fbeac6ed8474c22c3c3f2b"
+                },
+                "vout": {
+                  "type": "integer",
+                  "example": 1
+                }
+              }
+            }
+          },
+          "outputs": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "example": {
+              "SVahW4L1FUUaUXcbCwineoWXqSktha1KFp": 1000
+            }
+          }
+        }
+      },
+      "Balances": {
+        "type": "array",
+        "example": [
+          "SVahW4L1FUUaUXcbCwineoWXqSktha1KFp",
+          "SPusYr5tUdUyRXevJg7pnCc9Sm4HEzaYZF"
+        ],
+        "items": {
+          "minItems": 1,
+          "oneOf": [
+            {
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "SmartRewardsCheck": {
+        "type": "array",
+        "example": [
+          "SVahW4L1FUUaUXcbCwineoWXqSktha1KFp",
+          "SPusYr5tUdUyRXevJg7pnCc9Sm4HEzaYZF"
+        ],
+        "items": {
+          "minItems": 1,
+          "oneOf": [
+            {
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "SmartNodesCheck": {
+        "type": "array",
+        "description": "This array may include various types of SmartNode related informations like IP-Addresses, SmartCash Addresses, Collaterals, States, ...",
+        "example": [
+          "SVahW4L1FUUaUXcbCwineoWXqSktha1KFp",
+          "107.172.62.18",
+          "fb012ab1f9ac4ec19c1a31203e154248bf0b140203a09379c111664cddea5700"
+        ],
+        "items": {
+          "minItems": 1,
+          "oneOf": [
+            {
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "SmartNodesFilter": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Status of the SmartNodes to filter in, '*' means any",
+            "example": "ENABLED",
+            "default": "*"
+          },
+          "protocol": {
+            "type": "integer",
+            "description": "Protocol version of the SmartNodes to filter in, '-1' means any",
+            "format": "int64",
+            "example": 90031,
+            "default": -1
+          }
+        }
+      },
+      "InstantPayFilter": {
+        "required": [
+          "pageNumber",
+          "pageSize"
+        ],
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "integer",
+            "description": "timestamp from",
+            "format": "int64",
+            "example": 1577836800,
+            "default": 0
+          },
+          "to": {
+            "type": "integer",
+            "description": "timestamp to",
+            "format": "int64",
+            "example": 1609459200
+          },
+          "pageNumber": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "pageSize": {
+            "maximum": 100,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int64",
+            "example": 5
+          },
+          "ascending": {
+            "type": "boolean",
+            "description": "list by ascending order",
+            "default": false
+          }
+        }
+      },
+      "AddressTransactions": {
+        "required": [
+          "pageNumber",
+          "pageSize"
+        ],
+        "type": "object",
+        "properties": {
+          "pageNumber": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "pageSize": {
+            "maximum": 100,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int64",
+            "example": 5
+          },
+          "ascending": {
+            "type": "boolean",
+            "description": "list by ascending order",
+            "default": false
+          }
+        }
+      }
+    }
+  }
+}

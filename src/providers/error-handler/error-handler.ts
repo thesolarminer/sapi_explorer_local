@@ -19,7 +19,8 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any> {
         return next
             .handle(request)
-            .retry(1)
+            .timeout(1000)
+            .retry(3)
             .catch((err: HttpErrorResponse) => {
                 const errorMessage = err?.error.map(m => JSON.stringify(m)).join('|');
                 this.logger.error(errorMessage);

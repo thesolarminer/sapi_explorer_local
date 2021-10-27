@@ -18,20 +18,25 @@ export interface ApiAddr {
 
 @Injectable()
 export class AddressProvider {
+
     private urlSapi = "http://localhost:8080/v1/address/balance/";
+
 
     constructor(
         public httpClient: HttpClient,
         public currency: CurrencyProvider,
         public blocks: BlocksProvider,
-        public txsProvider: TxsProvider    ) { }
+        public txsProvider: TxsProvider,
+        public apiProvider: ApiProvider) { }
 
     public getAddressBalance(addrStr?: string): Observable<ApiAddr> {
         return this.httpClient.get<ApiAddr>(this.urlSapi + addrStr);
     }
 
     public getAddressReward(addrStr?: string): Observable<any> {
+
         return this.httpClient.get<any>(`http://localhost:8080/v1/smartrewards/check/${addrStr}`);
+
     }
 
     public getAddressActivity(addrStr?: string): Observable<any> {
