@@ -19,7 +19,7 @@ export interface ApiAddr {
 @Injectable()
 export class AddressProvider {
 
-    private urlSapi = "http://localhost:8080/v1/address/balance/";
+    private urlSapi = `http://192.168.1.67:8080/v1/address/balance/`;
 
 
     constructor(
@@ -34,9 +34,7 @@ export class AddressProvider {
     }
 
     public getAddressReward(addrStr?: string): Observable<any> {
-
-        return this.httpClient.get<any>(`http://localhost:8080/v1/smartrewards/check/${addrStr}`);
-
+        return this.httpClient.get<any>(`http://192.168.1.67:8080/v1/smartrewards/check/${addrStr}`);
     }
 
     public getAddressActivity(addrStr?: string): Observable<any> {
@@ -44,11 +42,4 @@ export class AddressProvider {
             return this.txsProvider.mapToTx(data);
         }));
     }
-
-    /*public getAddressActivityCoins(addrStr?: string, chainNetwork?: ChainNetwork
-    ): Observable<any> {
-      return this.httpClient.get<any>(
-        `${this.apiProvider.getUrl(chainNetwork)}/address/${addrStr}/coins`
-      );
-    }*/
 }

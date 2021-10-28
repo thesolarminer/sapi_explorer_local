@@ -203,7 +203,7 @@ export class TxsProvider {
 
     async getTransactionsPerBlock(blockHash: string) {
 
-        const url = `http://localhost:8080/v1/blockchain/block/${blockHash}`;
+        const url = `http://192.168.1.67:8080/v1/blockchain/block/${blockHash}`;
 
         let block: AppBlock;
         let txs: ApiTx[] = [];
@@ -218,7 +218,7 @@ export class TxsProvider {
     }
 
     async getTransactionsPerAddress(address: string) {
-        const url = `http://localhost:8080/v1/address/transactions/${address}`;
+        const url = `http://192.168.1.67:8080/v1/address/transaction/${address}`;
 
       let txs: ApiTx[] = [];
 
@@ -235,7 +235,7 @@ export class TxsProvider {
     }
 
     async getTransactionsPerAddressNew(address: string) {
-        const url =  `${this.apiProvider.getRandomSapiUrl()}address/transactions`;
+        const url =  `http://192.168.1.67:8080/v1/address/transactions`;
         let txs: ApiTx[] = [];
 
         let addressData: any = await this.httpClient.post<any>(url, {
@@ -258,7 +258,7 @@ export class TxsProvider {
             queryString += `?blockHash=${args.blockHash}`;
         }
 
-        const url = `${this.apiProvider.getUrl(chainNetwork)}/tx/${queryString}`;
+        const url = `http://192.168.1.67:8080/v1/tx/${queryString}`;
         return this.httpClient.get<ApiUtxoCoinTx[]>(url);
     }
 
@@ -300,13 +300,13 @@ export class TxsProvider {
 
     public async getUnmappedTxByAddress(addrStr: string) {
 
-        const url = `http://localhost:8080/v1/address/transactions/${addrStr}`;
+        const url = `http://192.168.1.67:8080/v1/address/transaction/${addrStr}`;
         return this.httpClient.get<any>(url).toPromise();
     }
 
     public async getUnmappedTx(hash: string) {
 
-        const url = `http://localhost:8080/v1/transaction/check/${hash}`;
+        const url = `http://192.168.1.67:8080/v1/transaction/check/${hash}`;
         return this.httpClient.get<any>(url).toPromise();
     }
 
