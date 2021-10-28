@@ -49,7 +49,15 @@ export class AddressPage {
             .subscribe(
                 data => {
                     this.address = {
-                        balance: data.balance || 0,
+                        balance: data.balance.total || 0,
+                        Locked balance: data.balance.locked || 0,
+                        Locked balance0: data.balance.["locked 0 - 1 years"] || 0,
+                        Locked balance1: data.balance.["locked 1+ - 2 years"] || 0,
+                        Locked balance2: data.balance.["locked 2+ - 5 years"] || 0,
+                        Locked balance5: data.balance.["locked 5+ - 15 years"] || 0,
+                        Locked balance15: data.balance.["locked 15+ - 100 years"] || 0,
+                        Locked balance100: data.balance.["locked 100+ - 199 years"] || 0,
+                        Locked balance199: data.balance.["locked 199+ years"] || 0,
                         sent: data.sent || 0,
                         received: data.received || 0,
                         confirmed: data.confirmed || 0,

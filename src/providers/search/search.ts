@@ -8,7 +8,7 @@ import { ApiProvider, ChainNetwork } from '../api/api';
 @Injectable()
 
 export class SearchProvider {  
-  private urlSapi = `http://192.168.1.67:8080/v1/blockchain`;
+  private urlSapi = `http://seed4.smarts.cash:8080/v1/blockchain`;
 
 
     constructor(
@@ -67,12 +67,12 @@ export class SearchProvider {
     }
   
     private searchTx(txid: string): Observable<{ tx: any }> {
-        const url = `http://192.168.1.67:8080/v1/transaction/check/${txid}`;
+        const url = `http://seed4.smarts.cash:8080/v1/transaction/check/${txid}`;
         return this.httpClient.get<{ tx: any }>(url).pipe(map(res => ({ tx: res })));
     }
 
     private searchAddr(addr: string): Observable<{ addr: any }> {
-        const url = `http://192.168.1.67:8080/v1/address/balance/${addr}`;
+        const url = `http://seed4.smarts.cash:8080/v1/address/balance/${addr}`;
         return this.httpClient.get<{ addr: any }>(url).pipe(map(res => ({ addr: res })));
     }
 
